@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://dckhv1bxxb875"]
+
+[ext_resource type="FontFile" uid="uid://cjrm0bccicdxo" path="res://Text/Yuyu-Regular.ttf" id="1_cjbjp"]
+[ext_resource type="Texture2D" uid="uid://drewtbag62330" path="res://icon.svg" id="2_6bdih"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwc0f"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="Node2D" type="Node2D" unique_id=1502847696]
+
+[node name="NameTag" type="Node2D" parent="." unique_id=2131349232]
+
+[node name="Panel2" type="Panel" parent="NameTag" unique_id=1024463988]
+z_index = -2
+offset_left = 18.0
+offset_top = 353.0
+offset_right = 307.0
+offset_bottom = 480.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qwc0f")
+metadata/_edit_lock_ = true
+
+[node name="Name" type="Label" parent="NameTag" unique_id=1770070237]
+offset_left = 37.0
+offset_top = 350.0
+offset_right = 278.0
+offset_bottom = 405.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_cjbjp")
+theme_override_font_sizes/font_size = 48
+text = "Eloihim"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=569059129]
+offset_left = 19.0
+offset_top = 400.0
+offset_right = 1136.0
+offset_bottom = 633.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qwc0f")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="AnimatedSprite2D" parent="." unique_id=1395952719]
+metadata/_edit_group_ = true
+
+[node name="Text" type="Label" parent="." unique_id=976781364]
+offset_left = 37.0
+offset_top = 414.0
+offset_right = 1116.0
+offset_bottom = 616.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_cjbjp")
+theme_override_font_sizes/font_size = 48
+text = "Helpless.... Looked into her eyes and the sky's the limit i'm helpless!!! I'm down for the count, and I'm drownin' in 'em"
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="SpeakerIcon1" type="Sprite2D" parent="." unique_id=1792443728]
+z_index = -1
+position = Vector2(849, 288)
+scale = Vector2(3.7265625, 3.765625)
+texture = ExtResource("2_6bdih")
+
+[node name="SpeakerIcon2" type="Sprite2D" parent="." unique_id=2114354766]
+z_index = -5
+position = Vector2(316.00012, 275)
+scale = Vector2(3.7265625, 3.765625)
+texture = ExtResource("2_6bdih")
+
+[node name="Option1" type="Button" parent="." unique_id=255144146]
+offset_left = 830.0
+offset_top = 206.0
+offset_right = 1109.0
+offset_bottom = 267.0
+text = "Objohn 1
+"
+
+[node name="Option2" type="Button" parent="." unique_id=633345976]
+offset_left = 827.0
+offset_top = 303.0
+offset_right = 1106.0
+offset_bottom = 364.0
+text = "Objohn 2"
