@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dckhv1bxxb875"]
 
 [ext_resource type="FontFile" uid="uid://cjrm0bccicdxo" path="res://Text/Yuyu-Regular.ttf" id="1_cjbjp"]
-[ext_resource type="Texture2D" uid="uid://drewtbag62330" path="res://icon.svg" id="2_6bdih"]
+[ext_resource type="Script" uid="uid://tu1ds8w40be3" path="res://Dialogue Windows/DialogueWindow.gd" id="1_dialogue"]
 [ext_resource type="Texture2D" uid="uid://bn7vhsqj53h6t" path="res://Assets/Dialog windoes/Dialog.png" id="2_b873l"]
+[ext_resource type="Texture2D" uid="uid://bw3qcfc00g1mr" path="res://Assets/Characters/Mia.png" id="4_3dp1y"]
+[ext_resource type="Texture2D" uid="uid://8q4d4tuirbhw" path="res://Assets/Characters/Crispin.png" id="5_xt733"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwc0f"]
 bg_color = Color(1, 1, 1, 1)
@@ -12,6 +14,7 @@ corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
 [node name="Node2D" type="Node2D" unique_id=1502847696]
+script = ExtResource("1_dialogue")
 
 [node name="NameTag" type="Node2D" parent="." unique_id=2131349232]
 position = Vector2(19, 8)
@@ -46,8 +49,10 @@ offset_bottom = 633.0
 texture = ExtResource("2_b873l")
 metadata/_edit_lock_ = true
 
-[node name="Background" type="AnimatedSprite2D" parent="." unique_id=1395952719]
-visible = false
+[node name="Background" type="Sprite2D" parent="." unique_id=1395952719]
+z_index = -10
+position = Vector2(577, 324)
+scale = Vector2(4, 4)
 metadata/_edit_group_ = true
 
 [node name="Text" type="Label" parent="." unique_id=976781364]
@@ -63,27 +68,28 @@ autowrap_mode = 3
 
 [node name="SpeakerIcon1" type="Sprite2D" parent="." unique_id=1792443728]
 z_index = -1
-position = Vector2(849, 288)
-scale = Vector2(3.7265625, 3.765625)
-texture = ExtResource("2_6bdih")
+position = Vector2(870, 348.49606)
+scale = Vector2(1.1358087, 0.992846)
+texture = ExtResource("4_3dp1y")
 
 [node name="SpeakerIcon2" type="Sprite2D" parent="." unique_id=2114354766]
 z_index = -5
-position = Vector2(316.00012, 275)
-scale = Vector2(3.7265625, 3.765625)
-texture = ExtResource("2_6bdih")
+position = Vector2(295, 394.99997)
+scale = Vector2(1.0244333, 1.1042631)
+texture = ExtResource("5_xt733")
 
 [node name="Option1" type="Button" parent="." unique_id=255144146]
+visible = false
 offset_left = 830.0
 offset_top = 206.0
 offset_right = 1109.0
 offset_bottom = 267.0
-text = "Objohn 1
-"
+text = "Option 1"
 
 [node name="Option2" type="Button" parent="." unique_id=633345976]
+visible = false
 offset_left = 827.0
 offset_top = 303.0
 offset_right = 1106.0
 offset_bottom = 364.0
-text = "Objohn 2"
+text = "Option 2"

@@ -1,17 +1,12 @@
 extends RefCounted
 class_name DialogueSection
 
-## Main dialogue
+## Lines played the first time this section runs.
 var dialogue : Array[DialogueInstruction] = []
 
-## Dialogue after this section has already been completed
+## Lines played on repeat visits (after "when exhausted" in the file).
 var exhausted_dialogue : Array[DialogueInstruction] = []
 
-## Returned when dialogue finishes.
-##
-## Examples:
-## gain_insight
-## quest_finished
-## shop
-## cutscene_2
+## Emitted through [DialogueWindow.dialogue_finished] after the exhausted block.
+## Example: #gain_insight
 var return_key : String = ""

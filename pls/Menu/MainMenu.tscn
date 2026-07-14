@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dc1mw70qvvg0x"]
+
+[ext_resource type="FontFile" uid="uid://cjrm0bccicdxo" path="res://Text/Yuyu-Regular.ttf" id="1_q3yy7"]
+[ext_resource type="Script" path="res://Menu/MainMenu.gd" id="2_i6sq0"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("2_i6sq0")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 75.0
+offset_top = 100.0
+offset_right = 1100.0
+offset_bottom = 350.0
+theme_override_fonts/font = ExtResource("1_q3yy7")
+theme_override_font_sizes/font_size = 72
+text = "Padayon, Lupang Sinilangan"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Subtitle" type="Label" parent="."]
+offset_left = 75.0
+offset_top = 360.0
+offset_right = 1100.0
+offset_bottom = 450.0
+theme_override_fonts/font = ExtResource("1_q3yy7")
+theme_override_font_sizes/font_size = 32
+text = "A Visual Novel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 400.0
+offset_top = 500.0
+offset_right = 780.0
+offset_bottom = 580.0
+theme_override_fonts/font = ExtResource("1_q3yy7")
+theme_override_font_sizes/font_size = 48
+text = "Start"
+
+[node name="TestButton" type="Button" parent="."]
+offset_left = 400.0
+offset_top = 600.0
+offset_right = 780.0
+offset_bottom = 680.0
+theme_override_fonts/font = ExtResource("1_q3yy7")
+theme_override_font_sizes/font_size = 36
+text = "Test Dialogue"

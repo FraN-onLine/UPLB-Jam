@@ -4,26 +4,25 @@ class_name DialogueInstruction
 enum Type {
 	TEXT,
 	SPEAKER,
-	CHOICE
+	CHOICE,
+	COMMAND
 }
 
-## What kind of instruction this is
 var type : Type
 
-## ---------- TEXT ----------
+# TEXT
 var text : String = ""
 
-## ---------- SPEAKER ----------
+# SPEAKER — parsed from tags like <grandma-1> or <grandma.happy-2>
 var character_id : String = ""
 var speaker_slot : int = 0
-var portrait : Texture2D = null
+var emotion : String = "default"
 
-## ---------- CHOICE ----------
-## [
-##     {"text":"Yes", "dialogue":[DialogueInstruction,...]},
-##     {"text":"No", "dialogue":[DialogueInstruction,...]}
-## ]
-var choices : Array = []
+# CHOICE — up to two options; each may contain nested choices.
+var choices : Array[DialogueChoice] = []
 
-## Debugging
+# COMMAND — runtime scene commands (#background, #clearcharacters)
+var command : String = ""
+var command_value : String = ""
+
 var line : int = 0

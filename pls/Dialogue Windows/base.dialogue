@@ -1,0 +1,353 @@
+// ============================================================
+//  BASE.DIALOGUE — Padayon, Lupang Sinilangan
+//  Day 1: The Return
+// ============================================================
+//
+//  Story:
+//  After 12 years away, Emilio returns to his hometown Donto
+//  after it was devastated by a fire. The government wants to
+//  buy the land for a factory. Emilio must decide whether to
+//  help save the town or let it go.
+//
+//  Characters:
+//    emilio    — The protagonist (you, the player)
+//    marie     — Marie Tess, enthusiastic neighbor/informant
+//    sisa      — Young mother
+//    crispin   — Sisa's young son
+//    amila     — Lola (grandmother)
+//    mia       — Mama (mother)
+//    hiraya    — Younger sister
+//    tio_santo — Tio Santo
+//    pedro     — Pedro
+//
+//  Special commands:
+//    #thought  — Hides the name card for internal thoughts/narration.
+//                Portraits stay visible, but no name shows above the text.
+//                Use before any line that isn't spoken dialogue.
+//
+// ============================================================
+
+// --- CHARACTER DISPLAY NAMES ---
+emilio = Emilio
+marie = Marie Tess
+sisa = Sisa
+crispin = Crispin
+amila = Lola Amila
+mia = Mama Mia
+hiraya = Hiraya
+tio_santo = Tio Santo
+pedro = Pedro
+
+// --- PORTRAIT / TEXTURE DEFINITIONS ---
+emilio_default = res://Assets/Characters/Emilio.png
+marie_default = res://Assets/Characters/Marie Tess.png
+sisa_default = res://Assets/Characters/Sisa.png
+crispin_default = res://Assets/Characters/Crispin.png
+amila_default = res://Assets/Characters/Amila.png
+mia_default = res://Assets/Characters/Mia.png
+hiraya_default = res://Assets/Characters/Hiraya.png
+
+// --- BACKGROUNDS ---
+bg_city = res://Assets/Background/City.png
+bg_home = res://Assets/Background/Home.png
+bg_streets = res://Assets/Background/Ruined-Streets.png
+bg_bg = res://Assets/Background/BG.png
+
+// ============================================================
+//  DAY 1 — The Return Home
+// ============================================================
+[day1]
+#background bg_streets
+#thought
+(It's been a while…)
+
+#thought
+I look around the old run down place I used to live.
+
+#thought
+(And not a single damn thing changed.)
+
+#thought
+The scenery of this place gives a bitter feeling on my face.
+
+#thought
+(I wonder how my family's doing…)
+
+#thought
+I do hope they're doing fine.
+
+#thought
+After walking for a while, I encountered a familiar looking person.
+
+#thought
+…
+
+#thought
+She pauses in front of me for a moment. Giving me a curious look before…
+
+<marie-2>
+OH!! Kaw ung anak ni MAMA MIA, diba?!!
+
+#thought
+For a place like this… some people are still really optimistic… I can never understand them at all.
+
+#thought
+It took me a moment to realize who she is.
+
+#thought
+(Is she… our neighbor from back then…?)
+
+#thought
+(Darn it, I can't remember her name.)
+
+#thought
+She probably realized my confusion and started walking towards me with short fast steps.
+
+<marie-2>
+How are you?! You're so big and grown up already!!
+
+<emilio-1>
+I'm oka-
+
+#thought
+She cuts me off and keeps yapping before I can even continue what I'm saying.
+
+#thought
+While listening to her yapping, someone suddenly nudges me from behind.
+
+#thought
+I look back and I'm surprised to see an even more familiar face.
+
+<sisa-1>
+Psst Emilio! You're back! Went to visit your old friend back at Donto, ah!
+
+<emilio-1>
+Yeah, came back to see how this old place is still holdin' up.
+
+<emilio-1>
+And I see that there's a little one with you, is that…?
+
+<sisa-1>
+Yes! He's my son, Crispin. Come on, say hi!
+
+<crispin-2>
+Hello… kuya
+
+<emilio-1>
+Aww this little one is adorable. So how's… Donto lately?
+
+#thought
+Sisa looks flustered with that question…
+
+#thought
+(Looks like it's not been going well at all…)
+
+#thought
+Marie Tess leaves quietly.
+
+<sisa-1>
+Well… It's been… worse.
+
+<sisa-1>
+There's this stuff with this dump getting… bought.
+
+<sisa-1>
+You can already see that this place is…
+
+> Uninhabitable
+<emilio-1>
+Uninhabitable.
+
+<sisa-1>
+Blunt, but it's not easy to just leave this place you know…
+
+> Not in the best condition
+<emilio-1>
+Not in the best condition…
+
+<sisa-1>
+Blunt, but it's not easy to just leave this place you know…
+
+#thought
+I can definitely understand how she feels but…
+
+<emilio-1>
+Is it really worth the struggle?
+
+<emilio-1>
+I'm not saying you should leave this place but—
+
+<sisa-1>
+Milo— I understand. But this is our home. Is it not worth trying to protect?
+
+#thought
+…
+
+<sisa-1>
+Look, I'm gonna go and find a way to feed my son today. Everything has been overwhelming the past few days… But it was great seeing you again.
+
+#thought
+I— that was stupid of me.
+
+<emilio-1>
+Yeah… It was great to see you too.
+
+#thought
+Leaving this place was easy for me, but would it be the same for them…?
+
+#home_arrival
+[end]
+
+// ============================================================
+//  HOME — Emilio enters the charred family home
+// ============================================================
+[home]
+#background bg_home
+#thought
+Emilio enters a charred stone house. Pretty much nothing is inside but your grandmother lying on the floor.
+
+<emilio-1>
+Lola?
+
+<amila-1>
+Milo? Apo, is that you?
+
+<emilio-1>
+Yes Lola, it's me!
+
+<amila-1>
+Why are you here? You should be studying!
+
+<emilio-1>
+Why wouldn't I be? I was worried! Of course I'd be here… Also where's Mama and Hira?
+
+<amila-1>
+They left this morning to get food. They haven't come back yet.
+
+#thought
+That's a bit concerning.
+
+<emilio-1>
+Anyways, Lola how have you been?
+
+#thought
+She gives me this forced smile but it's so hard not to see past it.
+
+<amila-1>
+I'm fine apo.
+
+#thought
+She coughs and that jolted me to lean towards her and help.
+
+#thought
+The sight and smell of this burnt down town alone was already gut wrenching enough…
+
+#thought
+But watching Lola like this… I hate it… I want to cry! But… I need to stay strong.
+
+<emilio-1>
+Have you eaten lola? I've brought some food.
+
+#thought
+Lola shakes her head.
+
+<amila-1>
+Let's wait for the two first before we eat.
+
+#thought
+I give a nod before helping her sit up.
+
+#thought
+I gave a quick inspection of what's left but everything seemed burned to ashes.
+
+#thought
+Having nothing to go with, I brought out some stuff from my luggage, taking out a rubber mat I use.
+
+#thought
+I asked Lola to lay down here instead before I head out to look for Mama and Hira.
+
+<emilio-1>
+I'll be back in a bit.
+
+#walk_streets
+[end]
+
+// ============================================================
+//  STREETS — Emilio walks around assessing the damage
+// ============================================================
+[walk_streets]
+#background bg_streets
+#thought
+Walking around a bit really shows how bad the current situation here is.
+
+#thought
+It was already bad knowing how compact and close the houses and buildings are to each other…
+
+#thought
+The market we used to buy food… not a single trace of its old self… gone.
+
+#thought
+Almost all of the houses are burned down, the only traces left behind are the cements and materials that cannot be burned.
+
+#thought
+This place is where I used to play with my friends… where I used to spend with my father…
+
+#thought
+We weren't the richest people around. Far from it actually.
+
+#thought
+…
+
+#thought
+But we were happy… content…
+
+#thought
+The rumors said the fire was caused by faulty wirings… Some say it was sabotaged and intentional.
+
+#thought
+But there's really no way as of now.
+
+#thought
+All we can do anyways is to accept reality and move on… which is easy to say if almost all of the people lost almost everything.
+
+#thought
+And now this place is getting bought out by people above.
+
+#thought
+Some refused to give up their land because for some of them… this place holds significant memories to their lives.
+
+#thought
+After some time walking I wasn't able to find Mama and Hira.
+
+<emilio-1>
+I think I should head home now… they might have already returned.
+
+#thought
+(It's not like I could do anything… I too am also struggling.)
+
+#thought
+I noticed a crowd gathering around somewhere.
+
+#thought
+Thinking they can just resolve it themselves I ignored it and went straight home.
+
+#return_home
+[end]
+
+// ============================================================
+//  RETURN HOME — Emilio finds Mama and Hiraya
+// ============================================================
+[return_home]
+#background bg_home
+
+<hiraya-2>
+Kuya!!
+
+<mia-1>
+You're home! I found some food. Eat.
+
+<emilio-1>
+Found… where?
+
+#day1_end
+[end]

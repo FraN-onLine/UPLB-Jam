@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cnqxwi4umfcnk"]
+
+[ext_resource type="Script" uid="uid://bghgofwtxw1na" path="res://Dialogue Windows/DialogueExample.gd" id="1_jl8dt"]
+
+[node name="Main" type="Node2D" unique_id=173455201]
+script = ExtResource("1_jl8dt")

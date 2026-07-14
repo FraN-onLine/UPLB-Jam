@@ -1,0 +1,171 @@
+// ============================================================
+//  DIALOGUE FILE FORMAT — Reference & Tutorial
+// ============================================================
+//
+//  HOW TO USE THIS IN YOUR GAME (GDScript code):
+//
+//  1. Save this file as e.g. "res://Dialogue Windows/story.dialogue"
+//  2. In your game scene, instantiate the dialogue window:
+//
+//     ```gdscript
+//     # In your main game script
+//     @onready var dialogue_window = preload("res://Dialogue Windows/dialgoue.tscn").instantiate()
+//
+//     func _ready():
+//         add_child(dialogue_window)
+//
+//         # Start day 1 section
+//         dialogue_window.start("res://Dialogue Windows/example.dialogue", "day1")
+//
+//         # Listen for when a section finishes, then start the next section
+//         dialogue_window.dialogue_finished.connect(_on_dialogue_finished)
+//
+//     func _on_dialogue_finished(return_key: String):
+//         # The return_key is whatever you wrote after # in the section
+//         # e.g. "#day1_done" → return_key = "day1_done"
+//         if return_key == "day1_done":
+//             dialogue_window.start("res://Dialogue Windows/example.dialogue", "day2")
+//         elif return_key == "day2_done":
+//             dialogue_window.start("res://Dialogue Windows/example.dialogue", "day3")
+//         elif return_key == "marie_met":
+//             print("Talked to Marie! Unlock something...")
+//     ```
+//
+//  STARTING A SECTION:
+//    dialogue_window.start("path/to/file.dialogue", "section_name")
+//    The section name matches [section_name] in the file.
+//    The window automatically shows itself.
+//
+//  ENDING A SECTION:
+//    When a section runs out of lines, it emits dialogue_finished(return_key).
+//    Connect to this signal to chain into another section, change scenes, etc.
+//    Use #something in the file to set what return_key is sent.
+//
+//  EXAMPLE FLOW:
+//    Start → [intro] → #intro_done → chain to [day1] → #day1_done → chain to [day2] → etc.
+//
+//  "when exhausted" (repeat visits):
+//    If you revisit [day1] after it's been completed once,
+//    the "when exhausted" block plays instead of the main dialogue.
+//    This is good for when the player returns to an NPC they already talked to.
+//
+// ============================================================
+//  FILE CONTENTS START HERE
+// ============================================================
+
+// --- CHARACTER DISPLAY NAMES ---
+// Format: character_id = Display Name
+// Use character_id in speaker tags like <grandma-1>
+grandma = Lola
+player = You
+emman = Emman
+marie_tess = Marie Tess
+
+// --- PORTRAIT / TEXTURE DEFINITIONS ---
+// Format: character_id_emotion = res://path/to/image.png
+// The underscore before the path splits into character_id + emotion.
+// Or use dot notation: character_id.emotion = res://path
+grandma_happy = res://icon.svg
+grandma_sad = res://icon.svg
+player_neutral = res://icon.svg
+emman_neutral = res://icon.svg
+
+// Marie Tess placeholder portrait
+marie_tess_default = res://Assets/Characters/Marie Tess.jfif
+
+// Background textures
+bg_farm = res://Assets/Dialog windoes/Dialog.png
+bg_night = res://icon.svg
+
+// ============================================================
+//  INTRO — meet the characters
+// ============================================================
+[intro]
+#background bg_farm
+<grandma-1>
+Welcome, apo! I've been expecting you.
+You're just in time for the harvest festival. <grandma-1>
+<emman-2>
+Hey there! Good to see you again.
+> Greet them
+Good morning, everyone! <grandma-1>
+> Nod silently
+... <grandma-1>
+Heh, still the quiet type I see. Anyway, let me introduce you to someone. <grandma-1>
+<marie_tess-2>
+Hi! I'm Marie Tess. I'll be helping out around here.
+Nice to finally meet you in person! <marie_tess-2>
+#intro_done
+[end]
+
+// ============================================================
+//  DAY 1 — first conversation with grandma
+// ============================================================
+[day1]
+#background bg_farm
+<grandma-1>
+The sun feels different today, doesn't it?
+I remember when this farm was just a patch of weeds. <grandma-1>
+> That's incredible
+Your grandfather built it from nothing. Hardest working man I ever knew. <grandma-1>
+> What changed?
+You happened. This family happened. That's what changed everything. <grandma-1>
+Now go help Emman with the chores. We'll talk more later. <grandma-1>
+#day1_done
+[end]
+
+// ============================================================
+//  DAY 2 — Marie Tess gives a quest
+// ============================================================
+[day2]
+#background bg_night
+<marie_tess-1>
+Psst! Over here!
+I need your help with something. <marie_tess-1>
+> What is it?
+There's something strange in the north fields. <marie_tess-1>
+I saw lights last night. Weird colors. <marie_tess-1>
+> Sounds dangerous
+That's why I came to you! You're brave, right? <marie_tess-1>
+> Let's go together
+Perfect! Meet me at the old tree at midnight. <marie_tess-1>
+     > I'll be there
+Good. Bring a lantern. <marie_tess-1>
+     > On second thought...
+Too late! You already agreed! See you there! <marie_tess-1>
+#marie_quest
+[end]
+
+// ============================================================
+//  DAY 3 — repeat visit to grandma after quest
+// ============================================================
+[day3]
+#background bg_farm
+<grandma-1>
+You look tired, apo. Marie Tess keeping you busy?
+That girl has a good heart. Look out for each other. <grandma-1>
+Here, I made you some food. Eat up. <grandma-1>
+#day3_done
+[end]
+
+// ============================================================
+//  TEST SECTION — shows off ALL features for debugging
+// ============================================================
+[test]
+#background bg_farm
+Welcome to the dialogue test. Click or press Enter to advance. <grandma-1>
+This is slot 1 — grandma is speaking. <grandma-1>
+Now emman takes slot 2. Notice slot 1 darkens. <emman-2>
+#background bg_night
+Background changed to night. <emman-2>
+#clearcharacters
+All portraits cleared. The name tag is hidden too.
+Back again. <grandma-1>
+> Ask about the farm
+The rice fields stretch for miles. <grandma-1>
+> Stay quiet
+... <grandma-1>
+That's the test. Click through to finish. <grandma-1>
+Now meet Marie Tess! She's our placeholder character. <marie_tess-2>
+#test_complete
+[end]
