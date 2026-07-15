@@ -3,8 +3,9 @@
 [ext_resource type="FontFile" uid="uid://cjrm0bccicdxo" path="res://Text/Yuyu-Regular.ttf" id="1_cjbjp"]
 [ext_resource type="Script" uid="uid://tu1ds8w40be3" path="res://Dialogue Windows/DialogueWindow.gd" id="1_dialogue"]
 [ext_resource type="Texture2D" uid="uid://bn7vhsqj53h6t" path="res://Assets/Dialog windoes/Dialog.png" id="2_b873l"]
-[ext_resource type="Texture2D" uid="uid://dgmh3kqj64akp" path="res://Assets/Characters/Hiraya.png" id="4_3dp1y"]
+[ext_resource type="Texture2D" uid="uid://bql0b5qtxqvbh" path="res://Assets/Characters/Mia.png" id="4_3dp1y"]
 [ext_resource type="Texture2D" uid="uid://bik1edcxohmct" path="res://Assets/Dialog windoes/Buttons.png" id="5_3dp1y"]
+[ext_resource type="Texture2D" uid="uid://dgmh3kqj64akp" path="res://Assets/Characters/Hiraya.png" id="5_clrgg"]
 [ext_resource type="Texture2D" uid="uid://cgcvi5dbpjw1t" path="res://Assets/Dialog windoes/Buttons2.png" id="6_xt733"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwc0f"]
@@ -97,7 +98,7 @@ texture = ExtResource("4_3dp1y")
 z_index = -5
 position = Vector2(302.00003, 207)
 scale = Vector2(0.51413274, 0.4333704)
-texture = ExtResource("4_3dp1y")
+texture = ExtResource("5_clrgg")
 
 [node name="Option1" type="Button" parent="." unique_id=255144146]
 offset_left = 763.0

@@ -69,8 +69,15 @@ func show_win():
 	get_tree().paused = true
 
 func _on_restart():
-	get_tree().paused = false
-	get_tree().reload_current_scene()
+	# Reset the game state instead of reloading the scene
+	# This keeps the player in minigame 1
+	var main = get_parent()
+	if main.has_method("reset_game"):
+		main.reset_game()
+	else:
+		# Fallback to scene reload if reset_game doesn't exist
+		get_tree().paused = false
+		get_tree().reload_current_scene()
 
 func _on_continue():
 	pause_screen.visible = false

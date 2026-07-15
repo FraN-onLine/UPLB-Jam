@@ -14,6 +14,7 @@ var sec_per_beat = 60.0 / bpm
 var last_beat = 0
 
 @onready var audio_player = $AudioStreamPlayer
+@onready var player = $Player
 
 func _process(_delta):
 	
@@ -86,3 +87,39 @@ func spawn_sweep():
 		debris.position = Vector2(1250, sweep_y)
 		debris.direction = -1
 	add_child(debris)
+
+func reset_game():
+	# Remove all spawned items (bricks, coins, spikes, etc.)
+	for child in get_children():
+		if child != player and child != $AudioStreamPlayer and child != $Camera2D and child != $HUD and child != $Background:
+			child.queue_free()
+	
+	# Reset player state
+	player.position = Vector2(575, 452)
+	player.health = 3
+	player.money = 0
+	player.velocity_x = 0
+	player.velocity_y = 0
+	player.is_hurt = false
+	player.is_ducking = false
+	player.was_on_floor = true
+	player.anim.visible = true
+	player.get_node("StandingHitbox").disabled = false
+	player.get_node("DuckingHitbox").disabled = true
+	
+	# Reset HUD
+	var hud = $HUD
+	hud.time_left = 90.0
+	hud.game_ended = false
+	hud.update_hearts(3)
+	hud.update_score(0)
+	hud.game_over_screen.visible = false
+	hud.win_screen.visible = false
+	hud.timer_label.text = "90"
+	
+	# Unpause and restart audio
+	get_tree().paused = false
+	audio_player.play()
+	
+	# Reset beat tracking
+	last_beat = 0

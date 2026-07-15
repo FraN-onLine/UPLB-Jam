@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bql0b5qtxqvbh"
-path="res://.godot/imported/Mia.png-3403a8d7f284f2b08a37a693ad03fbc7.ctex"
+uid="uid://ddwll0d6tbf2d"
+path="res://.godot/imported/MainMenu.png-f320a2b8d49374f4d2bce674b6081ce8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Mia.png"
-dest_files=["res://.godot/imported/Mia.png-3403a8d7f284f2b08a37a693ad03fbc7.ctex"]
+source_file="res://Assets/Menu/MainMenu.png"
+dest_files=["res://.godot/imported/MainMenu.png-f320a2b8d49374f4d2bce674b6081ce8.ctex"]
 
 [params]
 

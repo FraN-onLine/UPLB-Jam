@@ -32,7 +32,7 @@ func _on_test_pressed() -> void:
 
 func _hide_menu() -> void:
 	$StartButton.hide()
-	$TestButton.hide()
+	$OtherButton.hide()
 	$Title.hide()
 	$Subtitle.hide()
 
@@ -41,6 +41,7 @@ func _show_menu() -> void:
 	$StartButton.show()
 	$Title.show()
 	$Subtitle.show()
+	$OtherButton.show()
 
 
 func _launch_minigame1() -> void:

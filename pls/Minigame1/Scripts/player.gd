@@ -29,7 +29,7 @@ func _process(delta):
 		elif Input.is_action_pressed("ui_right"):
 			direction = 1
 			anim.flip_h = false 
-		if Input.is_action_just_pressed("ui_up") and position.y >= floor_y:
+		if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_accept")) and position.y >= floor_y:
 			velocity_y = jump_force 
 			play_sound($JumpSound)
 			squash_stretch(Vector2(0.7, 1.3))
