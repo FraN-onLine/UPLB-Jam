@@ -21,7 +21,7 @@ signal speaker_changed(character_id: String, slot: int, display_name: String)
 @export var inactive_modulate : Color = Color(0.45, 0.45, 0.45, 1.0)
 @export var active_modulate : Color = Color(1, 1, 1, 1)
 @export var autostart : bool = false
-@export var test_dialogue_path : String = "res://Dialogue Windows/example.dialogue"
+@export var test_dialogue_path : String = "res://Dialogue Windows/example.txt"
 @export var test_section : String = "test"
 @export var typing_speed : float = 0.03  ## Seconds per character when typing
 
@@ -53,6 +53,9 @@ var _typing_tween: Tween
 
 # Thought mode — blocks the name tag from showing
 var _thought_active := false
+
+# Tracks the last chosen option index (0-based) for branching
+var last_chosen_option_index := -1
 
 
 func _ready() -> void:
@@ -201,15 +204,24 @@ func _clear_characters() -> void:
 		sprite.modulate = active_modulate
 
 
-## Shows only the text — no name tag, no speaker portraits.
-## Use for internal thoughts / narration mid-conversation.
+## Dims portraits and hides the name tag for internal thoughts / narration.
+## Portraits stay visible but darkened so the scene still feels alive.
 ## The next <character-slot> tag restores everything.
 func _show_thought() -> void:
 	_thought_active = true
 	_name_label.text = ""
 	_name_tag.visible = false
 	for sprite in _speaker_icons:
-		sprite.visible = false
+		sprite.modulate = inactive_modulate
+
+
+## Fully clears everything — name tag + all portraits hidden.
+## Use sparingly for scene breaks.
+func _clear_all() -> void:
+	_clear_characters()
+	_slot_characters.clear()
+	_active_slot = 0
+	_last_speaker_id = ""
 
 
 func _show_text(raw_text: String) -> void:
@@ -362,6 +374,7 @@ func _on_choice_pressed(button: Button) -> void:
 		return
 
 	var choice: DialogueChoice = button.get_meta("choice_data")
+	last_chosen_option_index = button.get_meta("choice_index", -1)
 	_hide_choices()
 
 	var resume: Array[DialogueInstruction] = _instructions.slice(_index)

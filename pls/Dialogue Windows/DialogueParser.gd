@@ -9,6 +9,7 @@ class_name DialogueParser
 ##   - > choice lines (indented children, max 2 siblings per level)
 ##   - when exhausted + #return_key for repeat visits
 ##   - #background key_or_path and #clearcharacters as runtime scene commands
+##   - #thought hides name tag + portraits for narration/internal monologue
 static func load_dialogue(path: String) -> DialogueData:
 	var data := DialogueData.new()
 	var tokens := _tokenize(path)
@@ -372,12 +373,18 @@ static func _token_indent(token: DialogueToken) -> int:
 	return 0
 
 
+## Parses a #command line. Returns:
+##   { "kind": "runtime", "command": "...", "value": "..." } for runtime commands
+##   { "kind": "return_key", "value": "..." } for section return keys
 static func _parse_command(line: String) -> Dictionary:
 	var body := line.substr(1).strip_edges()
 	var lower := body.to_lower()
 
 	if lower == "clearcharacters":
 		return { "kind": "runtime", "command": "clearcharacters" }
+
+	if lower == "thought":
+		return { "kind": "runtime", "command": "thought" }
 
 	if lower.begins_with("background"):
 		var value := ""

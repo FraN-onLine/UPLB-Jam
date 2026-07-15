@@ -22,7 +22,7 @@ func _ready() -> void:
 	dialogue_window.dialogue_finished.connect(_on_dialogue_finished)
 
 	# Start the story!
-	dialogue_window.start("res://Dialogue Windows/base.dialogue", "day1")
+	dialogue_window.start("res://Dialogue Windows/base.txt", "day1")
 
 
 ## Called automatically when a section finishes.
@@ -31,15 +31,15 @@ func _on_dialogue_finished(return_key: String) -> void:
 	match return_key:
 		"home_arrival":
 			# Emilio met Sisa & Crispin → now he goes home
-			dialogue_window.start("res://Dialogue Windows/base.dialogue", "home")
+			dialogue_window.start("res://Dialogue Windows/base.txt", "home")
 
 		"walk_streets":
 			# Emilio left home to find Mama → he walks the streets
-			dialogue_window.start("res://Dialogue Windows/base.dialogue", "walk_streets")
+			dialogue_window.start("res://Dialogue Windows/base.txt", "walk_streets")
 
 		"return_home":
 			# Emilio returns home → finds Mama and Hiraya
-			dialogue_window.start("res://Dialogue Windows/base.dialogue", "return_home")
+			dialogue_window.start("res://Dialogue Windows/base.txt", "return_home")
 
 		"day1_end":
 			# Day 1 finished!
