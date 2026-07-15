@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsbsr843c0wyc"
-path="res://.godot/imported/hud_player_beige.png-d1d0b061377d2aa7dc6952741f3d9999.ctex"
+path="res://.godot/imported/hud_player_beige.png-28c2b25b11595b689408f17925b6bd55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HUDS/hud_player_beige.png"
-dest_files=["res://.godot/imported/hud_player_beige.png-d1d0b061377d2aa7dc6952741f3d9999.ctex"]
+source_file="res://Minigame1/Assets/HUDS/hud_player_beige.png"
+dest_files=["res://.godot/imported/hud_player_beige.png-28c2b25b11595b689408f17925b6bd55.ctex"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cnkaxb1bsctdw"
-path="res://.godot/imported/15_Impact_flesh_02.wav-997547a92f62c2bc96a8a629469f972a.sample"
+path="res://.godot/imported/15_Impact_flesh_02.wav-5b43ea9e758e02506f0dd847c427a01a.sample"
 
 [deps]
 
-source_file="res://Assets/Sounds/15_Impact_flesh_02.wav"
-dest_files=["res://.godot/imported/15_Impact_flesh_02.wav-997547a92f62c2bc96a8a629469f972a.sample"]
+source_file="res://Minigame1/Assets/Sounds/15_Impact_flesh_02.wav"
+dest_files=["res://.godot/imported/15_Impact_flesh_02.wav-5b43ea9e758e02506f0dd847c427a01a.sample"]
 
 [params]
 

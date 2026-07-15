@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b5caifmxt60gr"
-path="res://.godot/imported/Kenney Future.ttf-01049017ec3f2fab19b0b8e81fe3d20c.fontdata"
+path="res://.godot/imported/Kenney Future.ttf-33995e3bad1435df1c2d19dddcbb11b0.fontdata"
 
 [deps]
 
-source_file="res://Assets/Font/Kenney Future.ttf"
-dest_files=["res://.godot/imported/Kenney Future.ttf-01049017ec3f2fab19b0b8e81fe3d20c.fontdata"]
+source_file="res://Minigame1/Assets/Font/Kenney Future.ttf"
+dest_files=["res://.godot/imported/Kenney Future.ttf-33995e3bad1435df1c2d19dddcbb11b0.fontdata"]
 
 [params]
 

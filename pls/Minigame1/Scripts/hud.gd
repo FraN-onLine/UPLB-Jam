@@ -1,5 +1,9 @@
 extends CanvasLayer
 
+## Emitted upward so the parent minigame scene can forward to the game controller.
+signal game_was_lost
+signal game_was_won
+
 @onready var heart1 = $Hearts/Heart1
 @onready var heart2 = $Hearts/Heart2
 @onready var heart3 = $Hearts/Heart3

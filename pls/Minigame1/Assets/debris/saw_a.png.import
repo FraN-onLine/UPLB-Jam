@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cphi6l4tmmtee"
-path="res://.godot/imported/saw_a.png-1deaada5d7f0f1fa00b992a78adf98da.ctex"
+path="res://.godot/imported/saw_a.png-405d2222f640fa6437ddc03898335384.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/debris/saw_a.png"
-dest_files=["res://.godot/imported/saw_a.png-1deaada5d7f0f1fa00b992a78adf98da.ctex"]
+source_file="res://Minigame1/Assets/debris/saw_a.png"
+dest_files=["res://.godot/imported/saw_a.png-405d2222f640fa6437ddc03898335384.ctex"]
 
 [params]
 

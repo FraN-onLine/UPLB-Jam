@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyinwq5lefn0h"
-path="res://.godot/imported/background_solid_cloud.png-6e32c85be4f0ef685d83d54b263712c6.ctex"
+path="res://.godot/imported/background_solid_cloud.png-abee5081d6a187ce04be6fc76ead90e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/background_solid_cloud.png"
-dest_files=["res://.godot/imported/background_solid_cloud.png-6e32c85be4f0ef685d83d54b263712c6.ctex"]
+source_file="res://Minigame1/Assets/Backgrounds/background_solid_cloud.png"
+dest_files=["res://.godot/imported/background_solid_cloud.png-abee5081d6a187ce04be6fc76ead90e7.ctex"]
 
 [params]
 

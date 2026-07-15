@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvn4pa4uo2u08"
-path="res://.godot/imported/background_color_trees.png-ba6cd222dc3571c9f24c507a3f49651a.ctex"
+path="res://.godot/imported/background_color_trees.png-bbc4df9b1a2c3fa450eb462d2558e5c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/background_color_trees.png"
-dest_files=["res://.godot/imported/background_color_trees.png-ba6cd222dc3571c9f24c507a3f49651a.ctex"]
+source_file="res://Minigame1/Assets/Backgrounds/background_color_trees.png"
+dest_files=["res://.godot/imported/background_color_trees.png-bbc4df9b1a2c3fa450eb462d2558e5c9.ctex"]
 
 [params]
 

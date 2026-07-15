@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qla6ntjeirh4"
-path="res://.godot/imported/character_beige_walk_a.png-4721227623a9ffa5fd23255e88bbcb8f.ctex"
+path="res://.godot/imported/character_beige_walk_a.png-c4fbde39ee5a2b4190f6124b744f50a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Character/character_beige_walk_a.png"
-dest_files=["res://.godot/imported/character_beige_walk_a.png-4721227623a9ffa5fd23255e88bbcb8f.ctex"]
+source_file="res://Minigame1/Assets/Character/character_beige_walk_a.png"
+dest_files=["res://.godot/imported/character_beige_walk_a.png-c4fbde39ee5a2b4190f6124b744f50a4.ctex"]
 
 [params]
 

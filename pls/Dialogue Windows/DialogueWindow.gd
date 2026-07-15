@@ -51,6 +51,9 @@ var _is_typing := false
 var _full_text := ""
 var _typing_tween: Tween
 
+# Thought mode — blocks the name tag from showing
+var _thought_active := false
+
 
 func _ready() -> void:
 	_texture_regex.compile("\\$\\(([^)]+)\\)\\$")
@@ -202,8 +205,9 @@ func _clear_characters() -> void:
 ## Use for internal thoughts / narration mid-conversation.
 ## The next <character-slot> tag restores everything.
 func _show_thought() -> void:
+	_thought_active = true
 	_name_label.text = ""
-	_sync_name_tag_visibility()
+	_name_tag.visible = false
 	for sprite in _speaker_icons:
 		sprite.visible = false
 
@@ -262,6 +266,8 @@ func _apply_texture_tag(texture_key: String) -> void:
 
 
 func _apply_speaker(instr: DialogueInstruction) -> void:
+	# A speaker tag exits thought mode — show everything again
+	_thought_active = false
 	var slot := instr.speaker_slot
 	if slot < 1 or slot > _speaker_icons.size():
 		push_error("DialogueWindow: invalid speaker slot %d" % slot)
@@ -285,7 +291,7 @@ func _apply_speaker(instr: DialogueInstruction) -> void:
 
 
 func _sync_name_tag_visibility() -> void:
-	_name_tag.visible = _name_label.text != ""
+	_name_tag.visible = not _thought_active and _name_label.text != ""
 
 
 func _resolve_portrait(character_id: String, emotion: String) -> Texture2D:

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jygvyd16vyq1"
-path="res://.godot/imported/character_beige_idle.png-c89a420266bf1e9c4f374cb26610f0d5.ctex"
+path="res://.godot/imported/character_beige_idle.png-d08cabbf6dc994868e87de6ad4acf8fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Character/character_beige_idle.png"
-dest_files=["res://.godot/imported/character_beige_idle.png-c89a420266bf1e9c4f374cb26610f0d5.ctex"]
+source_file="res://Minigame1/Assets/Character/character_beige_idle.png"
+dest_files=["res://.godot/imported/character_beige_idle.png-d08cabbf6dc994868e87de6ad4acf8fb.ctex"]
 
 [params]
 

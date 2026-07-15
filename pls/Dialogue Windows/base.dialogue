@@ -1,6 +1,6 @@
 // ============================================================
 //  BASE.DIALOGUE — Padayon, Lupang Sinilangan
-//  Day 1: The Return
+//  Complete Story (through Day 1)
 // ============================================================
 //
 //  Story:
@@ -17,13 +17,15 @@
 //    amila     — Lola (grandmother)
 //    mia       — Mama (mother)
 //    hiraya    — Younger sister
+//    pedro     — Pedro, town elder
+//    djo       — Djo Jacques, government official
 //    tio_santo — Tio Santo
-//    pedro     — Pedro
 //
 //  Special commands:
-//    #thought  — Hides the name card for internal thoughts/narration.
-//                Portraits stay visible, but no name shows above the text.
-//                Use before any line that isn't spoken dialogue.
+//    #thought      — Hides the name card + portraits for thoughts/narration.
+//    #minigame mg1 — Launches Minigame 1 (fundraiser). The dialogue window
+//                    waits until the minigame finishes, then continues.
+//    #choice_giveup / #choice_fight — Branching markers for story.
 //
 // ============================================================
 
@@ -35,8 +37,9 @@ crispin = Crispin
 amila = Lola Amila
 mia = Mama Mia
 hiraya = Hiraya
-tio_santo = Tio Santo
 pedro = Pedro
+djo = Djo Jacques
+tio_santo = Tio Santo
 
 // --- PORTRAIT / TEXTURE DEFINITIONS ---
 emilio_default = res://Assets/Characters/Emilio.png
@@ -46,12 +49,16 @@ crispin_default = res://Assets/Characters/Crispin.png
 amila_default = res://Assets/Characters/Amila.png
 mia_default = res://Assets/Characters/Mia.png
 hiraya_default = res://Assets/Characters/Hiraya.png
+djo_default = res://icon.svg
 
 // --- BACKGROUNDS ---
 bg_city = res://Assets/Background/City.png
 bg_home = res://Assets/Background/Home.png
 bg_streets = res://Assets/Background/Ruined-Streets.png
+bg_plaza = res://Assets/Background/City.png
 bg_bg = res://Assets/Background/BG.png
+bg_bg1 = res://Assets/Background/BG1.png
+bg_bg2 = res://Assets/Background/BG2.png
 
 // ============================================================
 //  DAY 1 — The Return Home
@@ -195,13 +202,10 @@ Yeah… It was great to see you too.
 #thought
 Leaving this place was easy for me, but would it be the same for them…?
 
-#home_arrival
-[end]
-
 // ============================================================
 //  HOME — Emilio enters the charred family home
 // ============================================================
-[home]
+
 #background bg_home
 #thought
 Emilio enters a charred stone house. Pretty much nothing is inside but your grandmother lying on the floor.
@@ -269,13 +273,10 @@ I asked Lola to lay down here instead before I head out to look for Mama and Hir
 <emilio-1>
 I'll be back in a bit.
 
-#walk_streets
-[end]
-
 // ============================================================
 //  STREETS — Emilio walks around assessing the damage
 // ============================================================
-[walk_streets]
+
 #background bg_streets
 #thought
 Walking around a bit really shows how bad the current situation here is.
@@ -331,13 +332,10 @@ I noticed a crowd gathering around somewhere.
 #thought
 Thinking they can just resolve it themselves I ignored it and went straight home.
 
-#return_home
-[end]
-
 // ============================================================
 //  RETURN HOME — Emilio finds Mama and Hiraya
 // ============================================================
-[return_home]
+
 #background bg_home
 
 <hiraya-2>
@@ -349,5 +347,570 @@ You're home! I found some food. Eat.
 <emilio-1>
 Found… where?
 
-#day1_end
+#thought
+You can tell she refuses to answer.
+
+<mia-1>
+Look at our home, we need a new foundation.
+
+<mia-1>
+If taking a few yields from the farm next town over is what it takes to keep afloat…
+
+<emilio-1>
+But it's not… I'm here, I'll help.
+
+<emilio-1>
+We'll find a way. We'll protect this town for as long as we can.
+
+<amila-1>
+But can you fight the corp who plans to take over this land?
+
+<emilio-1>
+…We'll find a way.
+
+<hiraya-2>
+Charity!
+
+<emilio-1>
+Maybe, with the help of the neighboring towns, we can protect this land.
+
+<amila-1>
+And even if we save it from being taken over… it's still rubble.
+
+<emilio-1>
+We'll get there when we cross that bridge.
+
+<mia-1>
+Son… I'm proud of you.
+
+<emilio-1>
+So? What do you say? Let's get this movement going or what?
+
+<sisa-1>
+And we're here to help.
+
+<crispin-2>
+Ate Hiraya!
+
+<marie-2>
+AND DONT FORGET ABOUT MEEEEE~
+
+<crispin-2>
+You're a weird old woman…
+
+<crispin-2>
+Pretty! But weird…
+
+#thought
+You set off.
+
+#start_fundraiser
+[end]
+
+// ============================================================
+//  AFTER FUNDRAISER — Results, Crispin collapses, Djo arrives
+// ============================================================
+[after_fundraiser]
+#background bg_plaza
+#thought
+The fund raising went well with the help of the townspeople.
+
+#thought
+Emilio returns to the town plaza.
+
+#thought
+Children are laughing.
+
+#thought
+People are smiling for the first time.
+
+#thought
+The donations are counted.
+
+<pedro-1>
+We actually did it…
+
+<marie-2>
+See? I told you people still cared!
+
+<mia-1>
+It's not much… but it'll keep us alive for a while.
+
+#thought
+Everyone begins clapping.
+
+#thought
+For one brief moment…
+
+#thought
+It feels like things might actually be okay.
+
+<sisa-1>
+AHHHHHH!!
+
+#thought
+Everyone rushes.
+
+#thought
+Crispin is lying on the ground, barely conscious.
+
+#thought
+He hasn't eaten enough in days.
+
+<pedro-1>
+The nearest clinic burned down.
+
+<marie-2>
+The next town's hospital is hours away.
+
+#thought
+Sisa begins crying.
+
+#thought
+Djo Jacques arrives.
+
+#thought
+Several government vehicles stop.
+
+#thought
+People immediately become silent.
+
+#thought
+Djo steps out. Perfectly clean clothes. Shiny shoes. A man who clearly doesn't know the suffering of the people of Donto.
+
+<djo-1>
+Good afternoon. I see everyone is gathered.
+
+<djo-1>
+I assume you've heard the relocation deadline.
+
+#thought
+Nobody answers. He notices the fundraiser. Boxes, coins, rice, old clothes.
+
+#thought
+He sighs.
+
+<djo-1>
+…This won't be enough.
+
+<emilio-1>
+It doesn't have to be.
+
+<djo-1>
+Doesn't it?
+
+#thought
+He points around. Burned houses. Collapsed roofs. No electricity. No running water.
+
+<djo-1>
+How much did you raise?
+
+<pedro-1>
+Sixty-seven thousand…
+
+<djo-1>
+To restore electricity alone… estimated two million.
+
+<djo-1>
+Water systems… another three.
+
+<djo-1>
+Housing… tens of millions.
+
+#thought
+He closes the folder.
+
+<djo-1>
+This town has already died.
+
+> But this is our home
+<emilio-1>
+But this is our home…
+<djo-1>
+Yes, your home. But isn't home not the walls, but the people?
+
+> True… but…
+<emilio-1>
+True… but…
+<djo-1>
+Hm, submitting already? Well, best give up then.
+<emilio-1>
+No. We'll stand and fight!
+
+#djo_choice
+[end]
+
+// ============================================================
+//  DJO CHOICE — Give Up or Fight
+// ============================================================
+[djo_choice]
+#background bg_plaza
+#thought
+You're given a choice. Give up, and the facility is built. Everyone moves away.
+
+> Give Up
+#thought
+You gave up. Emilio couldn't find the strength to fight.
+#gave_up
+
+> Fight
+#thought
+You chose to fight for Donto.
+#stayed_to_fight
+[end]
+
+// ============================================================
+//  GAVE UP — Bad ending path
+// ============================================================
+[gave_up]
+#thought
+…
+
+#thought
+You gave up. Emilio couldn't find the strength to fight.
+
+#thought
+Months later, the facility was built.
+
+#thought
+Everyone moved away.
+
+#thought
+Donto became just another name on a forgotten map.
+
+#thought
+…
+
+#bad_ending
+[end]
+
+// ============================================================
+//  STAYED TO FIGHT — Djo gives one week
+// ============================================================
+[stayed_to_fight]
+<djo-1>
+Okay.
+
+<djo-1>
+One week. If you can do something substantial… we'll hold it off for a little longer.
+
+#thought
+He leaves.
+
+#thought
+Attention draws back to Sisa, dead silent staring at her son.
+
+#thought
+…
+
+<sisa-1>
+Why do we keep fighting just to go back to suffering?
+
+> Sisa…
+<emilio-1>
+Sisa…
+
+> We'll make things right
+<emilio-1>
+We'll make things right.
+
+<sisa-1>
+…
+<sisa-1>
+For the future children of Donto…
+
+<emilio-1>
+So? Let's make this wreck into something sustainable again.
+
+#thought
+I believe in the people of Donto. They've been surviving, and they have the right to continue surviving.
+
+#thought
+Pedro and Marie Tess gladly start to help you as Sisa watches at the corner, taking her leave.
+
+#start_minigame2
+[end]
+
+// ============================================================
+//  MINIGAME 2 — Site Prep (narrative only, mg2-5 are out)
+// ============================================================
+[minigame2_narrative]
+#background bg_streets
+#thought
+The group begins clearing the rubble.
+
+<pedro-1>
+Emilio… this is…
+
+<marie-2>
+Beautiful!
+
+<emilio-1>
+It's nothing yet.
+
+<sisa-1>
+But it is a start…
+
+<emilio-1>
+Sisa? I haven't seen you in a while.
+
+<sisa-1>
+Crispin… might be gone, but my hope for Donto doesn't have to be.
+
+<sisa-1>
+So, how can I—
+
+<hiraya-2>
+Kuya! Look! Here's a fruit!
+
+<mia-1>
+She's been looking for her brother, you know.
+
+<emilio-1>
+Hiraya… We'll build a future for you.
+
+<sisa-1>
+She would have loved Crispin…
+
+<mia-1>
+She looks up to you, Sisa.
+
+<hiraya-2>
+Stay strong, Sisa!
+
+#thought
+Sisa looks up, head held high.
+
+<sisa-1>
+So, Emilio. Where do we start?
+
+#start_minigame3
+[end]
+
+// ============================================================
+//  MINIGAME 3 — Foundation (narrative only)
+// ============================================================
+[minigame3_narrative]
+#background bg_streets
+#thought
+The foundation has finally been poured.
+
+#thought
+For the first time since the fire… the people begin imagining homes instead of ruins.
+
+<pedro-1>
+Feels strange… I almost forgot what construction sounded like.
+
+<marie-2>
+I almost forgot what hope sounded like.
+
+<hiraya-2>
+Is this gonna be the start of our new home?
+
+#thought
+Suddenly someone walks in.
+
+<djo-1>
+I'm impressed.
+
+<djo-1>
+But.
+
+<djo-1>
+None of these are stable. How about electricity? Water? Food?
+
+<emilio-1>
+…
+
+<djo-1>
+We'll have to take this down regardless.
+
+<sisa-1>
+Sir! Please… if you're gonna take this down, take us down with it.
+
+#thought
+Djo was startled by that response. As if he was not ready to hear people are willing to die for this land.
+
+<djo-1>
+…
+
+<djo-1>
+You people…
+
+#thought
+He lets out a quiet sigh.
+
+<djo-1>
+You're all incredibly stubborn.
+
+#thought
+He turns back toward his vehicle.
+
+<djo-1>
+Continue.
+
+<djo-1>
+For now.
+
+#thought
+He leaves.
+
+<amila-1>
+Sisa, iha. We can always relocate. Nothing is as important as your life…
+
+<sisa-1>
+No. What's next, Emilio?
+
+<emilio-1>
+…We build up the walls.
+
+#thought
+And once again, Sisa begins to power through with her head held high.
+
+<emilio-1>
+She keeps herself busy to distract from her suffering…
+
+<amila-1>
+Hey, if protecting this city is what keeps her from spiraling… let her.
+
+#thought
+And so, Emilio joins Sisa.
+
+#start_minigame4
+[end]
+
+// ============================================================
+//  MINIGAME 4 — Walls (narrative only)
+// ============================================================
+[minigame4_narrative]
+#background bg_streets
+<marie-2>
+Oi Pedro! Straighten that beam! It looks like it'll fall on my future kitchen!
+
+<pedro-1>
+Then maybe stop distracting the carpenter.
+
+<marie-2>
+If my kitchen falls, I'm blaming you!
+
+#thought
+Everyone laughs.
+
+<hiraya-2>
+Kuya! Look!
+
+<hiraya-2>
+My room has a window! I can finally see the stars!
+
+#thought
+Emilio watches her. A small smile forms.
+
+#thought
+Maybe… this really can become home again.
+
+#thought
+As the final roof panel is placed… the townspeople clap.
+
+#thought
+Not because everything is finished. But because they finally believe it can be.
+
+#thought
+A familiar convoy enters once more. Everyone falls silent.
+
+#thought
+Djo steps out. This time… he doesn't immediately speak.
+
+#thought
+He simply walks through the rebuilt streets. Children playing. Neighbors sharing food. People helping one another.
+
+#thought
+He notices something absent from every report he had ever read. Life.
+
+<djo-1>
+I was wrong.
+
+#thought
+The town goes quiet.
+
+<djo-1>
+I thought I was looking at a ruined town.
+
+<djo-1>
+Turns out… I was looking at a town that refused to die.
+
+#thought
+He closes the acquisition folder.
+
+<djo-1>
+Effective immediately… the relocation order will be postponed.
+
+#thought
+A wave of relief spreads through the crowd.
+
+<djo-1>
+Don't misunderstand me. You still have a long road ahead.
+
+<djo-1>
+Electricity. Water. Roads. Schools. You're nowhere near finished.
+
+#thought
+He looks directly at Emilio.
+
+<djo-1>
+But… for the first time… I believe you might actually finish it.
+
+#thought
+He extends his hand.
+
+<djo-1>
+The government will provide engineers, electrical crews, and water utilities.
+
+<djo-1>
+The rest… you'll have to build yourselves.
+
+<emilio-1>
+That's all we ever wanted.
+
+<emilio-1>
+Not someone to save us. Just someone willing to believe in us.
+
+#thought
+The people erupt into cheers.
+
+#celebration
+[end]
+
+// ============================================================
+//  CELEBRATION
+// ============================================================
+[celebration]
+#background bg_plaza
+#thought
+For the first time in months… Donto breathes again.
+
+#thought
+The children play in the streets. The elders share food. The laughter returns.
+
+<marie-2>
+We did it!
+
+<pedro-1>
+No… WE did it.
+
+<mia-1>
+My son… you saved us.
+
+<hiraya-2>
+Kuya! You're a hero!
+
+<emilio-1>
+No. Everyone here is a hero.
+
+#thought
+Emilio looks at the crowd. The people who refused to give up. The people who believed.
+
+<emilio-1>
+This is just the beginning.
+
+#day1_complete
 [end]

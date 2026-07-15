@@ -1,12 +1,12 @@
 extends Node2D
 
-var bricks_scene = preload("res://Scenes/bricks.tscn")
-var coin_scene = preload("res://Scenes/coin.tscn")
-var spikes_scene = preload("res://Scenes/spikes.tscn")
-var heart_scene = preload("res://Scenes/heart.tscn")
-var gem_scene = preload("res://Scenes/gem.tscn")
-var warning_scene = preload("res://Scenes/warning.tscn")
-var sweep_debris_scene = preload("res://Scenes/sweep_debris.tscn")
+var bricks_scene = preload("res://Minigame1/Scenes/bricks.tscn")
+var coin_scene = preload("res://Minigame1/Scenes/coin.tscn")
+var spikes_scene = preload("res://Minigame1/Scenes/spikes.tscn")
+var heart_scene = preload("res://Minigame1/Scenes/heart.tscn")
+var gem_scene = preload("res://Minigame1/Scenes/gem.tscn")
+var warning_scene = preload("res://Minigame1/Scenes/warning.tscn")
+var sweep_debris_scene = preload("res://Minigame1/Scenes/sweep_debris.tscn")
 
 # Our rhythm variables
 var bpm = 96.0

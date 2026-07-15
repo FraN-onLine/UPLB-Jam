@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlxvuaaiw10cj"
-path="res://.godot/imported/background_solid_sky.png-3b1a3e934b7da9005d4ca095def79c9c.ctex"
+uid="uid://d1xti6jx2nlhr"
+path="res://.godot/imported/Marie Tess2.png-57f98d576f62a3e45342ec744ccdf2e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Minigame1/Assets/Backgrounds/background_solid_sky.png"
-dest_files=["res://.godot/imported/background_solid_sky.png-3b1a3e934b7da9005d4ca095def79c9c.ctex"]
+source_file="res://Assets/Characters/Marie Tess2.png"
+dest_files=["res://.godot/imported/Marie Tess2.png-57f98d576f62a3e45342ec744ccdf2e3.ctex"]
 
 [params]
 

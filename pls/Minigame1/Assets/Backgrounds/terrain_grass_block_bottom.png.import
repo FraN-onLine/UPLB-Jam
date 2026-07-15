@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://utewkoxrycy2"
-path="res://.godot/imported/terrain_grass_block_bottom.png-509b9c8a28452ea7aff4298a89f9ab93.ctex"
+path="res://.godot/imported/terrain_grass_block_bottom.png-7b69bb5256c0a9244712412f067bfd78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/terrain_grass_block_bottom.png"
-dest_files=["res://.godot/imported/terrain_grass_block_bottom.png-509b9c8a28452ea7aff4298a89f9ab93.ctex"]
+source_file="res://Minigame1/Assets/Backgrounds/terrain_grass_block_bottom.png"
+dest_files=["res://.godot/imported/terrain_grass_block_bottom.png-7b69bb5256c0a9244712412f067bfd78.ctex"]
 
 [params]
 

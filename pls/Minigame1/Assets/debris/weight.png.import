@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cc7duixabs4a0"
-path="res://.godot/imported/weight.png-89e1a4617a589b6eaf9090cdafae3c05.ctex"
+path="res://.godot/imported/weight.png-d3e59764471ba411b27ac478ed3639ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/debris/weight.png"
-dest_files=["res://.godot/imported/weight.png-89e1a4617a589b6eaf9090cdafae3c05.ctex"]
+source_file="res://Minigame1/Assets/debris/weight.png"
+dest_files=["res://.godot/imported/weight.png-d3e59764471ba411b27ac478ed3639ff.ctex"]
 
 [params]
 
