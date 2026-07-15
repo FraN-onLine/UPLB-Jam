@@ -2,6 +2,18 @@
 
 [ext_resource type="FontFile" uid="uid://cjrm0bccicdxo" path="res://Text/Yuyu-Regular.ttf" id="1_q3yy7"]
 [ext_resource type="Script" uid="uid://buqw81ryws82u" path="res://Menu/MainMenu.gd" id="2_i6sq0"]
+[ext_resource type="Texture2D" uid="uid://cgcvi5dbpjw1t" path="res://Assets/Dialog windoes/Buttons2.png" id="3_tma8a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_swd6r"]
+texture = ExtResource("3_tma8a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tma8a"]
+texture = ExtResource("3_tma8a")
+modulate_color = Color(0.4, 0.4, 0.4, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tpenk"]
+texture = ExtResource("3_tma8a")
+modulate_color = Color(0.46691066, 0.35054636, 0.0999373, 0.49411765)
 
 [node name="MainMenu" type="CanvasLayer" unique_id=765608284]
 script = ExtResource("2_i6sq0")
@@ -34,8 +46,13 @@ offset_left = 52.0
 offset_top = 295.0
 offset_right = 432.0
 offset_bottom = 375.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_q3yy7")
 theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_swd6r")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tma8a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tpenk")
 text = "Start"
 
 [node name="TestButton" type="Button" parent="." unique_id=1153469171]

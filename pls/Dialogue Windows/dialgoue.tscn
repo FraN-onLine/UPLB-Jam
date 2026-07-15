@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bn7vhsqj53h6t" path="res://Assets/Dialog windoes/Dialog.png" id="2_b873l"]
 [ext_resource type="Texture2D" uid="uid://dgmh3kqj64akp" path="res://Assets/Characters/Hiraya.png" id="4_3dp1y"]
 [ext_resource type="Texture2D" uid="uid://bik1edcxohmct" path="res://Assets/Dialog windoes/Buttons.png" id="5_3dp1y"]
+[ext_resource type="Texture2D" uid="uid://cgcvi5dbpjw1t" path="res://Assets/Dialog windoes/Buttons2.png" id="6_xt733"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwc0f"]
 bg_color = Color(1, 1, 1, 1)
@@ -21,6 +22,17 @@ texture = ExtResource("5_3dp1y")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wpc2v"]
 texture = ExtResource("5_3dp1y")
+modulate_color = Color(0.9118894, 0.77437615, 0.59866756, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_clrgg"]
+texture = ExtResource("6_xt733")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c5o4w"]
+texture = ExtResource("6_xt733")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8m8yd"]
+texture = ExtResource("6_xt733")
+modulate_color = Color(0.9951138, 0.8572481, 0.6787855, 1)
 
 [node name="Node2D" type="Node2D" unique_id=1502847696]
 script = ExtResource("1_dialogue")
@@ -110,7 +122,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_cjbjp")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_qwc0f")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_qgxk8")
-theme_override_styles/hover = SubResource("StyleBoxTexture_wpc2v")
+theme_override_styles/normal = SubResource("StyleBoxTexture_clrgg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_c5o4w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8m8yd")
 text = "Option 1"
