@@ -58,6 +58,5 @@ func _on_dialogue_finished(return_key: String) -> void:
 			# If the return_key doesn't match anything known,
 			# show the menu again
 			$StartButton.show()
-			$TestButton.show()
 			$Title.show()
 			$Subtitle.show()

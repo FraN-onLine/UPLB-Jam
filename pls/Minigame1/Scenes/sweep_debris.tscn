@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bqjmy62h8fd56"]
+
+[ext_resource type="Script" uid="uid://wn6aqci2ce1x" path="res://Scripts/sweep_debris.gd" id="1_qed8m"]
+[ext_resource type="Texture2D" uid="uid://cphi6l4tmmtee" path="res://Assets/debris/saw_a.png" id="2_nwd52"]
+[ext_resource type="Texture2D" uid="uid://3d762ia8u58" path="res://Assets/debris/saw_b.png" id="3_3r14e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ggk5h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nwd52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3r14e")
+}],
+"loop": 1,
+"name": &"spin",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ggk5h"]
+radius = 32.38827
+
+[node name="SweepDebris" type="Area2D" unique_id=326151053]
+script = ExtResource("1_qed8m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=289143965]
+sprite_frames = SubResource("SpriteFrames_ggk5h")
+animation = &"spin"
+frame_progress = 0.30315727
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1544078104]
+shape = SubResource("CircleShape2D_ggk5h")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

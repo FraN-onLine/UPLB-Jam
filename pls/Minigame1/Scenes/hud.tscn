@@ -1,0 +1,249 @@
+[gd_scene format=3 uid="uid://b4ph88ascunx2"]
+
+[ext_resource type="Script" uid="uid://d3gxmkrsj5eeb" path="res://Scripts/hud.gd" id="1_36asn"]
+[ext_resource type="Texture2D" uid="uid://c2k3hus2eo2xn" path="res://Assets/HUDS/hud_heart.png" id="2_8jye8"]
+[ext_resource type="Texture2D" uid="uid://bh4w0rgragfoy" path="res://Assets/HUDS/hud_heart_empty.png" id="3_43w4t"]
+[ext_resource type="Texture2D" uid="uid://bsbsr843c0wyc" path="res://Assets/HUDS/hud_player_beige.png" id="4_7gr8i"]
+[ext_resource type="FontFile" uid="uid://dkammkcjh7uh5" path="res://Assets/Font/Kenney Future Narrow.ttf" id="5_5ep0j"]
+[ext_resource type="Texture2D" uid="uid://b48047uqwhd5r" path="res://Assets/HUDS/hud_coin.png" id="6_4f5kr"]
+
+[node name="HUD" type="CanvasLayer" unique_id=161276841]
+process_mode = 3
+script = ExtResource("1_36asn")
+full_heart_image = ExtResource("2_8jye8")
+empty_heart_image = ExtResource("3_43w4t")
+
+[node name="Hearts" type="HBoxContainer" parent="." unique_id=437867789]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerIcon" type="TextureRect" parent="Hearts" unique_id=1100216533]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("4_7gr8i")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart1" type="TextureRect" parent="Hearts" unique_id=440862899]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("2_8jye8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart2" type="TextureRect" parent="Hearts" unique_id=947559179]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("2_8jye8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart3" type="TextureRect" parent="Hearts" unique_id=1912771092]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("2_8jye8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=79647485]
+offset_left = 921.0
+offset_top = 10.0
+offset_right = 1098.0
+offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("5_5ep0j")
+theme_override_font_sizes/font_size = 28
+text = "₱0 / ₱1000"
+
+[node name="CoinIcon" type="TextureRect" parent="." unique_id=1024762864]
+offset_left = 849.0
+offset_top = -5.0
+offset_right = 925.0
+offset_bottom = 65.0
+texture = ExtResource("6_4f5kr")
+expand_mode = 3
+
+[node name="TimerLabel" type="Label" parent="." unique_id=891483842]
+offset_left = 562.0
+offset_top = 4.0
+offset_right = 608.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("5_5ep0j")
+theme_override_font_sizes/font_size = 28
+text = "90"
+
+[node name="GameOverScreen" type="ColorRect" parent="." unique_id=1020295206]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.7058824)
+
+[node name="GameOverTitle" type="Label" parent="GameOverScreen" unique_id=1432519303]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.0
+offset_top = -36.0
+offset_right = 223.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_5ep0j")
+theme_override_font_sizes/font_size = 64
+text = "GAME OVER"
+
+[node name="GameOverMessage" type="Label" parent="GameOverScreen" unique_id=822813034]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.5
+offset_top = 27.0
+offset_right = 254.5
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_5ep0j")
+theme_override_font_sizes/font_size = 28
+text = "Not enough funds raised/Died"
+
+[node name="RestartButton" type="Button" parent="GameOverScreen" unique_id=1970649664]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 83.5
+offset_right = 56.0
+offset_bottom = 114.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_5ep0j")
+text = "Try Again"
+
+[node name="WinScreen" type="ColorRect" parent="." unique_id=904029676]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0, 0.3137255, 0, 0.7058824)
+
+[node name="WinTitle" type="Label" parent="WinScreen" unique_id=319826385]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -476.0
+offset_top = -94.5
+offset_right = 476.0
+offset_bottom = -35.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_5ep0j")
+theme_override_font_sizes/font_size = 52
+text = "FUNDRAISING GOAL REACHED!"
+
+[node name="WinMessage" type="Label" parent="WinScreen" unique_id=405133960]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.5
+offset_top = -35.0
+offset_right = 344.5
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_5ep0j")
+theme_override_font_sizes/font_size = 28
+text = "You raised enough for the hometown!"
+
+[node name="RestartButton" type="Button" parent="WinScreen" unique_id=52758412]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = 30.5
+offset_right = 44.0
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_5ep0j")
+text = "Play Again"
+
+[node name="PauseScreen" type="ColorRect" parent="." unique_id=1758490672]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="Label" type="Label" parent="PauseScreen" unique_id=1296253749]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.5
+offset_top = -36.0
+offset_right = 158.5
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_5ep0j")
+theme_override_font_sizes/font_size = 64
+text = "PAUSED"
+
+[node name="ContinueButton" type="Button" parent="PauseScreen" unique_id=340781738]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = 47.0
+offset_right = 54.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_5ep0j")
+text = "Continue"
+
+[node name="QuitButton" type="Button" parent="PauseScreen" unique_id=114338542]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = 86.5
+offset_right = 50.5
+offset_bottom = 117.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_5ep0j")
+text = "Restart"

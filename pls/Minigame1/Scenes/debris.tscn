@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cwivvsxhwcmuy"]
+
+[ext_resource type="Script" uid="uid://bhme77m4op5y7" path="res://Scripts/debris.gd" id="1_ov8td"]
+[ext_resource type="Texture2D" uid="uid://dnq281yc5ri7y" path="res://Assets/debris/brick_brown.png" id="2_axoec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wx45i"]
+size = Vector2(32, 24)
+
+[node name="Bricks" type="Area2D" unique_id=70757722]
+script = ExtResource("1_ov8td")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2005047936]
+texture = ExtResource("2_axoec")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=942651462]
+shape = SubResource("RectangleShape2D_wx45i")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
