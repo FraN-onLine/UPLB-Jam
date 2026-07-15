@@ -39,17 +39,23 @@ func _hide_menu() -> void:
 
 func _show_menu() -> void:
 	$StartButton.show()
-	$TestButton.show()
 	$Title.show()
 	$Subtitle.show()
 
 
 func _launch_minigame1() -> void:
+	# Hide dialogue and stop any active input/typing state before minigame.
 	dialogue_window.hide()
 	_in_minigame = true
-	
+
+	# Reset dialogue window state so we never resume mid-typing.
+	if dialogue_window.has_method("start"):
+		# no-op: keep loaded dialogue, start() will reset state anyway
+		pass
+
 	minigame1_instance = minigame1_scene.instantiate()
 	add_child(minigame1_instance)
+
 	
 	await get_tree().process_frame
 	
@@ -84,8 +90,14 @@ func _minigame_cleanup() -> void:
 
 
 func _on_dialogue_finished(return_key: String) -> void:
+	# DialogueWindow emits the section header return_key (string after '#').
+	# If empty, this is just end-of-dialogue.
 	match return_key:
+		"":
+			_show_menu()
 		"home_arrival":
+
+
 			dialogue_window.start("res://Dialogue Windows/base.txt", "home")
 		
 		"walk_streets":

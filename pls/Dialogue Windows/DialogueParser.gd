@@ -284,10 +284,13 @@ static func _parse_choice_group(
 				var parsed_cmd := _parse_command(next.value)
 				if parsed_cmd.kind == "runtime":
 					branch.append(_make_command_instruction(parsed_cmd))
-				else:
-					push_error("%s:%d return keys are not allowed inside choice branches" % [path, next.line])
-				i += 1
-				continue
+					i += 1
+					continue
+
+				# Return keys terminate the whole section, even when they directly
+				# follow the final choice branch. Leave the token for the enclosing
+				# instruction block so it becomes DialogueSection.return_key.
+				break
 
 			break
 

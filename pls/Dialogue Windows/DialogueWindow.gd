@@ -44,6 +44,11 @@ var _slot_characters : Dictionary = {}
 var _active_slot := 0
 var _last_speaker_id := ""
 
+# When speaker tags don’t specify a slot, we auto-assign to keep 2 portraits alternating.
+# Slot 1/2 only.
+var _auto_next_slot := 1
+
+
 var _texture_regex := RegEx.new()
 
 # Typing effect
@@ -90,7 +95,12 @@ func start(dialogue_path: String, section_name: String) -> void:
 	_slot_characters.clear()
 	_active_slot = 0
 	_last_speaker_id = ""
+	_auto_next_slot = 1
 	_text_label.text = ""
+	_waiting_for_input = false
+	_in_choice = false
+
+
 	_name_label.text = ""
 	_is_typing = false
 	if _typing_tween and _typing_tween.is_running():
@@ -210,9 +220,12 @@ func _clear_characters() -> void:
 func _show_thought() -> void:
 	_thought_active = true
 	_name_label.text = ""
+	# Thought should NOT hide portraits — only darken them.
 	_name_tag.visible = false
 	for sprite in _speaker_icons:
+		# Keep visibility as-is, just dim.
 		sprite.modulate = inactive_modulate
+
 
 
 ## Fully clears everything — name tag + all portraits hidden.
@@ -281,9 +294,15 @@ func _apply_speaker(instr: DialogueInstruction) -> void:
 	# A speaker tag exits thought mode — show everything again
 	_thought_active = false
 	var slot := instr.speaker_slot
+	# Auto-assign slots when speaker tags omit it (or set 0).
+	if slot == 0:
+		slot = _auto_next_slot
+		_auto_next_slot = 2 if _auto_next_slot == 1 else 1
+
 	if slot < 1 or slot > _speaker_icons.size():
 		push_error("DialogueWindow: invalid speaker slot %d" % slot)
 		return
+
 
 	var sprite := _speaker_icons[slot - 1]
 	var portrait := _resolve_portrait(instr.character_id, instr.emotion)
@@ -384,12 +403,14 @@ func _on_choice_pressed(button: Button) -> void:
 
 
 func _finish_section() -> void:
-	var return_key := _last_speaker_id
+	# section_return_key comes from the section header block (a '#... ' token).
+	# If the section has no '#return_key', emit an empty string.
+	var section_return_key := ""
 	if _data.sections.has(_current_section):
 		var section: DialogueSection = _data.sections[_current_section]
-		if section.return_key != "":
-			return_key = section.return_key
-		mark_section_completed(_current_section)
+		section_return_key = section.return_key
+		if section_return_key != "":
+			mark_section_completed(_current_section)
 
 	hide()
-	dialogue_finished.emit(return_key)
+	dialogue_finished.emit(section_return_key)

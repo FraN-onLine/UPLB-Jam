@@ -1,0 +1,29 @@
+[1mdiff --git a/pls/Dialogue Windows/DialogueParser.gd b/pls/Dialogue Windows/DialogueParser.gd[m
+[1mindex da00d2f..0bcb650 100644[m
+[1m--- a/pls/Dialogue Windows/DialogueParser.gd[m	
+[1m+++ b/pls/Dialogue Windows/DialogueParser.gd[m	
+[36m@@ -284,10 +284,13 @@[m [mstatic func _parse_choice_group([m
+ 				var parsed_cmd := _parse_command(next.value)[m
+ 				if parsed_cmd.kind == "runtime":[m
+ 					branch.append(_make_command_instruction(parsed_cmd))[m
+[31m-				else:[m
+[31m-					push_error("%s:%d return keys are not allowed inside choice branches" % [path, next.line])[m
+[31m-				i += 1[m
+[31m-				continue[m
+[32m+[m					[32mi += 1[m
+[32m+[m					[32mcontinue[m
+[32m+[m
+[32m+[m				[32m# Return keys terminate the whole section, even when they directly[m
+[32m+[m				[32m# follow the final choice branch. Leave the token for the enclosing[m
+[32m+[m				[32m# instruction block so it becomes DialogueSection.return_key.[m
+[32m+[m				[32mbreak[m
+ [m
+ 			break[m
+ [m
+[36m@@ -404,4 +407,4 @@[m [mstatic func _make_command_instruction(parsed: Dictionary) -> DialogueInstruction[m
+ 	instr.type = DialogueInstruction.Type.COMMAND[m
+ 	instr.command = parsed.command[m
+ 	instr.command_value = parsed.get("value", "")[m
+[31m-	return instr[m
+\ No newline at end of file[m
+[32m+[m	[32mreturn instr[m

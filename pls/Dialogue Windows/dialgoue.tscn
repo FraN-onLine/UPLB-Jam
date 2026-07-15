@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://tu1ds8w40be3" path="res://Dialogue Windows/DialogueWindow.gd" id="1_dialogue"]
 [ext_resource type="Texture2D" uid="uid://bn7vhsqj53h6t" path="res://Assets/Dialog windoes/Dialog.png" id="2_b873l"]
 [ext_resource type="Texture2D" uid="uid://dgmh3kqj64akp" path="res://Assets/Characters/Hiraya.png" id="4_3dp1y"]
+[ext_resource type="Texture2D" uid="uid://bik1edcxohmct" path="res://Assets/Dialog windoes/Buttons.png" id="5_3dp1y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwc0f"]
 bg_color = Color(1, 1, 1, 1)
@@ -11,6 +12,15 @@ corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qwc0f"]
+texture = ExtResource("5_3dp1y")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qgxk8"]
+texture = ExtResource("5_3dp1y")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wpc2v"]
+texture = ExtResource("5_3dp1y")
 
 [node name="Node2D" type="Node2D" unique_id=1502847696]
 script = ExtResource("1_dialogue")
@@ -61,7 +71,7 @@ offset_right = 1082.0
 offset_bottom = 599.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_cjbjp")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 40
 text = "Helpless.... Looked into her eyes and the sky's the limit i'm helpless!!! I'm down for the count, and I'm drownin' in 'em"
 autowrap_mode = 3
 
@@ -78,17 +88,29 @@ scale = Vector2(0.51413274, 0.4333704)
 texture = ExtResource("4_3dp1y")
 
 [node name="Option1" type="Button" parent="." unique_id=255144146]
-visible = false
-offset_left = 830.0
+offset_left = 763.0
 offset_top = 206.0
 offset_right = 1109.0
 offset_bottom = 267.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_cjbjp")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_qwc0f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qgxk8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wpc2v")
 text = "Option 1"
 
-[node name="Option2" type="Button" parent="." unique_id=633345976]
-visible = false
-offset_left = 827.0
-offset_top = 303.0
-offset_right = 1106.0
-offset_bottom = 364.0
-text = "Option 2"
+[node name="Option2" type="Button" parent="." unique_id=443199343]
+offset_left = 761.0
+offset_top = 301.0
+offset_right = 1112.0
+offset_bottom = 362.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_cjbjp")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_qwc0f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qgxk8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wpc2v")
+text = "Option 1"
