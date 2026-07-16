@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c5r8s46qsr5we"]
+
+[ext_resource type="Script" uid="uid://cwhk8qnlrfb5j" path="res://scripts/mg_2note.gd" id="1_t3yvt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gcyas"]
+radius = 55.0
+
+[node name="Area2D" type="Area2D" unique_id=313257611]
+z_index = -1
+script = ExtResource("1_t3yvt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=885471691]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=184152855]
+shape = SubResource("CircleShape2D_gcyas")

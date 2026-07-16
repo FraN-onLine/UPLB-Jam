@@ -76,8 +76,8 @@ func spawn_sweep():
 	
 	# kupal to eh kung saan mag spaspawn yung saw natin 
 	var sweep_y = 480  # low jump over it
-	if is_high:
-		sweep_y = 390  # high duck under it
+	#if is_high:
+	#	sweep_y = 390  # high duck under it
 	
 	var debris = sweep_debris_scene.instantiate()
 	if from_left:

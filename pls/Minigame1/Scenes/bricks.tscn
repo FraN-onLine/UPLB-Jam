@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://1ot3lk5mmbc1"]
 
 [ext_resource type="Script" uid="uid://dbifg5sj0qu7b" path="res://Minigame1/Scripts/bricks.gd" id="1_n2jnc"]
-[ext_resource type="Texture2D" uid="uid://byaa124u1x7mf" path="res://Minigame1/Assets/debris/block_planks.png" id="2_ocfoc"]
+[ext_resource type="Texture2D" uid="uid://d1oc7pjhehqhj" path="res://Assets/Minigames/planks.png" id="2_yxts5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx45i"]
 size = Vector2(64, 64)
@@ -10,7 +10,7 @@ size = Vector2(64, 64)
 script = ExtResource("1_n2jnc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2005047936]
-texture = ExtResource("2_ocfoc")
+texture = ExtResource("2_yxts5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=942651462]
 shape = SubResource("RectangleShape2D_wx45i")

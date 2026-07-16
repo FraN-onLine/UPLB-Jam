@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://c2hiaupymbs4n"]
 
 [ext_resource type="Script" uid="uid://cjp8ltmjy0fkg" path="res://Minigame3/Scripts/player_new.gd" id="1_kf8v5"]
-[ext_resource type="Texture2D" uid="uid://7iij0hohyql" path="res://Minigame3/Assets/Character/character_beige_duck.png" id="2_fxk4x"]
+[ext_resource type="Texture2D" uid="uid://rfb2m5kfsdsj" path="res://Assets/Minigames/emi.png" id="2_6ib0f"]
 [ext_resource type="Texture2D" uid="uid://ba4imr1t7pnyx" path="res://Minigame3/Assets/Character/character_beige_hit.png" id="3_h5cx5"]
-[ext_resource type="Texture2D" uid="uid://jygvyd16vyq1" path="res://Minigame3/Assets/Character/character_beige_idle.png" id="4_6wng0"]
 [ext_resource type="Texture2D" uid="uid://cefyl4k44j5yo" path="res://Minigame3/Assets/Character/character_beige_jump.png" id="5_ry75a"]
 [ext_resource type="Texture2D" uid="uid://qla6ntjeirh4" path="res://Minigame3/Assets/Character/character_beige_walk_a.png" id="6_3v7to"]
 [ext_resource type="Texture2D" uid="uid://beje0bwahdn1a" path="res://Minigame3/Assets/Character/character_beige_walk_b.png" id="7_bqmhq"]
@@ -19,11 +18,19 @@ size = Vector2(81, 97)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phvq4"]
 size = Vector2(81, 85)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf8v5"]
+atlas = ExtResource("2_6ib0f")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxk4x"]
+atlas = ExtResource("2_6ib0f")
+region = Rect2(0, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_phvq4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_fxk4x")
+"texture": SubResource("AtlasTexture_kf8v5")
 }],
 "loop": 1,
 "name": &"duck",
@@ -39,7 +46,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_6wng0")
+"texture": SubResource("AtlasTexture_fxk4x")
 }],
 "loop": 1,
 "name": &"idle",
@@ -78,8 +85,10 @@ shape = SubResource("RectangleShape2D_phvq4")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=720772447]
+position = Vector2(1.0000019, 17.000002)
+scale = Vector2(1.96875, 1.953125)
 sprite_frames = SubResource("SpriteFrames_phvq4")
-animation = &"duck"
+animation = &"idle"
 
 [node name="CoinSound" type="AudioStreamPlayer" parent="." unique_id=40054604]
 stream = ExtResource("8_j7lyo")

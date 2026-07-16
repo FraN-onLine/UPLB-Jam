@@ -1,0 +1,225 @@
+[gd_scene format=3 uid="uid://cp7x564vwt6q"]
+
+[ext_resource type="Script" uid="uid://db6yi8bmo2ljl" path="res://Minigame2/scripts/minigame_2.gd" id="1_1wv3r"]
+[ext_resource type="Texture2D" uid="uid://rc5gvdy3yklu" path="res://Minigame2/assets/mg_2_paper.png" id="2_1wv3r"]
+[ext_resource type="Texture2D" uid="uid://df4t16a6b8qvo" path="res://Assets/Background/original-outside.png" id="2_j504i"]
+[ext_resource type="Script" uid="uid://i3j37ojwqcj8" path="res://Minigame2/scripts/mg2_hit_zone.gd" id="3_uwweg"]
+[ext_resource type="Script" uid="uid://bbl53jload2ji" path="res://Minigame2/scripts/mg2_notes_spawner.gd" id="5_14ayn"]
+[ext_resource type="Script" uid="uid://dovgsyen471xt" path="res://Minigame2/scripts/mg2_walis_ting.gd" id="6_w8ukj"]
+[ext_resource type="Texture2D" uid="uid://bisq2mt6vh5xg" path="res://Assets/Characters/Emilio.png" id="7_1a8vs"]
+[ext_resource type="Texture2D" uid="uid://bbkheh61eky47" path="res://Minigame2/assets/mg_2_walistingtingsahur.png" id="7_ef834"]
+[ext_resource type="FontFile" uid="uid://kwtf76uesvpc" path="res://Minigame2/fonts/Kenney Future Narrow.ttf" id="8_4xiah"]
+[ext_resource type="AudioStream" uid="uid://u6vjcodb8qsd" path="res://Minigame2/audio/mg2_bgm.mp3" id="10_1a8vs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvb0x"]
+size = Vector2(20, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcyas"]
+size = Vector2(221, 125)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sdbaw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gcyas"]
+font = ExtResource("8_4xiah")
+font_size = 28
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wcy7a"]
+font = ExtResource("8_4xiah")
+font_size = 20
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yknrn"]
+bg_color = Color(0.32941177, 0.24313726, 0.19215687, 0.5058824)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwweg"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="Minigame2" type="Node2D" unique_id=1222579358]
+script = ExtResource("1_1wv3r")
+metadata/_edit_horizontal_guides_ = [725.0]
+
+[node name="SharedBG" type="TextureRect" parent="." unique_id=2101952467]
+z_index = -10
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_j504i")
+
+[node name="PaperMaerker" type="Marker2D" parent="." unique_id=1820170656]
+position = Vector2(576, 530)
+
+[node name="TextureRect" type="TextureRect" parent="PaperMaerker" unique_id=396470161]
+z_index = -5
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.05, 1)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_1wv3r")
+expand_mode = 1
+stretch_mode = 3
+flip_h = true
+
+[node name="DELETIONRAH" type="Area2D" parent="." unique_id=1534262360]
+
+[node name="DeletionZone" type="CollisionShape2D" parent="DELETIONRAH" unique_id=14894710]
+position = Vector2(240, 530)
+shape = SubResource("RectangleShape2D_mvb0x")
+debug_color = Color(0.90891707, 0.00011686146, 0.73685974, 0.41960785)
+
+[node name="HitZone" type="Area2D" parent="." unique_id=414854052]
+position = Vector2(340, 530)
+priority = 1
+script = ExtResource("3_uwweg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone" unique_id=107389252]
+shape = SubResource("RectangleShape2D_gcyas")
+
+[node name="Character" type="CharacterBody2D" parent="." unique_id=796339522]
+position = Vector2(0, 250)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Basura" type="TextureRect" parent="Character" unique_id=760508586]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = 101.0
+offset_right = 233.0
+offset_bottom = 414.13663
+grow_vertical = 0
+texture = SubResource("CompressedTexture2D_sdbaw")
+
+[node name="Marker2D" type="Marker2D" parent="Character" unique_id=25043531]
+position = Vector2(251, 72)
+script = ExtResource("6_w8ukj")
+
+[node name="WalisTingTing" type="Sprite2D" parent="Character/Marker2D" unique_id=1489661504]
+z_index = 1
+position = Vector2(14, 134)
+rotation = -0.52905846
+scale = Vector2(1.3278202, 1.3278202)
+texture = ExtResource("7_ef834")
+
+[node name="CharSprite" type="Sprite2D" parent="Character" unique_id=436825281]
+position = Vector2(102.99997, 66)
+scale = Vector2(0.54112107, 0.559871)
+texture = ExtResource("7_1a8vs")
+
+[node name="NotesSpawner" type="Node2D" parent="." unique_id=971740678]
+position = Vector2(1152, 530)
+script = ExtResource("5_14ayn")
+
+[node name="NotesContainer" type="Node2D" parent="." unique_id=317737105]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1184565465]
+
+[node name="HUD" type="Control" parent="CanvasLayer" unique_id=1075651064]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD" unique_id=2073161122]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30800003
+anchor_top = 0.60300004
+anchor_right = 0.30800003
+anchor_bottom = 0.60300004
+offset_left = -44.81604
+offset_top = -35.74402
+offset_right = 71.18396
+offset_bottom = 23.255981
+grow_vertical = 2
+
+[node name="AccuracyLabel" type="Label" parent="CanvasLayer/HUD/VBoxContainer" unique_id=2034932972]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "READY"
+label_settings = SubResource("LabelSettings_gcyas")
+
+[node name="ComboLabel" type="Label" parent="CanvasLayer/HUD/VBoxContainer" unique_id=1554703921]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "COMBO: 0"
+label_settings = SubResource("LabelSettings_wcy7a")
+
+[node name="Corner" type="VBoxContainer" parent="CanvasLayer/HUD" unique_id=943697037]
+custom_minimum_size = Vector2(0, 10)
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -429.0
+offset_top = 20.0
+offset_right = -29.0
+offset_bottom = 74.0
+grow_horizontal = 0
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUD/Corner" unique_id=1034257629]
+custom_minimum_size = Vector2(325, 15)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_styles/background = SubResource("StyleBoxFlat_yknrn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uwweg")
+min_value = -10.0
+value = 100.0
+fill_mode = 1
+show_percentage = false
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/HUD/Corner" unique_id=826214798]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "SCORE: 0"
+label_settings = SubResource("LabelSettings_wcy7a")
+horizontal_alignment = 2
+
+[node name="BlackOverlay" type="ColorRect" parent="CanvasLayer" unique_id=645123692]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+top_level = true
+visibility_layer = 513
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1006814164]
+position = Vector2(307, 527)
+stream = ExtResource("10_1a8vs")
+volume_db = -4.0

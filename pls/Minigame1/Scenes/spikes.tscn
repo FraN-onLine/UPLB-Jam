@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dssygoklx6004"]
 
 [ext_resource type="Script" uid="uid://clk2ndqi253fx" path="res://Minigame1/Scripts/spikes.gd" id="1_nrdsm"]
-[ext_resource type="Texture2D" uid="uid://cc7duixabs4a0" path="res://Minigame1/Assets/debris/weight.png" id="2_nrdsm"]
+[ext_resource type="Texture2D" uid="uid://yrbhyyb3ioko" path="res://Assets/Minigames/greenpile.png" id="2_umboa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fhau"]
 size = Vector2(64, 64)
@@ -10,7 +10,7 @@ size = Vector2(64, 64)
 script = ExtResource("1_nrdsm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1614898488]
-texture = ExtResource("2_nrdsm")
+texture = ExtResource("2_umboa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1427135442]
 shape = SubResource("RectangleShape2D_8fhau")

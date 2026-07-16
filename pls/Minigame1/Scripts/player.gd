@@ -120,7 +120,7 @@ func update_catch_zone():
 func squash_stretch(target_scale: Vector2):
 	anim.scale = target_scale
 	var t = create_tween()
-	t.tween_property(anim, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_ELASTIC)
+	t.tween_property(anim, "scale", Vector2(2.1,1.9), 0.9).set_trans(Tween.TRANS_ELASTIC)
 
 # randomize pitch sfx sounds para di boring
 func play_sound(sound_player):

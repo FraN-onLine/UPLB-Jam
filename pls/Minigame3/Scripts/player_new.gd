@@ -18,7 +18,7 @@ func play_hit_reaction():
 	play_sound($CoinSound)
 	anim.scale = Vector2(1.2, 0.8)
 	var t = create_tween()
-	t.tween_property(anim, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_ELASTIC)
+	t.tween_property(anim, "scale", Vector2(2.1,1.9), 0.2).set_trans(Tween.TRANS_ELASTIC)
 
 func play_miss_reaction():
 	# 1. Shake the screen
@@ -34,7 +34,7 @@ func play_miss_reaction():
 	
 	# 4. Smoothly bounce back to normal shape and color
 	var t = create_tween()
-	t.parallel().tween_property(anim, "scale", Vector2.ONE, 0.3).set_trans(Tween.TRANS_BOUNCE)
+	t.parallel().tween_property(anim, "scale", Vector2(2.1,1.9), 0.8).set_trans(Tween.TRANS_BOUNCE)
 	t.parallel().tween_property(anim, "modulate", Color.WHITE, 0.3)
 	
 	

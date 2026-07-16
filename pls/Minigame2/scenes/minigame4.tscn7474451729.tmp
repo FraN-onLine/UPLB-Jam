@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cp7x564vwt6q"]
+
+[ext_resource type="Script" uid="uid://db6yi8bmo2ljl" path="res://scripts/minigame_4.gd" id="1_awwlc"]
+[ext_resource type="Script" uid="uid://bbl53jload2ji" path="res://scripts/notes_spawner.gd" id="1_dd1ca"]
+[ext_resource type="Script" uid="uid://i3j37ojwqcj8" path="res://scripts/hit_zone.gd" id="2_awwlc"]
+[ext_resource type="PackedScene" uid="uid://c5r8s46qsr5we" path="res://scenes/note.tscn" id="2_x24qe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcyas"]
+size = Vector2(100, 15)
+
+[node name="minigame4" type="Node2D" unique_id=1222579358]
+script = ExtResource("1_awwlc")
+note_scene = ExtResource("2_x24qe")
+
+[node name="CenterTarget" type="Marker2D" parent="." unique_id=1043206519]
+position = Vector2(576, 300)
+
+[node name="HitZone" type="Area2D" parent="." unique_id=414854052]
+position = Vector2(576, 300)
+script = ExtResource("2_awwlc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone" unique_id=107389252]
+shape = SubResource("RectangleShape2D_gcyas")
+
+[node name="Character" type="CharacterBody2D" parent="." unique_id=796339522]
+
+[node name="NotesSpawner" type="Node2D" parent="." unique_id=971740678]
+position = Vector2(576, 648)
+script = ExtResource("1_dd1ca")
+
+[node name="NotesContainer" type="Node2D" parent="." unique_id=317737105]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1184565465]
+
+[node name="HUD" type="Control" parent="CanvasLayer" unique_id=1075651064]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1595876657]
+autostart = true

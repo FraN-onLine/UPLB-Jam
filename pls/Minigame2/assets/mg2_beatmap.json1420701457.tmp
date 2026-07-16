@@ -1,0 +1,212 @@
+{
+	"song_title": "Bad Apple!! (Intro Loop)",
+	"song_path": "res://audio/mg2_bad_apple_cut.mp3",
+  "bpm": 138,
+  "offset": 0.0,
+  "notes": [
+	{
+	  "beat": 2.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 3.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 4.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 5.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 5.75,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 6.0,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 6.25,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 6.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 7.5,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 8.5,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 9.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 10.0,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 10.5,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 11.5,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 12.5,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 13.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 13.75,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 14.0,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 14.25,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 14.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 15.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 16.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 17.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 17.75,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 18.0,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 18.25,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 18.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 19.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 20.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 21.5,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 21.75,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 22.0,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 22.25,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 22.5,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 23.5,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 24.5,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 25.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 25.75,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 26.0,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 26.25,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 26.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 27.5,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 28.5,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 29.5,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 29.75,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 30.0,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 30.25,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 30.5,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 31.5,
+	  "type": "hit_left"
+	},
+	{
+	  "beat": 32.5,
+	  "type": "hit_right"
+	},
+	{
+	  "beat": 33.25,
+	  "type": "hit_right"
+	}
+  ]
+}
