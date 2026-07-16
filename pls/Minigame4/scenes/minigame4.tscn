@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://cn40otpufqnpx"]
+
+[ext_resource type="Script" uid="uid://dwsqkrubtcylj" path="res://scripts/minigame_4.gd" id="1_awwlc"]
+[ext_resource type="Texture2D" uid="uid://wiwnebkhpa32" path="res://assets/mg4_bg.jpg" id="2_dl4oh"]
+[ext_resource type="Texture2D" uid="uid://rc5gvdy3yklu" path="res://assets/mg4_paper.png" id="2_x24qe"]
+[ext_resource type="FontFile" uid="uid://c31j8qart2i41" path="res://fonts/Kenney Future.ttf" id="3_dl4oh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wcy7a"]
+texture = ExtResource("2_x24qe")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0rby"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwweg"]
+bg_color = Color(0.68597925, 0.56761724, 0.5618482, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 8.0
+expand_margin_top = 2.0
+expand_margin_right = 8.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_wrdeu"]
+font = ExtResource("3_dl4oh")
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[node name="Minigame4" type="Control" unique_id=1272616091]
+custom_minimum_size = Vector2(600, 375)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = -187.5
+offset_right = 325.0
+offset_bottom = 187.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_awwlc")
+
+[node name="BG" type="TextureRect" parent="." unique_id=920234307]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dl4oh")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="PaperContainer" type="Panel" parent="." unique_id=1527069025]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -250.0
+offset_right = 425.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wcy7a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PaperContainer" unique_id=1635549030]
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -305.0
+offset_top = -185.0
+offset_right = 355.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 30
+
+[node name="LeftPanel" type="PanelContainer" parent="PaperContainer/HBoxContainer" unique_id=532853582]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_y0rby")
+
+[node name="PuzzleGrid" type="GridContainer" parent="PaperContainer/HBoxContainer/LeftPanel" unique_id=148375681]
+custom_minimum_size = Vector2(500, 375)
+custom_maximum_size = Vector2(500, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="VBoxContainer" parent="PaperContainer/HBoxContainer" unique_id=1789080019]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="ResetButton" type="Button" parent="PaperContainer/HBoxContainer/PanelContainer" unique_id=678469762]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dl4oh")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_uwweg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uwweg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uwweg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_uwweg")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_uwweg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_uwweg")
+text = "Shuffle?"
+
+[node name="MoveLabel" type="Label" parent="PaperContainer/HBoxContainer/PanelContainer" unique_id=297963995]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Moves: 0"
+label_settings = SubResource("LabelSettings_wrdeu")
+vertical_alignment = 2

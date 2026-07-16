@@ -109,13 +109,13 @@ func reset_game():
 	
 	# Reset HUD
 	var hud = $HUD
-	hud.time_left = 90.0
+	hud.time_left = 180.0
 	hud.game_ended = false
 	hud.update_hearts(3)
 	hud.update_score(0)
 	hud.game_over_screen.visible = false
 	hud.win_screen.visible = false
-	hud.timer_label.text = "90"
+	hud.timer_label.text = "180"
 	
 	# Unpause and restart audio
 	get_tree().paused = false

@@ -13,5 +13,5 @@ func _process(delta):
 func _on_area_entered(area: Area2D):
 	if area.name == "Player":
 		area.play_coin_sound()
-		area.collect_money(20) # value ng coins
+		area.collect_money(2000) # value ng coins
 		queue_free()

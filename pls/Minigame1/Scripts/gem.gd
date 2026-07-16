@@ -10,5 +10,5 @@ func _process(delta):
 func _on_area_entered(area: Area2D):
 	if area.name == "Player":
 		area.play_gem_sound()
-		area.collect_money(100) # value naman ng gems
+		area.collect_money(5000) # value naman ng gems
 		queue_free()

@@ -16,13 +16,14 @@ signal game_was_won
 @export var full_heart_image: Texture2D
 @export var empty_heart_image: Texture2D
 
-var score_goal = 1000
-var time_left = 90.0
+var score_goal = 67000
+var time_left = 180.0
 var game_ended = false
 
 func _ready():
 	$GameOverScreen/RestartButton.pressed.connect(_on_restart)
-	$WinScreen/RestartButton.pressed.connect(_on_restart)
+	# Win screen no longer has retry - player progresses to next story section
+	# $WinScreen/RestartButton.pressed.connect(_on_restart)
 	$PauseScreen/ContinueButton.pressed.connect(_on_continue)
 	$PauseScreen/QuitButton.pressed.connect(_on_restart)
 
@@ -66,9 +67,18 @@ func show_game_over():
 func show_win():
 	game_ended = true
 	win_screen.visible = true
-	get_tree().paused = true
+	# Don't pause the game on win - let the transition happen naturally
+	# get_tree().paused = true
+	# Hide the retry button on win - player should continue story
+	$WinScreen/RestartButton.visible = false
+	# Emit signal so MainMenu can transition to next story section
+	game_was_won.emit()
 
 func _on_restart():
+	# Only allow restart on game over, not on win
+	if game_ended and win_screen.visible:
+		return
+	
 	# Reset the game state instead of reloading the scene
 	# This keeps the player in minigame 1
 	var main = get_parent()

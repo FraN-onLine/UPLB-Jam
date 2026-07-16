@@ -139,5 +139,5 @@ func collect_money(amount):
 	play_coin_sound()
 	var hud = get_parent().get_node("HUD")
 	hud.update_score(money)
-	if money >= 1000:
+	if money >= 67000:
 		hud.show_win()

@@ -5,10 +5,11 @@
 extends CanvasLayer
 
 @onready var dialogue_window = preload("res://Dialogue Windows/dialgoue.tscn").instantiate()
-
+var fade_overlay: ColorRect
 var minigame1_scene = preload("res://Minigame1/Scenes/main.tscn")
 var minigame1_instance = null
 var _in_minigame := false
+var _transitioning := false
 
 
 func _ready() -> void:
@@ -18,6 +19,14 @@ func _ready() -> void:
 
 	$StartButton.pressed.connect(_on_start_pressed)
 	$TestButton.pressed.connect(_on_test_pressed)
+	
+	# Create fade overlay in root viewport so it covers everything including minigame
+	fade_overlay = ColorRect.new()
+	fade_overlay.z_index = 9999
+	fade_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	fade_overlay.color = Color(0, 0, 0, 0)  # Start fully transparent
+	fade_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	get_tree().root.add_child(fade_overlay)
 
 
 func _on_start_pressed() -> void:
@@ -42,12 +51,45 @@ func _show_menu() -> void:
 	$Title.show()
 	$Subtitle.show()
 	$OtherButton.show()
+	$TextureRect.show()
 
+
+func _fade_in(duration: float = 1.0) -> void:
+	_transitioning = true
+	var tween = create_tween()
+	tween.tween_property(fade_overlay, "color:a", 1.0, duration)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	await tween.finished
+	_transitioning = false
+
+func _fade_out(duration: float = 1.0) -> void:
+	_transitioning = true
+	var tween = create_tween()
+	tween.tween_property(fade_overlay, "color:a", 0.0, duration)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	await tween.finished
+	_transitioning = false
 
 func _launch_minigame1() -> void:
+	if _transitioning:
+		return
+	
+	# Fade to black
+	await _fade_in(1.0)
+	
 	# Hide dialogue and stop any active input/typing state before minigame.
 	dialogue_window.hide()
 	_in_minigame = true
+	
+	# Hide main menu background but keep fade overlay visible
+	$Title.hide()
+	$Subtitle.hide()
+	$StartButton.hide()
+	$OtherButton.hide()
+	$TestButton.hide()
+	$TextureRect.hide()
 
 	# Reset dialogue window state so we never resume mid-typing.
 	if dialogue_window.has_method("start"):
@@ -55,10 +97,17 @@ func _launch_minigame1() -> void:
 		pass
 
 	minigame1_instance = minigame1_scene.instantiate()
-	add_child(minigame1_instance)
+	minigame1_instance.visible = true
+	# Add to root viewport so Camera2D works properly
+	get_tree().root.add_child(minigame1_instance)
 
 	
 	await get_tree().process_frame
+	
+	# Make the minigame's camera the active camera
+	var camera = minigame1_instance.find_child("Camera2D", true, false)
+	if camera:
+		camera.make_current()
 	
 	var hud = minigame1_instance.find_child("HUD", true, false)
 	if hud:
@@ -69,15 +118,28 @@ func _launch_minigame1() -> void:
 			minigame1_instance.minigame_won.connect(_on_minigame1_won)
 		if minigame1_instance.has_signal("minigame_lost"):
 			minigame1_instance.minigame_lost.connect(_on_minigame1_lost)
+	
+	# Fade from black
+	await _fade_out(1.0)
 
 
 func _on_minigame1_won() -> void:
+	# When won, continue story - no retry option
+	await _fade_in(1.0)
 	_minigame_cleanup()
+	# Show the dialogue window and main menu
+	dialogue_window.show()
+	show()
+	await _fade_out(1.0)
+	# Start the next story section
 	dialogue_window.start("res://Dialogue Windows/base.txt", "after_fundraiser")
 
 
 func _on_minigame1_lost() -> void:
+	# When lost, allow retry
+	await _fade_in(1.0)
 	_minigame_cleanup()
+	await _fade_out(1.0)
 	print("Minigame lost — returning to menu")
 	_show_menu()
 

@@ -13,6 +13,7 @@
 //    hiraya    — younger sister
 //    pedro     — town elder
 //    djo       — Djo Jacques, government official
+//    santo     - Santo
 //
 //  Commands:
 //    #thought  — Hides name tag + portraits (just text on screen)
@@ -22,7 +23,8 @@
 //
 // ============================================================
 
-emilio = Emilio
+emilio = Emilio (You)
+santo = Tio Santo
 marie = Marie Tess
 sisa = Sisa
 crispin = Crispin
@@ -39,6 +41,7 @@ crispin_default = res://Assets/Characters/Crispin.png
 amila_default = res://Assets/Characters/Amila.png
 mia_default = res://Assets/Characters/Mia.png
 hiraya_default = res://Assets/Characters/Hiraya.png
+santo_default = res://Assets/Characters/Santo.png
 djo_default = res://icon.svg
 
 bg_city = res://Assets/Background/City.png
@@ -213,16 +216,16 @@ We weren't the richest people around. Far from it actually.
 …
 #thought
 But we were happy… content…
-#thought
-The rumors said the fire was caused by faulty wirings… Some say it was sabotaged and intentional.
-#thought
-But there's really no way as of now.
+<santo-2>
+(That boy.... he just came back but he looks distraught)
 #thought
 All we can do anyways is to accept reality and move on… which is easy to say if almost all of the people lost almost everything.
 #thought
 And now this place is getting bought out by people above.
 #thought
 Some refused to give up their land because for some of them… this place holds significant memories to their lives.
+<santo-2>
+(Some inner monologue must be going on....)
 #thought
 After some time walking I wasn't able to find Mama and Hira.
 <emilio-1>
@@ -601,6 +604,8 @@ That's all we ever wanted.
 Not someone to save us. Just someone willing to believe in us.
 #thought
 The people erupt into cheers.
+<santo-2>
+WOOOO!
 #celebration
 [end]
 

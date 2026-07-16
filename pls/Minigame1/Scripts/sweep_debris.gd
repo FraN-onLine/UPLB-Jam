@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var sweep_speed = 1400
+@export var sweep_speed = 1100
 var direction = 1
 
 @onready var anim = $AnimatedSprite2D
