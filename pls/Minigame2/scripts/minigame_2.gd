@@ -1,5 +1,9 @@
 extends Node
 
+# Emitted when the beatmap song finishes successfully. MainMenu listens for
+# this signal and resumes the story at the post-cleanup narrative.
+signal minigame_won
+
 # Everything else
 @export var bpm: float = 128
 @export var spawn_offset_beats: float = 5
@@ -28,6 +32,7 @@ var is_restarting: bool = false
 var offset: float
 var total_notes_in_map: int = 0
 var song_time_when_paused: float = 0.0
+var has_finished: bool = false
 
 
 # Proper funcs
@@ -73,6 +78,7 @@ func restart_game() -> void:
 	song_beat = 0.0
 	last_spawned_index = 0
 	song_time_when_paused = 0.0
+	has_finished = false
 	health_bar.value = 100
 	
 	# Note genocide
@@ -120,14 +126,16 @@ func load_map(file_path: String) -> void:
 		
 
 func play_song() -> void:
+	has_finished = false
 	audio_player.play()
 	is_playing = true
 	
 func _on_song_finished() -> void:
-	if is_restarting:
+	if is_restarting or has_finished:
 		return
 	is_playing = false
-	print("DONE")
+	has_finished = true
+	minigame_won.emit()
 
 
 func _process(delta: float) -> void:

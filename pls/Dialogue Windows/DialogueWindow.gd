@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 class_name DialogueWindow
 
 ## Runtime controller for the dialogue scene.
@@ -29,8 +29,8 @@ signal speaker_changed(character_id: String, slot: int, display_name: String)
 @onready var _name_label: Label = $NameTag/Name
 @onready var _text_label: Label = $Text
 @onready var _background: Sprite2D = $Background
-@onready var _speaker_icons: Array[Sprite2D] = [$SpeakerIcon1, $SpeakerIcon2]
-@onready var _option_buttons: Array[Button] = [$Option1, $Option2]
+@onready var _speaker_icons: Array[Sprite2D] = []
+@onready var _option_buttons: Array[Button] = []
 
 var _data : DialogueData
 var _current_section := ""
@@ -44,7 +44,7 @@ var _slot_characters : Dictionary = {}
 var _active_slot := 0
 var _last_speaker_id := ""
 
-# When speaker tags don’t specify a slot, we auto-assign to keep 2 portraits alternating.
+# When speaker tags don't specify a slot, we auto-assign to keep 2 portraits alternating.
 # Slot 1/2 only.
 var _auto_next_slot := 1
 
@@ -64,6 +64,17 @@ var last_chosen_option_index := -1
 
 
 func _ready() -> void:
+	
+	# Initialize arrays with node references
+	_speaker_icons = [
+		$SpeakerIcon1,
+		$SpeakerIcon2
+	]
+	_option_buttons = [
+		$Option1,
+		$Option2
+	]
+	
 	_texture_regex.compile("\\$\\(([^)]+)\\)\\$")
 	_hide_choices()
 	for button in _option_buttons:
@@ -96,11 +107,14 @@ func start(dialogue_path: String, section_name: String) -> void:
 	_active_slot = 0
 	_last_speaker_id = ""
 	_auto_next_slot = 1
+	_text_label = $Text
+	_background = $Background
+	_name_tag = $NameTag
 	_text_label.text = ""
 	_waiting_for_input = false
 	_in_choice = false
 
-
+	_name_label = $NameTag/Name
 	_name_label.text = ""
 	_is_typing = false
 	if _typing_tween and _typing_tween.is_running():

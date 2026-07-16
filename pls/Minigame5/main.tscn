@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b472a7mcleb0u"]
+
+[ext_resource type="Script" uid="uid://d3febocetbj5o" path="res://Minigame5/main.gd" id="1_0xm2m"]
+[ext_resource type="FontFile" uid="uid://bwb771kw1nbjx" path="res://Minigame5/Assets/Fonts/Yuyu-Regular.ttf" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dx34e7j0jx6ds" path="res://Minigame5/player.tscn" id="2_h2yge"]
+[ext_resource type="AudioStream" uid="uid://bdgjxnopav736" path="res://Minigame5/Assets/Sound/Minigame5.mp3" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://symby5yjlfrf" path="res://Minigame5/Assets/Background/Untitled182_20260716101114.png" id="5_lquwl"]
+
+[node name="Main" type="Node2D" unique_id=1543150011]
+script = ExtResource("1_0xm2m")
+custom_font = ExtResource("2_1bvp3")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1796672669]
+position = Vector2(581, 326)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D" unique_id=2094886926]
+position = Vector2(0, -3)
+texture = ExtResource("5_lquwl")
+
+[node name="Player" parent="." unique_id=912764977 instance=ExtResource("2_h2yge")]
+position = Vector2(57, 525)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1051746341]
+stream = ExtResource("4_1bvp3")
+autoplay = true

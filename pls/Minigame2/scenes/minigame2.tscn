@@ -205,6 +205,14 @@ text = "SCORE: 0"
 label_settings = SubResource("LabelSettings_wcy7a")
 horizontal_alignment = 2
 
+[node name="ScoreLabel2" type="Label" parent="CanvasLayer/HUD/Corner" unique_id=846592320]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Left click -Debris
+right click - recycle"
+label_settings = SubResource("LabelSettings_wcy7a")
+horizontal_alignment = 2
+
 [node name="BlackOverlay" type="ColorRect" parent="CanvasLayer" unique_id=645123692]
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bgbp7n5a6cvd" path="res://Assets/Background/horizon.png" id="2_deeku"]
 [ext_resource type="Texture2D" uid="uid://rc5gvdy3yklu" path="res://Minigame4/assets/mg4_paper.png" id="2_x24qe"]
 [ext_resource type="FontFile" uid="uid://c31j8qart2i41" path="res://Minigame4/fonts/Kenney Future.ttf" id="3_dl4oh"]
+[ext_resource type="AudioStream" uid="uid://do3wg1kkbjw05" path="res://Audio/Minigame4 (1).mp3" id="5_ntp2k"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wcy7a"]
 texture = ExtResource("2_x24qe")
@@ -134,3 +135,7 @@ size_flags_vertical = 0
 text = "Moves: 0"
 label_settings = SubResource("LabelSettings_wrdeu")
 vertical_alignment = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=678964291]
+stream = ExtResource("5_ntp2k")
+autoplay = true

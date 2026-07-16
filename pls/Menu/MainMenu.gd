@@ -7,8 +7,10 @@ extends CanvasLayer
 @onready var dialogue_window = preload("res://Dialogue Windows/dialgoue.tscn").instantiate()
 var fade_overlay: ColorRect
 var minigame1_scene = preload("res://Minigame1/Scenes/main.tscn")
+var minigame2_scene = preload("res://Minigame2/scenes/minigame2.tscn")
 var minigame3_scene = preload("res://Minigame3/Scenes/main.tscn")
 var minigame4_scene = preload("res://Minigame4/scenes/minigame4.tscn")
+var minigame5_scene = preload("res://Minigame5/main.tscn")
 var minigame_instance = null
 var _in_minigame := false
 var _transitioning := false
@@ -20,7 +22,7 @@ var _using_end_theme := false
 
 
 func _ready() -> void:
-	add_child(dialogue_window)
+	get_tree().root.add_child.call_deferred(dialogue_window)
 	dialogue_window.hide()
 	dialogue_window.dialogue_finished.connect(_on_dialogue_finished)
 
@@ -38,14 +40,14 @@ func _ready() -> void:
 	# Setup audio players
 	main_theme = AudioStreamPlayer.new()
 	main_theme.stream = preload("res://Audio/MainTheme.mp3")
-	main_theme.volume_db = -10.0
+	main_theme.volume_db = -5.0
 	main_theme.bus = &"Master"
 	main_theme.finished.connect(main_theme.play)  # Loop
 	add_child(main_theme)
 	
 	end_theme = AudioStreamPlayer.new()
 	end_theme.stream = preload("res://Audio/EndTheme.mp3")
-	end_theme.volume_db = -10.0
+	end_theme.volume_db = -5.0
 	end_theme.bus = &"Master"
 	end_theme.finished.connect(end_theme.play)  # Loop
 	add_child(end_theme)
@@ -178,6 +180,51 @@ func _on_minigame1_lost() -> void:
 	_show_menu()
 
 
+func _launch_minigame2() -> void:
+	if _transitioning:
+		return
+
+	await _fade_in(1.0)
+
+	# Minigame 2 supplies its own rhythm track.
+	main_theme.stop()
+	dialogue_window.hide()
+	_in_minigame = true
+
+	$Title.hide()
+	$Subtitle.hide()
+	$StartButton.hide()
+	$OtherButton.hide()
+	$TestButton.hide()
+	$TextureRect.hide()
+
+	minigame_instance = minigame2_scene.instantiate()
+	# Connect before adding the scene so even a very short/custom song cannot
+	# finish before MainMenu starts listening.
+	minigame_instance.minigame_won.connect(_on_minigame2_won)
+	get_tree().root.add_child(minigame_instance)
+
+	await get_tree().process_frame
+
+	var camera = minigame_instance.find_child("Camera2D", true, false)
+	if camera:
+		camera.make_current()
+
+	await _fade_out(1.0)
+
+
+func _on_minigame2_won() -> void:
+	if not _in_minigame:
+		return
+	await _fade_in(1.0)
+	_minigame_cleanup()
+	main_theme.play()
+	dialogue_window.show()
+	show()
+	await _fade_out(1.0)
+	dialogue_window.start("res://Dialogue Windows/base.txt", "minigame2_narrative")
+
+
 func _launch_minigame3() -> void:
 	if _transitioning:
 		return
@@ -276,13 +323,52 @@ func _launch_minigame4() -> void:
 func _on_minigame4_won() -> void:
 	await _fade_in(1.0)
 	_minigame_cleanup()
-	# Resume end theme for dialogue
-	end_theme.play()
-	dialogue_window.show()
-	show()
+	# Go directly to minigame5
+	_launch_minigame5()
+
+
+func _launch_minigame5() -> void:
+	if _transitioning:
+		return
+	
+	await _fade_in(1.0)
+	
+	# Stop end theme during minigame5
+	end_theme.stop()
+	
+	dialogue_window.hide()
+	_in_minigame = true
+	
+	$Title.hide()
+	$Subtitle.hide()
+	$StartButton.hide()
+	$OtherButton.hide()
+	$TestButton.hide()
+	$TextureRect.hide()
+
+	minigame_instance = minigame5_scene.instantiate()
+	minigame_instance.visible = true
+	get_tree().root.add_child(minigame_instance)
+	
+	await get_tree().process_frame
+	
+	# Make the minigame's camera the active camera
+	var camera = minigame_instance.find_child("Camera2D", true, false)
+	if camera:
+		camera.make_current()
+	
+	# Connect its finished signal
+	if minigame_instance.has_signal("minigame_finished"):
+		minigame_instance.minigame_finished.connect(_on_minigame5_finished)
+	
 	await _fade_out(1.0)
-	# Show narrative of the rebuild result, then celebration
-	dialogue_window.start("res://Dialogue Windows/base.txt", "minigame4_narrative")
+
+
+func _on_minigame5_finished() -> void:
+	await _fade_in(1.0)
+	_minigame_cleanup()
+	# Return to main menu
+	_show_menu()
 
 
 func _minigame_cleanup() -> void:
@@ -329,7 +415,7 @@ func _on_dialogue_finished(return_key: String) -> void:
 			_show_menu()
 		
 		"start_minigame2":
-			dialogue_window.start("res://Dialogue Windows/base.txt", "minigame2_narrative")
+			_launch_minigame2()
 		
 		"start_minigame3":
 			_launch_minigame3()
@@ -337,12 +423,8 @@ func _on_dialogue_finished(return_key: String) -> void:
 		"start_minigame4":
 			_launch_minigame4()
 		
-		"celebration":
-			dialogue_window.start("res://Dialogue Windows/base.txt", "celebration")
-		
-		"day1_complete":
-			print("Day 1 complete! 🎉")
-			_show_menu()
+		"start_minigame5":
+			_launch_minigame5()
 		
 		"test_complete":
 			print("Test complete")

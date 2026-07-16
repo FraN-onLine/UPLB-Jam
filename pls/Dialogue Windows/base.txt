@@ -44,7 +44,6 @@ hiraya_default = res://Assets/Characters/Hiraya.png
 santo_default = res://Assets/Characters/Santo.png
 djo_default = res://Assets/Characters/Djo Jacques.png
 
-# Character definitions (each emotion is a separate character ID)
 emilio = Emilio (You)
 santo = Tio Santo
 marie = Marie Tess
@@ -65,7 +64,6 @@ djo = Djo Jacques
 djo_angry = Djo Jacques
 djo_evilsmile = Djo Jacques
 
-# Portrait texture mappings
 emilio_default = res://Assets/Characters/Emilio.png
 marie_default = res://Assets/Characters/Marie Tess.png
 marie_yap = res://Assets/Characters/marie tess yap.png
@@ -81,7 +79,7 @@ mia_smile = res://Assets/Characters/mia smile.png
 hiraya_default = res://Assets/Characters/Hiraya.png
 hiraya_happy = res://Assets/Characters/hiraya happy.png
 santo_default = res://Assets/Characters/Santo.png
-djo_default = res://Assets/Characters/Djo Jacques.png
+djo_default = res://Assets/Characters/djo.png
 djo_angry = res://Assets/Characters/djo-angry.png
 djo_evil_smile = res://Assets/Characters/djo-evilsmile_.png
 
@@ -448,9 +446,9 @@ Donto became just another name on a forgotten map.
 
 // ============================================================
 [stayed_to_fight]
-<djo-2>
+<djo-1>
 Okay.
-<djo-2>
+<djo-1>
 One week. If you can do something substantial… we'll hold it off for a little longer.
 #thought
 He leaves.
@@ -644,29 +642,5 @@ That's all we ever wanted.
 Not someone to save us. Just someone willing to believe in us.
 #thought
 The people erupt into cheers.
-#celebration
-[end]
-
-// ============================================================
-[celebration]
-#background bg_streets
-#thought
-For the first time in months… Donto breathes again.
-#thought
-The children play in the streets. The elders share food. The laughter returns.
-<marie_yap-1>
-We did it!
-<pedro-2>
-No… WE did it.
-<mia_smile-2>
-My son… you saved us.
-<hiraya_happy-1>
-Kuya! You're a hero!
-<emilio-1>
-No. Everyone here is a hero.
-#thought
-Emilio looks at the crowd. The people who refused to give up. The people who believed.
-<emilio-1>
-This is just the beginning.
-#day1_complete
+#start_minigame5
 [end]

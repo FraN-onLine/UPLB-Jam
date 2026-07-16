@@ -32,7 +32,8 @@ texture = ExtResource("6_xt733")
 texture = ExtResource("6_xt733")
 modulate_color = Color(0.9951138, 0.8572481, 0.6787855, 1)
 
-[node name="Node2D" type="Node2D" unique_id=1502847696]
+[node name="DialogueWindow" type="CanvasLayer" unique_id=1502847696]
+layer = 10
 script = ExtResource("1_dialogue")
 
 [node name="NameTag" type="Node2D" parent="." unique_id=2131349232]
@@ -60,12 +61,17 @@ autowrap_mode = 3
 metadata/_edit_lock_ = true
 
 [node name="Panel" type="TextureRect" parent="." unique_id=1524816581]
-offset_left = 19.0
-offset_top = 400.0
-offset_right = 1136.0
-offset_bottom = 633.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -253.0
+offset_right = -13.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
 texture = ExtResource("2_b873l")
-metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1395952719]
 z_index = -10
@@ -76,7 +82,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Text" type="Label" parent="." unique_id=976781364]
-offset_left = 128.0
+offset_left = 119.0
 offset_top = 449.0
 offset_right = 1082.0
 offset_bottom = 599.0
@@ -100,10 +106,10 @@ texture = SubResource("CompressedTexture2D_xt733")
 metadata/_edit_lock_ = true
 
 [node name="Option1" type="Button" parent="." unique_id=255144146]
-offset_left = 763.0
-offset_top = 206.0
-offset_right = 1109.0
-offset_bottom = 267.0
+offset_left = 761.0
+offset_top = 255.0
+offset_right = 1107.0
+offset_bottom = 316.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_cjbjp")
@@ -115,9 +121,9 @@ text = "Option 1"
 
 [node name="Option2" type="Button" parent="." unique_id=443199343]
 offset_left = 761.0
-offset_top = 301.0
+offset_top = 327.0
 offset_right = 1112.0
-offset_bottom = 362.0
+offset_bottom = 388.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_cjbjp")

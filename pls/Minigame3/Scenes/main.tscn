@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://0tl6y88egk32" path="res://Minigame3/Assets/Items/ArrowsCut/Up.png" id="26_6vcvc"]
 [ext_resource type="Texture2D" uid="uid://d3x8xbaoh2c85" path="res://Minigame3/Assets/Items/ArrowsCut/Right.png" id="27_7k868"]
 [ext_resource type="PackedScene" uid="uid://c2hiaupymbs4n" path="res://Minigame3/Scenes/player_new.tscn" id="28_erwfn"]
+[ext_resource type="FontFile" uid="uid://c31j8qart2i41" path="res://Minigame2/fonts/Kenney Future.ttf" id="28_n86fo"]
 [ext_resource type="PackedScene" uid="uid://cynd5b0t1xwur" path="res://Minigame3/Scenes/hud_new.tscn" id="28_oxcf7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lswn8"]
@@ -311,6 +312,14 @@ scale = Vector2(8, 1)
 texture = ExtResource("3_fevyy")
 region_enabled = true
 region_rect = Rect2(0, 60.031227, 64, 3.968773)
+
+[node name="Label" type="Label" parent="." unique_id=738823261]
+offset_left = 12.0
+offset_top = 5.0
+offset_right = 283.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("28_n86fo")
+text = "Press Arrow Keys At the RIght Time"
 
 [node name="Player" parent="." unique_id=117276717 instance=ExtResource("28_erwfn")]
 position = Vector2(88, 320)

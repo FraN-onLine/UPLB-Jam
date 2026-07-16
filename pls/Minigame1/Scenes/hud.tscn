@@ -46,18 +46,18 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=79647485]
-offset_left = 921.0
+offset_left = 871.0
 offset_top = 10.0
-offset_right = 1098.0
+offset_right = 1119.0
 offset_bottom = 49.0
 theme_override_fonts/font = ExtResource("5_5ep0j")
 theme_override_font_sizes/font_size = 28
 text = "₱0 / ₱67000"
 
 [node name="CoinIcon" type="TextureRect" parent="." unique_id=1024762864]
-offset_left = 849.0
+offset_left = 799.0
 offset_top = -5.0
-offset_right = 925.0
+offset_right = 875.0
 offset_bottom = 65.0
 texture = ExtResource("6_4f5kr")
 expand_mode = 3
