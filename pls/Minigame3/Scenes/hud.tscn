@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b4ph88ascunx2"]
+[gd_scene format=3 uid="uid://euyiefun5xm4"]
 
 [ext_resource type="Script" uid="uid://d3gxmkrsj5eeb" path="res://Minigame3/Scripts/hud.gd" id="1_36asn"]
 [ext_resource type="Texture2D" uid="uid://c2k3hus2eo2xn" path="res://Minigame3/Assets/HUDS/hud_heart.png" id="2_8jye8"]

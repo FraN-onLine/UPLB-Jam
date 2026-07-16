@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://br7btgicd4arq"]
 
-[ext_resource type="Texture2D" uid="uid://y67kvkxb5n7c" path="res://Assets/debris/sign.png" id="1_8hufe"]
-[ext_resource type="Script" uid="uid://cni88d8map0nd" path="res://Scripts/warning.gd" id="2_0b8um"]
-[ext_resource type="FontFile" uid="uid://b5caifmxt60gr" path="res://Assets/Font/Kenney Future.ttf" id="3_q1tw2"]
+[ext_resource type="Texture2D" uid="uid://y67kvkxb5n7c" path="res://Minigame1/Assets/debris/sign.png" id="1_8hufe"]
+[ext_resource type="Script" uid="uid://cni88d8map0nd" path="res://Minigame1/Scripts/warning.gd" id="2_0b8um"]
+[ext_resource type="FontFile" uid="uid://b5caifmxt60gr" path="res://Minigame1/Assets/Font/Kenney Future.ttf" id="3_q1tw2"]
 
 [node name="Warning" type="Sprite2D" unique_id=1467249123]
 texture = ExtResource("1_8hufe")

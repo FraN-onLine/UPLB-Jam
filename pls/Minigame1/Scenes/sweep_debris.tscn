@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bqjmy62h8fd56"]
 
-[ext_resource type="Script" uid="uid://wn6aqci2ce1x" path="res://Scripts/sweep_debris.gd" id="1_qed8m"]
-[ext_resource type="Texture2D" uid="uid://cphi6l4tmmtee" path="res://Assets/debris/saw_a.png" id="2_nwd52"]
-[ext_resource type="Texture2D" uid="uid://3d762ia8u58" path="res://Assets/debris/saw_b.png" id="3_3r14e"]
+[ext_resource type="Script" uid="uid://wn6aqci2ce1x" path="res://Minigame1/Scripts/sweep_debris.gd" id="1_qed8m"]
+[ext_resource type="Texture2D" uid="uid://cphi6l4tmmtee" path="res://Minigame1/Assets/debris/saw_a.png" id="2_nwd52"]
+[ext_resource type="Texture2D" uid="uid://3d762ia8u58" path="res://Minigame1/Assets/debris/saw_b.png" id="3_3r14e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ggk5h"]
 animations = [{

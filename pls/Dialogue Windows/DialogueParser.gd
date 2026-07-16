@@ -141,6 +141,7 @@ static func _register_definition(data: DialogueData, left: String, right: String
 	var is_asset_path := right.begins_with("res://") or right.contains("/") or right.contains("\\")
 
 	if left.contains(".") and is_asset_path:
+		# Dot notation: character.emotion = path
 		var parts := left.split(".", false, 1)
 		var char_id := parts[0]
 		var emotion := parts[1]
@@ -148,15 +149,14 @@ static func _register_definition(data: DialogueData, left: String, right: String
 			data.portraits[char_id] = {}
 		data.portraits[char_id][emotion] = right
 	elif is_asset_path:
+		# Asset path definition - could be a texture key or character portrait
 		data.textures[left] = right
-		if left.contains("_"):
-			var split_at := left.rfind("_")
-			var char_id := left.substr(0, split_at)
-			var emotion := left.substr(split_at + 1)
-			if not data.portraits.has(char_id):
-				data.portraits[char_id] = {}
-			data.portraits[char_id][emotion] = right
+		# Also register as a portrait for the character with the same ID
+		if not data.portraits.has(left):
+			data.portraits[left] = {}
+		data.portraits[left]["default"] = right
 	else:
+		# Character name definition
 		data.characters[left] = right
 
 
@@ -358,10 +358,16 @@ static func _parse_speaker_tag(tag: String) -> Dictionary:
 	var character_id := char_part
 	var emotion := "default"
 
+	# Check for dot notation: <character.emotion-slot>
 	if char_part.contains("."):
 		var parts := char_part.split(".", false, 1)
 		character_id = parts[0]
 		emotion = parts[1]
+	# Check for underscore notation: <character_emotion-slot>
+	# This treats the whole thing as a character ID with default emotion
+	else:
+		character_id = char_part
+		emotion = "default"
 
 	return {
 		"character_id": character_id,

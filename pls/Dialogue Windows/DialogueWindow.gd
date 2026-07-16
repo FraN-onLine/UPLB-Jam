@@ -294,19 +294,50 @@ func _apply_speaker(instr: DialogueInstruction) -> void:
 	# A speaker tag exits thought mode — show everything again
 	_thought_active = false
 	var slot := instr.speaker_slot
+	
+	# Extract base character name (e.g., "sisa_cry" -> "sisa", "marie_yap" -> "marie")
+	var base_character_id: String = _get_base_character_id(instr.character_id)
+	
 	# Auto-assign slots when speaker tags omit it (or set 0).
 	if slot == 0:
-		slot = _auto_next_slot
-		_auto_next_slot = 2 if _auto_next_slot == 1 else 1
+		# Check if this character is already in a slot
+		for existing_slot in range(1, 3):
+			var existing_char: String = _slot_characters.get(existing_slot, "")
+			if _get_base_character_id(existing_char) == base_character_id:
+				slot = existing_slot
+				break
+		if slot == 0:
+			# New character, use auto-assign
+			slot = _auto_next_slot
+			_auto_next_slot = 2 if _auto_next_slot == 1 else 1
+	else:
+		# Slot was explicitly specified - check if it's already occupied by a DIFFERENT character
+		var current_slot_char: String = _slot_characters.get(slot, "")
+		var current_base_char: String = _get_base_character_id(current_slot_char)
+		
+		# If slot is occupied by a different character, find next available slot
+		if current_slot_char != "" and current_base_char != base_character_id:
+			# Check if other slot is available
+			var other_slot: int = 2 if slot == 1 else 1
+			var other_slot_char: String = _slot_characters.get(other_slot, "")
+			var other_base_char: String = _get_base_character_id(other_slot_char)
+			
+			if other_slot_char == "" or other_base_char == base_character_id:
+				# Use the other slot instead
+				slot = other_slot
+			else:
+				# Both slots occupied by different characters - use auto-assign
+				slot = _auto_next_slot
+				_auto_next_slot = 2 if _auto_next_slot == 1 else 1
 
 	if slot < 1 or slot > _speaker_icons.size():
 		push_error("DialogueWindow: invalid speaker slot %d" % slot)
 		return
 
-
 	var sprite := _speaker_icons[slot - 1]
 	var portrait := _resolve_portrait(instr.character_id, instr.emotion)
 
+	# Update portrait if character changed or emotion changed
 	if _slot_characters.get(slot, "") != instr.character_id:
 		if portrait:
 			sprite.texture = portrait
@@ -319,6 +350,15 @@ func _apply_speaker(instr: DialogueInstruction) -> void:
 	_sync_name_tag_visibility()
 	_refresh_speaker_highlights()
 	speaker_changed.emit(instr.character_id, slot, _name_label.text)
+
+
+func _get_base_character_id(character_id: String) -> String:
+	# Extract base character name from emotion variants
+	# e.g., "sisa_cry" -> "sisa", "marie_yap" -> "marie", "djo_angry" -> "djo"
+	if character_id.contains("_"):
+		var parts := character_id.split("_", false, 1)
+		return parts[0]
+	return character_id
 
 
 func _sync_name_tag_visibility() -> void:

@@ -65,8 +65,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="Area2D" unique_id=117276717]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgxk8"]
+size = Vector2(90, 100)
+
+[node name="Player" type="Area2D" unique_id=117276717 groups=["Player"]]
 script = ExtResource("1_u8411")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=117276718]
+shape = SubResource("RectangleShape2D_ggk5h")
 
 [node name="StandingHitbox" type="CollisionShape2D" parent="." unique_id=10852818]
 position = Vector2(-0.5, 15.5)
@@ -97,3 +103,10 @@ stream = ExtResource("10_n7ghd")
 
 [node name="GemSound" type="AudioStreamPlayer" parent="." unique_id=181404685]
 stream = ExtResource("11_nvl01")
+
+[node name="CatchZone" type="Area2D" parent="." unique_id=1983659194]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatchZone" unique_id=1983659195]
+position = Vector2(-1, 12)
+shape = SubResource("RectangleShape2D_qgxk8")

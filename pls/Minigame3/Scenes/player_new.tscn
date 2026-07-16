@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://c2hiaupymbs4n"]
+
+[ext_resource type="Script" uid="uid://cjp8ltmjy0fkg" path="res://Minigame3/Scripts/player_new.gd" id="1_kf8v5"]
+[ext_resource type="Texture2D" uid="uid://7iij0hohyql" path="res://Minigame3/Assets/Character/character_beige_duck.png" id="2_fxk4x"]
+[ext_resource type="Texture2D" uid="uid://ba4imr1t7pnyx" path="res://Minigame3/Assets/Character/character_beige_hit.png" id="3_h5cx5"]
+[ext_resource type="Texture2D" uid="uid://jygvyd16vyq1" path="res://Minigame3/Assets/Character/character_beige_idle.png" id="4_6wng0"]
+[ext_resource type="Texture2D" uid="uid://cefyl4k44j5yo" path="res://Minigame3/Assets/Character/character_beige_jump.png" id="5_ry75a"]
+[ext_resource type="Texture2D" uid="uid://qla6ntjeirh4" path="res://Minigame3/Assets/Character/character_beige_walk_a.png" id="6_3v7to"]
+[ext_resource type="Texture2D" uid="uid://beje0bwahdn1a" path="res://Minigame3/Assets/Character/character_beige_walk_b.png" id="7_bqmhq"]
+[ext_resource type="AudioStream" uid="uid://lu3ufy0djump" path="res://Minigame3/Assets/Sounds/sfx_coin.ogg" id="8_j7lyo"]
+[ext_resource type="AudioStream" uid="uid://djhpe8k2bfyce" path="res://Minigame3/Assets/Sounds/sfx_jump.ogg" id="9_la1lf"]
+[ext_resource type="AudioStream" uid="uid://cnkaxb1bsctdw" path="res://Minigame3/Assets/Sounds/15_Impact_flesh_02.wav" id="10_64mwv"]
+[ext_resource type="AudioStream" uid="uid://bf827x7ncgmx4" path="res://Minigame3/Assets/Sounds/confirmation_001.ogg" id="11_5e7ge"]
+[ext_resource type="AudioStream" uid="uid://bybxxjuld1ddt" path="res://Minigame3/Assets/Sounds/sfx_gem.ogg" id="12_2of8h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggk5h"]
+size = Vector2(81, 97)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phvq4"]
+size = Vector2(81, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phvq4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fxk4x")
+}],
+"loop": 1,
+"name": &"duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_h5cx5")
+}],
+"loop": 1,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6wng0")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ry75a")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_3v7to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bqmhq")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Player" type="Area2D" unique_id=117276717]
+script = ExtResource("1_kf8v5")
+
+[node name="StandingHitbox" type="CollisionShape2D" parent="." unique_id=10852818]
+position = Vector2(-0.5, 15.5)
+shape = SubResource("RectangleShape2D_ggk5h")
+
+[node name="DuckingHitbox" type="CollisionShape2D" parent="." unique_id=1622772531]
+position = Vector2(-0.5, 21.5)
+shape = SubResource("RectangleShape2D_phvq4")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=720772447]
+sprite_frames = SubResource("SpriteFrames_phvq4")
+animation = &"duck"
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="." unique_id=40054604]
+stream = ExtResource("8_j7lyo")
+volume_db = -10.0
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=1764131482]
+stream = ExtResource("9_la1lf")
+volume_db = -10.0
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=1150323773]
+stream = ExtResource("10_64mwv")
+
+[node name="HealSound" type="AudioStreamPlayer" parent="." unique_id=2022058164]
+stream = ExtResource("11_5e7ge")
+
+[node name="GemSound" type="AudioStreamPlayer" parent="." unique_id=181404685]
+stream = ExtResource("12_2of8h")

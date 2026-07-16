@@ -42,7 +42,48 @@ amila_default = res://Assets/Characters/Amila.png
 mia_default = res://Assets/Characters/Mia.png
 hiraya_default = res://Assets/Characters/Hiraya.png
 santo_default = res://Assets/Characters/Santo.png
-djo_default = res://icon.svg
+djo_default = res://Assets/Characters/Djo Jacques.png
+
+# Character definitions (each emotion is a separate character ID)
+emilio = Emilio (You)
+santo = Tio Santo
+marie = Marie Tess
+marie_yap = Marie Tess
+sisa = Sisa
+sisa_anxious = Sisa
+sisa_cry = Sisa
+crispin = Crispin
+crispin_happy = Crispin
+amila = Lola Amila
+amila_worry = Lola Amila
+mia = Mama Mia
+mia_smile = Mama Mia
+hiraya = Hiraya
+hiraya_happy = Hiraya
+pedro = Pedro
+djo = Djo Jacques
+djo_angry = Djo Jacques
+djo_evilsmile = Djo Jacques
+
+# Portrait texture mappings
+emilio_default = res://Assets/Characters/Emilio.png
+marie_default = res://Assets/Characters/Marie Tess.png
+marie_yap = res://Assets/Characters/marie tess yap.png
+sisa_default = res://Assets/Characters/Sisa.png
+sisa_anxious = res://Assets/Characters/sisa_anxious.png
+sisa_cry = res://Assets/Characters/sisa_cry.png
+crispin_default = res://Assets/Characters/crispin_default.png
+crispin_happy = res://Assets/Characters/crispin_happy.png
+amila_default = res://Assets/Characters/Amila.png
+amila_worry = res://Assets/Characters/amila worry.png
+mia_default = res://Assets/Characters/Mia.png
+mia_smile = res://Assets/Characters/mia smile.png
+hiraya_default = res://Assets/Characters/Hiraya.png
+hiraya_happy = res://Assets/Characters/hiraya happy.png
+santo_default = res://Assets/Characters/Santo.png
+djo_default = res://Assets/Characters/Djo Jacques.png
+djo_angry = res://Assets/Characters/djo-angry.png
+djo_evilsmile = res://Assets/Characters/djo-evilsmile_.png
 
 bg_home_out_old = res://Assets/Background/original-outside.png
 bg_home_out_new = res://Assets/Background/rebuilt.png
@@ -71,7 +112,7 @@ After walking for a while, I encountered a familiar looking person.
 …
 #thought
 She pauses in front of me for a moment. Giving me a curious look before…
-<marie-2>
+<marie_yap-1>
 OH!! Kaw ung anak ni MAMA MIA, diba?!!
 #thought
 For a place like this… some people are still really optimistic… I can never understand them at all.
@@ -83,9 +124,9 @@ It took me a moment to realize who she is.
 (Darn it, I can't remember her name.)
 #thought
 She probably realized my confusion and started walking towards me with short fast steps.
-<marie-2>
+<marie_yap-1>
 How are you?! You're so big and grown up already!!
-<emilio-1>
+<emilio-2>
 I'm oka-
 #thought
 She cuts me off and keeps yapping before I can even continue what I'm saying.
@@ -95,15 +136,15 @@ While listening to her yapping, someone suddenly nudges me from behind.
 I look back and I'm surprised to see an even more familiar face.
 <sisa-1>
 Psst Emilio! You're back! Went to visit your old friend back at Donto, ah!
-<emilio-1>
+<emilio-2>
 Yeah, came back to see how this old place is still holdin' up.
-<emilio-1>
+<emilio-2>
 And I see that there's a little one with you, is that…?
 <sisa-1>
 Yes! He's my son, Crispin. Come on, say hi!
 <crispin-2>
 Hello… kuya
-<emilio-1>
+<emilio-2>
 Aww this little one is adorable. So how's… Donto lately?
 #thought
 Sisa looks flustered with that question…
@@ -111,37 +152,37 @@ Sisa looks flustered with that question…
 (Looks like it's not been going well at all…)
 #thought
 Marie Tess leaves quietly.
-<sisa-1>
+<sisa_anxious-1>
 Well… It's been… worse.
-<sisa-1>
+<sisa_anxious-1>
 There's this stuff with this dump getting… bought.
-<sisa-1>
+<sisa_anxious-1>
 You can already see that this place is…
 > Uninhabitable
-<emilio-1>
+<emilio-2>
 Uninhabitable.
-<sisa-1>
+<sisa_anxious-1>
 Blunt, but it's not easy to just leave this place you know…
 > Not in the best condition
-<emilio-1>
+<emilio-2>
 Not in the best condition…
-<sisa-1>
-Blunt, but it's not easy to just leave this place you know…
+<sisa_anxious-1>
+but it's not easy to just leave this place you know…
 #thought
 I can definitely understand how she feels but…
-<emilio-1>
+<emilio-2>
 Is it really worth the struggle?
-<emilio-1>
+<emilio-2>
 I'm not saying you should leave this place but—
-<sisa-1>
+<sisa_anxious-1>
 Milo— I understand. But this is our home. Is it not worth trying to protect?
 #thought
 …
-<sisa-1>
+<sisa_anxious-1>
 Look, I'm gonna go and find a way to feed my son today. Everything has been overwhelming the past few days… But it was great seeing you again.
 #thought
 I— that was stupid of me.
-<emilio-1>
+<emilio-2>
 Yeah… It was great to see you too.
 #thought
 Leaving this place was easy for me, but would it be the same for them…?
@@ -155,15 +196,15 @@ Leaving this place was easy for me, but would it be the same for them…?
 Emilio enters a charred stone house. Pretty much nothing is inside but your grandmother lying on the floor.
 <emilio-1>
 Lola?
-<amila-1>
+<amila_worry-2>
 Milo? Apo, is that you?
 <emilio-1>
 Yes Lola, it's me!
-<amila-1>
+<amila_worry-2>
 Why are you here? You should be studying!
 <emilio-1>
 Why wouldn't I be? I was worried! Of course I'd be here… Also where's Mama and Hira?
-<amila-1>
+<amila_worry-2>
 They left this morning to get food. They haven't come back yet.
 #thought
 That's a bit concerning.
@@ -171,7 +212,7 @@ That's a bit concerning.
 Anyways, Lola how have you been?
 #thought
 She gives me this forced smile but it's so hard not to see past it.
-<amila-1>
+<amila_worry-2>
 I'm fine apo.
 #thought
 She coughs and that jolted me to lean towards her and help.
@@ -183,7 +224,7 @@ But watching Lola like this… I hate it… I want to cry! But… I need to stay
 Have you eaten lola? I've brought some food.
 #thought
 Lola shakes her head.
-<amila-1>
+<amila_worry-2>
 Let's wait for the two first before we eat.
 #thought
 I give a nod before helping her sit up.
@@ -243,47 +284,45 @@ Thinking they can just resolve it themselves I ignored it and went straight home
 // ============================================================
 [return_home]
 #background bg_home_inside_old
-<hiraya-2>
+<hiraya-1>
 Kuya!!
-<mia-1>
+<mia_smile-2>
 You're home! I found some food. Eat.
 <emilio-1>
 Found… where?
 #thought
 You can tell she refuses to answer.
-<mia-1>
-Look at our home, we need a new foundation.
-<mia-1>
+<mia_smile-2>
 If taking a few yields from the farm next town over is what it takes to keep afloat…
 <emilio-1>
 But it's not… I'm here, I'll help.
 <emilio-1>
 We'll find a way. We'll protect this town for as long as we can.
-<amila-1>
+<amila_worry-1>
 But can you fight the corp who plans to take over this land?
 <emilio-1>
 …We'll find a way.
-<hiraya-2>
+<hiraya_happy-2>
 Charity!
 <emilio-1>
 Maybe, with the help of the neighboring towns, we can protect this land.
-<amila-1>
+<amila_worry-2>
 And even if we save it from being taken over… it's still rubble.
 <emilio-1>
 We'll get there when we cross that bridge.
-<mia-1>
+<mia_smile-2>
 Son… I'm proud of you.
 <emilio-1>
 So? What do you say? Let's get this movement going or what?
-<sisa-1>
+<sisa-2>
 And we're here to help.
-<crispin-2>
+<crispin_happy-1>
 Ate Hiraya!
-<marie-2>
+<marie_yap-2>
 AND DONT FORGET ABOUT MEEEEE~
-<crispin-2>
+<crispin_happy-1>
 You're a weird old woman…
-<crispin-2>
+<crispin_happy-1>
 Pretty! But weird…
 #thought
 You set off.
@@ -305,9 +344,9 @@ People are smiling for the first time.
 The donations are counted.
 <pedro-1>
 We actually did it…
-<marie-2>
+<marie_yap-2>
 See? I told you people still cared!
-<mia-1>
+<mia_smile>
 It's not much… but it'll keep us alive for a while.
 #thought
 Everyone begins clapping.
@@ -315,7 +354,7 @@ Everyone begins clapping.
 For one brief moment…
 #thought
 It feels like things might actually be okay.
-<sisa-1>
+<sisa_cry-1>
 AHHHHHH!!
 #thought
 Everyone rushes.
@@ -325,7 +364,7 @@ Crispin is lying on the ground, barely conscious.
 He hasn't eaten enough in days.
 <pedro-1>
 The nearest clinic burned down.
-<marie-2>
+<marie_yap-2>
 The next town's hospital is hours away.
 #thought
 Sisa begins crying.
@@ -337,45 +376,45 @@ Several government vehicles stop.
 People immediately become silent.
 #thought
 Djo steps out. Perfectly clean clothes. Shiny shoes. A man who clearly doesn't know the suffering of the people of Donto.
-<djo-1>
+<djo_angry-1>
 Good afternoon. I see everyone is gathered.
-<djo-1>
+<djo_angry-2>
 I assume you've heard the relocation deadline.
 #thought
 Nobody answers. He notices the fundraiser. Boxes, coins, rice, old clothes.
 #thought
 He sighs.
-<djo-1>
+<djo_angry-1>
 …This won't be enough.
 <emilio-1>
 It doesn't have to be.
-<djo-1>
+<djo_angry-2>
 Doesn't it?
 #thought
 He points around. Burned houses. Collapsed roofs. No electricity. No running water.
-<djo-1>
+<djo_angry-1>
 How much did you raise?
-<pedro-1>
+<pedro-2>
 Sixty-seven thousand…
-<djo-1>
+<djo_angry-2>
 To restore electricity alone… estimated two million.
-<djo-1>
+<djo_angry-1>
 Water systems… another three.
-<djo-1>
+<djo_angry-2>
 Housing… tens of millions.
 #thought
 He closes the folder.
-<djo-1>
+<djo_angry-1>
 This town has already died.
 > But this is our home
 <emilio-1>
 But this is our home…
-<djo-1>
+<djo_angry-2>
 Yes, your home. But isn't home not the walls, but the people?
 > True… but…
 <emilio-1>
 True… but…
-<djo-1>
+<djo_evilsmile-1>
 Hm, submitting already? Well, best give up then.
 <emilio-1>
 No. We'll stand and fight!
@@ -419,7 +458,7 @@ He leaves.
 Attention draws back to Sisa, dead silent staring at her son.
 #thought
 …
-<sisa-1>
+<sisa_anxious-1>
 Why do we keep fighting just to go back to suffering?
 > Sisa…
 <emilio-1>
@@ -427,9 +466,9 @@ Sisa…
 > We'll make things right
 <emilio-1>
 We'll make things right.
-<sisa-1>
+<sisa_anxious-1>
 …
-<sisa-1>
+<sisa_anxious-1>
 For the future children of Donto…
 <emilio-1>
 So? Let's make this wreck into something sustainable again.
@@ -445,35 +484,35 @@ Pedro and Marie Tess gladly start to help you as Sisa watches at the corner, tak
 #background bg_streets
 #thought
 The group begins clearing the rubble.
-<pedro-1>
+<pedro-2>
 Emilio… this is…
-<marie-2>
+<marie_yap-1>
 Beautiful!
-<emilio-1>
+<emilio-2>
 It's nothing yet.
 <sisa-1>
 But it is a start…
 <emilio-1>
 Sisa? I haven't seen you in a while.
-<sisa-1>
+<sisa_anxious-1>
 Crispin… might be gone, but my hope for Donto doesn't have to be.
-<sisa-1>
+<sisa-2>
 So, how can I—
-<hiraya-2>
+<hiraya_happy-1>
 Kuya! Look! Here's a fruit!
-<mia-1>
+<mia_smile-2>
 She's been looking for her brother, you know.
-<emilio-1>
+<emilio-2>
 Hiraya… We'll build a future for you.
-<sisa-1>
+<sisa_cry-2>
 She would have loved Crispin…
-<mia-1>
+<mia_smile-1>
 She looks up to you, Sisa.
-<hiraya-2>
+<hiraya_happy-2>
 Stay strong, Sisa!
 #thought
 Sisa looks up, head held high.
-<sisa-1>
+<sisa_anxious-2>
 So, Emilio. Where do we start?
 #start_minigame3
 [end]
@@ -493,47 +532,47 @@ I almost forgot what hope sounded like.
 Is this gonna be the start of our new home?
 #thought
 Suddenly someone walks in.
-<djo-1>
+<djo_angry-1>
 I'm impressed.
-<djo-1>
+<djo_angry-2>
 But.
-<djo-1>
+<djo_angry-1>
 None of these are stable. How about electricity? Water? Food?
 <emilio-1>
 …
-<djo-1>
+<djo_angry-2>
 We'll have to take this down regardless.
-<sisa-1>
+<sisa_anxious-1>
 Sir! Please… if you're gonna take this down, take us down with it.
 #thought
 Djo was startled by that response.
-<djo-1>
+<djo_angry-1>
 …
-<djo-1>
+<djo_angry-2>
 You people…
 #thought
 He lets out a quiet sigh.
-<djo-1>
+<djo_angry-1>
 You're all incredibly stubborn.
 #thought
 He turns back toward his vehicle.
-<djo-1>
+<djo_angry-2>
 Continue.
-<djo-1>
+<djo_angry-1>
 For now.
 #thought
 He leaves.
-<amila-1>
+<amila_worry-1>
 Sisa, iha. We can always relocate. Nothing is as important as your life…
-<sisa-1>
+<sisa_anxious-1>
 No. What's next, Emilio?
-<emilio-1>
+<emilio-2>
 …We build up the walls.
 #thought
 And once again, Sisa begins to power through with her head held high.
 <emilio-1>
 She keeps herself busy to distract from her suffering…
-<amila-1>
+<amila_worry-2>
 Hey, if protecting this city is what keeps her from spiraling… let her.
 #thought
 And so, Emilio joins Sisa.
@@ -543,17 +582,17 @@ And so, Emilio joins Sisa.
 // ============================================================
 [minigame4_narrative]
 #background bg_streets
-<marie-2>
+<marie_yap-1>
 Oi Pedro! Straighten that beam! It looks like it'll fall on my future kitchen!
-<pedro-1>
+<pedro-2>
 Then maybe stop distracting the carpenter.
-<marie-2>
+<marie_yap-2>
 If my kitchen falls, I'm blaming you!
 #thought
 Everyone laughs.
-<hiraya-2>
+<hiraya_happy-1>
 Kuya! Look!
-<hiraya-2>
+<hiraya_happy-2>
 My room has a window! I can finally see the stars!
 #thought
 Emilio watches her. A small smile forms.
@@ -615,13 +654,13 @@ The people erupt into cheers.
 For the first time in months… Donto breathes again.
 #thought
 The children play in the streets. The elders share food. The laughter returns.
-<marie-2>
+<marie_yap-1>
 We did it!
-<pedro-1>
+<pedro-2>
 No… WE did it.
-<mia-1>
+<mia_smile-2>
 My son… you saved us.
-<hiraya-2>
+<hiraya_happy-1>
 Kuya! You're a hero!
 <emilio-1>
 No. Everyone here is a hero.

@@ -17,17 +17,17 @@
 [ext_resource type="Texture2D" uid="uid://utewkoxrycy2" path="res://Minigame3/Assets/Backgrounds/terrain_grass_block_bottom.png" id="12_ok6jj"]
 [ext_resource type="Texture2D" uid="uid://brkvci8x1a2gt" path="res://Minigame3/Assets/Backgrounds/terrain_grass_block_right.png" id="14_gt3je"]
 [ext_resource type="Texture2D" uid="uid://k6b7w7mcpyos" path="res://Minigame3/Assets/Backgrounds/terrain_grass_block_bottom_left.png" id="17_4lmeg"]
-[ext_resource type="PackedScene" uid="uid://dgbplwp7evh5c" path="res://Minigame3/Scenes/player.tscn" id="18_074og"]
 [ext_resource type="AudioStream" uid="uid://bnjbohpiewwv5" path="res://Minigame3/Assets/Sounds/Jeremy Blake - Powerup! NO COPYRIGHT 8-bit Music.mp3" id="18_cegan"]
 [ext_resource type="Texture2D" uid="uid://dlxvuaaiw10cj" path="res://Minigame3/Assets/Backgrounds/background_solid_sky.png" id="19_d2t1y"]
 [ext_resource type="Texture2D" uid="uid://bncpcyxys6qe8" path="res://Minigame3/Assets/Backgrounds/terrain_grass_block_bottom_right.png" id="20_gngh3"]
-[ext_resource type="PackedScene" uid="uid://b4ph88ascunx2" path="res://Minigame3/Scenes/hud.tscn" id="22_ryguw"]
 [ext_resource type="Texture2D" uid="uid://b82e6pj15l0ft" path="res://Minigame3/Assets/Items/ArrowsCut/Left.png" id="24_1w6v2"]
 [ext_resource type="Texture2D" uid="uid://coeex5s4liojd" path="res://Minigame3/Assets/Backgrounds/terrain_grass_block_top.png" id="24_f6a44"]
 [ext_resource type="Texture2D" uid="uid://cbiey2gj2jce3" path="res://Minigame3/Assets/Backgrounds/terrain_grass_block_top_left.png" id="25_0cbny"]
 [ext_resource type="Texture2D" uid="uid://ne8eyberoiai" path="res://Minigame3/Assets/Items/ArrowsCut/Down.png" id="25_ueoa1"]
 [ext_resource type="Texture2D" uid="uid://0tl6y88egk32" path="res://Minigame3/Assets/Items/ArrowsCut/Up.png" id="26_6vcvc"]
 [ext_resource type="Texture2D" uid="uid://d3x8xbaoh2c85" path="res://Minigame3/Assets/Items/ArrowsCut/Right.png" id="27_7k868"]
+[ext_resource type="PackedScene" uid="uid://c2hiaupymbs4n" path="res://Minigame3/Scenes/player_new.tscn" id="28_erwfn"]
+[ext_resource type="PackedScene" uid="uid://cynd5b0t1xwur" path="res://Minigame3/Scenes/hud_new.tscn" id="28_oxcf7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lswn8"]
 texture = ExtResource("1_2cqfq")
@@ -263,9 +263,6 @@ arrow_right_img = ExtResource("5_1w6v2")
 tile_map_data = PackedByteArray("AAACAAkAAwAAAAAAAAAEAAkAAwAAAAAAAAADAAkAAwAAAAAAAAANAAkAAwAAAAAAAAAOAAkAAwAAAAAAAAAPAAkAAwAAAAAAAAARAAkABQAAAAAAAAABAAkAAwAAAAAAAAAAAAAADgAAAAMAAAABAAAADgABAAMAAAABAAEADgABAAQAAAACAAEADgACAAQAAAADAAEADgADAAQAAAAEAAEADgAEAAQAAAAEAAIADgAEAAUAAAAFAAIADgAFAAUAAAAGAAIADgAGAAUAAAAHAAIADgAHAAUAAAAHAAMADgAHAAYAAAAIAAMADgAAAAYAAAAJAAMADgABAAYAAAAKAAMADgACAAYAAAAKAAQAAAACAAAAAAALAAQAAAADAAAAAAAMAAQAEAAAAAAAAAANAAQAEAABAAAAAAAOAAQAEAACAAAAAAAPAAQAEAADAAAAAAARAAAADgABAAMAAAARAAEADgABAAQAAAARAAIADgABAAUAAAARAAUAEAABAAEAAAAQAAUAEAAAAAEAAAAPAAUAEAADAAEAAAAOAAUAEAACAAEAAAANAAUAEAABAAEAAAAMAAUAEAAAAAEAAAALAAUAAAADAAEAAAAKAAUAAAACAAEAAAAJAAUAAAABAAEAAAAIAAUAAAAAAAEAAAAHAAUAEAADAAEAAAAGAAUAEAACAAEAAAAFAAUAEAABAAEAAAAEAAUAEAAAAAEAAAADAAUAAAADAAEAAAACAAUAAAACAAEAAAABAAUAAAABAAEAAAAAAAUAAAAAAAEAAAAAAAQAAAAAAAAAAAABAAQAAAABAAAAAAACAAQAAAACAAAAAAADAAQAAAADAAAAAAAEAAQAEAAAAAAAAAAFAAQAEAABAAAAAAAGAAQAEAACAAAAAAAHAAQAEAADAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAABAAAAAAAPAAMADgAHAAYAAAAOAAMADgAGAAYAAAANAAMADgAFAAYAAAAMAAMADgAEAAYAAAALAAMADgADAAYAAAAGAAMADgAGAAYAAAAFAAMADgAFAAYAAAAEAAMADgAEAAYAAAADAAMADgADAAYAAAACAAMADgACAAYAAAACAAIADgACAAUAAAABAAIADgABAAUAAAAAAAIADgAAAAUAAAAAAAEADgAAAAQAAAAAAAMADgAAAAYAAAABAAMADgABAAYAAAADAAIADgADAAUAAAAIAAIADgAAAAUAAAAJAAIADgABAAUAAAAKAAIADgACAAUAAAALAAIADgADAAUAAAAMAAIADgAEAAUAAAANAAIADgAFAAUAAAAOAAIADgAGAAUAAAAPAAIADgAHAAUAAAAQAAIADgAAAAUAAAAQAAEADgAAAAQAAAAPAAEADgAHAAQAAAAOAAEADgAGAAQAAAANAAEADgAFAAQAAAAMAAEADgAEAAQAAAALAAEADgADAAQAAAAKAAEADgACAAQAAAAJAAEADgABAAQAAAAIAAEADgAAAAQAAAAHAAEADgAHAAQAAAAGAAEADgAGAAQAAAAFAAEADgAFAAQAAAADAAAADgADAAMAAAACAAAADgACAAMAAAAEAAAADgAEAAMAAAAFAAAADgAFAAMAAAAGAAAADgAGAAMAAAAHAAAADgAHAAMAAAAIAAAADgAAAAMAAAAJAAAADgABAAMAAAAKAAAADgACAAMAAAALAAAADgADAAMAAAAMAAAADgAEAAMAAAANAAAADgAFAAMAAAAOAAAADgAGAAMAAAAPAAAADgAHAAMAAAAQAAAADgAAAAMAAAARAAQADgABAAcAAAAQAAQADgAAAAcAAAAQAAMADgAAAAYAAAARAAMADgABAAYAAAAAAAkABAAAAAAAAAAQAAkAAwAAAAAAAAAEAAYACAAAAAAAAAADAAYACAAAAAAAAAACAAYACAAAAAAAAAABAAYACAAAAAAAAAAAAAYACQAAAAAAAAAAAAcADAAAAAAAAAAAAAgADAAAAAAAAAABAAgABgAAAAAAAAABAAcABgAAAAAAAAACAAcABgAAAAAAAAACAAgABgAAAAAAAAADAAgABgAAAAAAAAAEAAgABgAAAAAAAAANAAgABgAAAAAAAAAOAAgABgAAAAAAAAAPAAgABgAAAAAAAAAQAAgABgAAAAAAAAARAAgABwAAAAAAAAARAAcABwAAAAAAAAARAAYACgAAAAAAAAAQAAcABgAAAAAAAAAQAAYACAAAAAAAAAAPAAYACAAAAAAAAAAOAAYACAAAAAAAAAAOAAcABgAAAAAAAAAPAAcABgAAAAAAAAANAAYACAAAAAAAAAAEAAcABgAAAAAAAAADAAcABgAAAAAAAAANAAcABgAAAAAAAAA=")
 tile_set = SubResource("TileSet_lswn8")
 
-[node name="Player" parent="." unique_id=117276717 instance=ExtResource("18_074og")]
-position = Vector2(99, 321)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=670884750]
 stream = ExtResource("18_cegan")
 volume_db = -10.0
@@ -273,8 +270,6 @@ autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1070228645]
 position = Vector2(575, 322)
-
-[node name="HUD" parent="." unique_id=161276841 instance=ExtResource("22_ryguw")]
 
 [node name="Target Zone" type="Node2D" parent="." unique_id=118947717]
 
@@ -309,3 +304,8 @@ scale = Vector2(8, 1)
 texture = ExtResource("3_fevyy")
 region_enabled = true
 region_rect = Rect2(0, 60.031227, 64, 3.968773)
+
+[node name="Player" parent="." unique_id=117276717 instance=ExtResource("28_erwfn")]
+position = Vector2(88, 320)
+
+[node name="HUD" parent="." unique_id=161276841 instance=ExtResource("28_oxcf7")]

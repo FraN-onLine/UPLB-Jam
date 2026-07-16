@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dssygoklx6004"]
 
-[ext_resource type="Script" uid="uid://clk2ndqi253fx" path="res://Scripts/spikes.gd" id="1_nrdsm"]
-[ext_resource type="Texture2D" uid="uid://cc7duixabs4a0" path="res://Assets/debris/weight.png" id="2_nrdsm"]
+[ext_resource type="Script" uid="uid://clk2ndqi253fx" path="res://Minigame1/Scripts/spikes.gd" id="1_nrdsm"]
+[ext_resource type="Texture2D" uid="uid://cc7duixabs4a0" path="res://Minigame1/Assets/debris/weight.png" id="2_nrdsm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fhau"]
 size = Vector2(64, 64)

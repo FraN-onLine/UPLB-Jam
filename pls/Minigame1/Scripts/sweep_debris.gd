@@ -15,6 +15,6 @@ func _process(delta):
 		queue_free()
 
 func _on_area_entered(area: Area2D):
-	if area.name == "Player":
+	if area.is_in_group("Player"):
 		area.take_damage()
 		queue_free()

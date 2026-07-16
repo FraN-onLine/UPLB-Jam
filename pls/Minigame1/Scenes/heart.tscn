@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dlshpilp0p17x"]
 
-[ext_resource type="Script" uid="uid://cdsmq13arfria" path="res://Scripts/heart.gd" id="1_7p8dj"]
-[ext_resource type="Texture2D" uid="uid://c0n888cdgekii" path="res://Assets/Items/heart.png" id="2_pembh"]
+[ext_resource type="Script" uid="uid://cdsmq13arfria" path="res://Minigame1/Scripts/heart.gd" id="1_7p8dj"]
+[ext_resource type="Texture2D" uid="uid://c0n888cdgekii" path="res://Minigame1/Assets/Items/heart.png" id="2_pembh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8fhau"]
 radius = 19.0

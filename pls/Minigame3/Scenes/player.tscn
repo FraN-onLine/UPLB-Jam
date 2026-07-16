@@ -1,6 +1,5 @@
-[gd_scene format=3 uid="uid://dgbplwp7evh5c"]
+[gd_scene format=3 uid="uid://d06fpmigq562b"]
 
-[ext_resource type="Script" uid="uid://iigv3b651pcr" path="res://Minigame3/Scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://ba4imr1t7pnyx" path="res://Minigame3/Assets/Character/character_beige_hit.png" id="2_dw050"]
 [ext_resource type="Texture2D" uid="uid://7iij0hohyql" path="res://Minigame3/Assets/Character/character_beige_duck.png" id="2_ivps1"]
 [ext_resource type="Texture2D" uid="uid://jygvyd16vyq1" path="res://Minigame3/Assets/Character/character_beige_idle.png" id="2_sweqy"]
@@ -66,7 +65,6 @@ animations = [{
 }]
 
 [node name="Player" type="Area2D" unique_id=117276717]
-script = ExtResource("1_onrkg")
 
 [node name="StandingHitbox" type="CollisionShape2D" parent="." unique_id=10852818]
 position = Vector2(-0.5, 15.5)

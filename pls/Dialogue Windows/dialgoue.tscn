@@ -3,17 +3,11 @@
 [ext_resource type="FontFile" uid="uid://cjrm0bccicdxo" path="res://Text/Yuyu-Regular.ttf" id="1_cjbjp"]
 [ext_resource type="Script" uid="uid://tu1ds8w40be3" path="res://Dialogue Windows/DialogueWindow.gd" id="1_dialogue"]
 [ext_resource type="Texture2D" uid="uid://bn7vhsqj53h6t" path="res://Assets/Dialog windoes/Dialog.png" id="2_b873l"]
+[ext_resource type="Texture2D" uid="uid://blbo5iyw4awbs" path="res://Assets/Dialog windoes/nametag.png" id="2_c5o4w"]
 [ext_resource type="Texture2D" uid="uid://bql0b5qtxqvbh" path="res://Assets/Characters/Mia.png" id="4_3dp1y"]
 [ext_resource type="Texture2D" uid="uid://ddwll0d6tbf2d" path="res://Assets/Menu/MainMenu.png" id="4_clrgg"]
 [ext_resource type="Texture2D" uid="uid://bik1edcxohmct" path="res://Assets/Dialog windoes/Buttons.png" id="5_3dp1y"]
 [ext_resource type="Texture2D" uid="uid://cgcvi5dbpjw1t" path="res://Assets/Dialog windoes/Buttons2.png" id="6_xt733"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwc0f"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xt733"]
 load_path = "res://.godot/imported/Mia.png-3403a8d7f284f2b08a37a693ad03fbc7.ctex"
@@ -44,14 +38,13 @@ script = ExtResource("1_dialogue")
 [node name="NameTag" type="Node2D" parent="." unique_id=2131349232]
 position = Vector2(19, 8)
 
-[node name="Panel2" type="Panel" parent="NameTag" unique_id=1024463988]
+[node name="Panel2" type="TextureRect" parent="NameTag" unique_id=1576789041]
 z_index = -2
-offset_left = 18.0
-offset_top = 353.0
-offset_right = 307.0
-offset_bottom = 480.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_qwc0f")
-metadata/_edit_lock_ = true
+offset_left = 13.0
+offset_top = 338.0
+offset_right = 302.0
+offset_bottom = 416.0
+texture = ExtResource("2_c5o4w")
 
 [node name="Name" type="Label" parent="NameTag" unique_id=1770070237]
 offset_left = 37.0
@@ -80,6 +73,7 @@ position = Vector2(576.00006, 324)
 scale = Vector2(1.0000001, 1)
 texture = ExtResource("4_clrgg")
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Text" type="Label" parent="." unique_id=976781364]
 offset_left = 128.0
@@ -103,6 +97,7 @@ z_index = -6
 position = Vector2(355, 207)
 scale = Vector2(0.474993, 0.40912077)
 texture = SubResource("CompressedTexture2D_xt733")
+metadata/_edit_lock_ = true
 
 [node name="Option1" type="Button" parent="." unique_id=255144146]
 offset_left = 763.0

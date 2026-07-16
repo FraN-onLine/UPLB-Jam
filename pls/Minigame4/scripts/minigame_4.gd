@@ -27,18 +27,51 @@ func _ready() -> void:
 	if not puzzle_image:
 		print("Please assign a Puzzle Image in the Inspector!")
 		return
-	# Calculate how large each tile needs to be based on the image size
-	tile_size = Vector2(puzzle_image.get_width() / COLS, puzzle_image.get_height() / ROWS)
+	
+	# Fixed puzzle size: 375 x 500
+	var target_width = 500
+	var target_height = 350
+	
+	# Create a new ImageTexture with the downscaled image
+	var original_image = puzzle_image.get_image()
+	if original_image:
+		# Downscale the image to target size
+		original_image.resize(target_width, target_height, Image.INTERPOLATE_LANCZOS)
+		puzzle_image = ImageTexture.new()
+		puzzle_image.set_image(original_image)
+		print("Puzzle image downscaled to: ", target_width, "x", target_height)
+	else:
+		print("Warning: Could not access image data, using original size")
+		target_width = puzzle_image.get_width()
+		target_height = puzzle_image.get_height()
+	
+	# Calculate tile size based on fixed dimensions
+	tile_size = Vector2(target_width / COLS, target_height / ROWS)
+	print("Tile size: ", tile_size, " (", COLS, "x", ROWS, " grid)")
+	
 	# Set up the GridContainer's layout constraints
 	puzzle_grid.columns = COLS
-	# Force size settings here instead of inspector
+	
+	# Size the puzzle grid to match the fixed dimensions
+	var grid_width = tile_size.x * COLS
+	var grid_height = tile_size.y * ROWS
+	puzzle_grid.custom_minimum_size = Vector2(grid_width, grid_height)
+	puzzle_grid.size = Vector2(grid_width, grid_height)
+	
+	# Size the paper container to fit the grid with padding
+	var paper_padding = 60
+	var paper_width = grid_width + paper_padding + 200  # Extra space for controls
+	var paper_height = max(grid_height + paper_padding, 300)
+	paper_container.custom_minimum_size = Vector2(paper_width, paper_height)
+	
+	# Force button size settings
 	reset_button.custom_minimum_size = Vector2(150, 50)
 	
 	# Safely clear old connections and bind it directly
 	if reset_button.pressed.is_connected(_on_reset_button_pressed):
 		reset_button.pressed.disconnect(_on_reset_button_pressed)
 	reset_button.pressed.connect(_on_reset_button_pressed)
-
+	
 	start_new_game()
 	
 func start_new_game() -> void:

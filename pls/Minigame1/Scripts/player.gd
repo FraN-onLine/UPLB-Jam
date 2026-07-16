@@ -4,6 +4,8 @@ extends Area2D
 @export var jump_force = -800
 @export var fall_gravity = 2400
 @export var acceleration = 2000
+@export var catch_zone_width = 120  # Width of the catch zone
+@export var catch_zone_height = 80  # Height of the catch zone
 
 var velocity_x = 0.0
 var velocity_y = 0.0
@@ -15,12 +17,27 @@ var money = 0
 var is_ducking = false
 
 @onready var anim = $AnimatedSprite2D
+@onready var catch_zone = $CatchZone
 
 func _ready():
 	floor_y = position.y
+	# Player doesn't need to monitor - items detect the player instead
+	monitoring = false
+	monitorable = true
+	collision_layer = 1
+	collision_mask = 1
+	# Add player to "player" group for items to detect
+	add_to_group("player")
+	# Create catch zone visual
+	create_catch_zone()
+	print("Player ready - position: ", position)
 
 func _process(delta):
 	var direction = 0
+	
+	# Check if game is paused
+	if get_tree().paused:
+		return
 	
 	if not is_hurt:
 		if Input.is_action_pressed("ui_left"):
@@ -29,6 +46,10 @@ func _process(delta):
 		elif Input.is_action_pressed("ui_right"):
 			direction = 1
 			anim.flip_h = false 
+		
+		# Debug movement
+		if direction != 0:
+			print("Moving: ", direction, " position: ", position.x)
 		if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_accept")) and position.y >= floor_y:
 			velocity_y = jump_force 
 			play_sound($JumpSound)
@@ -63,6 +84,9 @@ func _process(delta):
 	else:
 		was_on_floor = false
 		
+	# Update catch zone position to follow player
+	update_catch_zone()
+	
 	# animations
 	if is_hurt:
 		anim.play("hit")
@@ -76,6 +100,23 @@ func _process(delta):
 		anim.play("idle")
 
 # squash & stretch function
+func create_catch_zone():
+	# Create a visual indicator for the catch zone
+	var zone_shape = RectangleShape2D.new()
+	zone_shape.size = Vector2(catch_zone_width, catch_zone_height)
+	
+	catch_zone.position = Vector2(0, -catch_zone_height / 2)
+	
+func update_catch_zone():
+	# Keep catch zone centered on player
+	catch_zone.position.x = 0
+	if is_ducking:
+		catch_zone.position.y = 10  # Lower when ducking
+		catch_zone.scale = Vector2(1.2, 0.6)  # Wider but shorter
+	else:
+		catch_zone.position.y = -catch_zone_height / 2
+		catch_zone.scale = Vector2(1.0, 1.0)
+
 func squash_stretch(target_scale: Vector2):
 	anim.scale = target_scale
 	var t = create_tween()
@@ -139,5 +180,9 @@ func collect_money(amount):
 	play_coin_sound()
 	var hud = get_parent().get_node("HUD")
 	hud.update_score(money)
+	
+	# Visual feedback - flash the catch zone
+
+	
 	if money >= 67000:
 		hud.show_win()

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cwivvsxhwcmuy"]
 
-[ext_resource type="Script" uid="uid://bhme77m4op5y7" path="res://Scripts/debris.gd" id="1_ov8td"]
-[ext_resource type="Texture2D" uid="uid://dnq281yc5ri7y" path="res://Assets/debris/brick_brown.png" id="2_axoec"]
+[ext_resource type="Script" uid="uid://bhme77m4op5y7" path="res://Minigame1/Scripts/debris.gd" id="1_ov8td"]
+[ext_resource type="Texture2D" uid="uid://dnq281yc5ri7y" path="res://Minigame1/Assets/debris/brick_brown.png" id="2_axoec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx45i"]
 size = Vector2(32, 24)
