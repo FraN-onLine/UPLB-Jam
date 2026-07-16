@@ -83,7 +83,7 @@ hiraya_happy = res://Assets/Characters/hiraya happy.png
 santo_default = res://Assets/Characters/Santo.png
 djo_default = res://Assets/Characters/Djo Jacques.png
 djo_angry = res://Assets/Characters/djo-angry.png
-djo_evilsmile = res://Assets/Characters/djo-evilsmile_.png
+djo_evil_smile = res://Assets/Characters/djo-evilsmile_.png
 
 bg_home_out_old = res://Assets/Background/original-outside.png
 bg_home_out_new = res://Assets/Background/rebuilt.png
@@ -298,7 +298,7 @@ If taking a few yields from the farm next town over is what it takes to keep afl
 But it's not… I'm here, I'll help.
 <emilio-1>
 We'll find a way. We'll protect this town for as long as we can.
-<amila_worry-1>
+<amila_worry-2>
 But can you fight the corp who plans to take over this land?
 <emilio-1>
 …We'll find a way.
@@ -346,7 +346,7 @@ The donations are counted.
 We actually did it…
 <marie_yap-2>
 See? I told you people still cared!
-<mia_smile>
+<mia_smile-1>
 It's not much… but it'll keep us alive for a while.
 #thought
 Everyone begins clapping.
@@ -354,7 +354,7 @@ Everyone begins clapping.
 For one brief moment…
 #thought
 It feels like things might actually be okay.
-<sisa_cry-1>
+<sisa_cry-2>
 AHHHHHH!!
 #thought
 Everyone rushes.
@@ -376,35 +376,35 @@ Several government vehicles stop.
 People immediately become silent.
 #thought
 Djo steps out. Perfectly clean clothes. Shiny shoes. A man who clearly doesn't know the suffering of the people of Donto.
-<djo_angry-1>
+<djo-2>
 Good afternoon. I see everyone is gathered.
-<djo_angry-2>
+<djo-2>
 I assume you've heard the relocation deadline.
 #thought
 Nobody answers. He notices the fundraiser. Boxes, coins, rice, old clothes.
 #thought
 He sighs.
-<djo_angry-1>
+<djo_angry-2>
 …This won't be enough.
 <emilio-1>
 It doesn't have to be.
-<djo_angry-2>
+<djo_evil_smile-2>
 Doesn't it?
 #thought
 He points around. Burned houses. Collapsed roofs. No electricity. No running water.
-<djo_angry-1>
+<djo-2>
 How much did you raise?
-<pedro-2>
+<pedro-1>
 Sixty-seven thousand…
-<djo_angry-2>
+<djo-2>
 To restore electricity alone… estimated two million.
-<djo_angry-1>
+<djo-2>
 Water systems… another three.
-<djo_angry-2>
+<djo-2>
 Housing… tens of millions.
 #thought
 He closes the folder.
-<djo_angry-1>
+<djo_evil_smile-2>
 This town has already died.
 > But this is our home
 <emilio-1>
@@ -414,7 +414,7 @@ Yes, your home. But isn't home not the walls, but the people?
 > True… but…
 <emilio-1>
 True… but…
-<djo_evilsmile-1>
+<djo_evilsmile-2>
 Hm, submitting already? Well, best give up then.
 <emilio-1>
 No. We'll stand and fight!
@@ -448,9 +448,9 @@ Donto became just another name on a forgotten map.
 
 // ============================================================
 [stayed_to_fight]
-<djo-1>
+<djo-2>
 Okay.
-<djo-1>
+<djo-2>
 One week. If you can do something substantial… we'll hold it off for a little longer.
 #thought
 He leaves.
@@ -461,16 +461,16 @@ Attention draws back to Sisa, dead silent staring at her son.
 <sisa_anxious-1>
 Why do we keep fighting just to go back to suffering?
 > Sisa…
-<emilio-1>
+<emilio-2>
 Sisa…
 > We'll make things right
-<emilio-1>
+<emilio-2>
 We'll make things right.
 <sisa_anxious-1>
 …
 <sisa_anxious-1>
 For the future children of Donto…
-<emilio-1>
+<emilio-2>
 So? Let's make this wreck into something sustainable again.
 #thought
 I believe in the people of Donto. They've been surviving, and they have the right to continue surviving.
@@ -492,19 +492,19 @@ Beautiful!
 It's nothing yet.
 <sisa-1>
 But it is a start…
-<emilio-1>
+<emilio-2>
 Sisa? I haven't seen you in a while.
 <sisa_anxious-1>
 Crispin… might be gone, but my hope for Donto doesn't have to be.
-<sisa-2>
+<sisa-1>
 So, how can I—
-<hiraya_happy-1>
+<hiraya_happy-2>
 Kuya! Look! Here's a fruit!
-<mia_smile-2>
+<mia_smile-1>
 She's been looking for her brother, you know.
 <emilio-2>
 Hiraya… We'll build a future for you.
-<sisa_cry-2>
+<sisa_cry-1>
 She would have loved Crispin…
 <mia_smile-1>
 She looks up to you, Sisa.
@@ -512,7 +512,7 @@ She looks up to you, Sisa.
 Stay strong, Sisa!
 #thought
 Sisa looks up, head held high.
-<sisa_anxious-2>
+<sisa_anxious-1>
 So, Emilio. Where do we start?
 #start_minigame3
 [end]
@@ -528,41 +528,41 @@ For the first time since the fire… the people begin imagining homes instead of
 Feels strange… I almost forgot what construction sounded like.
 <marie-2>
 I almost forgot what hope sounded like.
-<hiraya-2>
+<hiraya-1>
 Is this gonna be the start of our new home?
 #thought
 Suddenly someone walks in.
-<djo_angry-1>
+<djo-1>
 I'm impressed.
-<djo_angry-2>
+<djo-1>
 But.
 <djo_angry-1>
 None of these are stable. How about electricity? Water? Food?
-<emilio-1>
+<emilio-2>
 …
-<djo_angry-2>
+<djo_angry-1>
 We'll have to take this down regardless.
-<sisa_anxious-1>
+<sisa_anxious-2>
 Sir! Please… if you're gonna take this down, take us down with it.
 #thought
 Djo was startled by that response.
 <djo_angry-1>
 …
-<djo_angry-2>
+<djo_angry-1>
 You people…
 #thought
 He lets out a quiet sigh.
-<djo_angry-1>
+<djo-1>
 You're all incredibly stubborn.
 #thought
 He turns back toward his vehicle.
-<djo_angry-2>
+<djo-1>
 Continue.
-<djo_angry-1>
+<djo_evil_smile-1>
 For now.
 #thought
 He leaves.
-<amila_worry-1>
+<amila_worry-2>
 Sisa, iha. We can always relocate. Nothing is as important as your life…
 <sisa_anxious-1>
 No. What's next, Emilio?
@@ -570,9 +570,9 @@ No. What's next, Emilio?
 …We build up the walls.
 #thought
 And once again, Sisa begins to power through with her head held high.
-<emilio-1>
+<emilio-2>
 She keeps herself busy to distract from her suffering…
-<amila_worry-2>
+<amila_worry-1>
 Hey, if protecting this city is what keeps her from spiraling… let her.
 #thought
 And so, Emilio joins Sisa.
@@ -586,11 +586,11 @@ And so, Emilio joins Sisa.
 Oi Pedro! Straighten that beam! It looks like it'll fall on my future kitchen!
 <pedro-2>
 Then maybe stop distracting the carpenter.
-<marie_yap-2>
+<marie_yap-1>
 If my kitchen falls, I'm blaming you!
 #thought
 Everyone laughs.
-<hiraya_happy-1>
+<hiraya_happy-2>
 Kuya! Look!
 <hiraya_happy-2>
 My room has a window! I can finally see the stars!
@@ -638,9 +638,9 @@ He extends his hand.
 The government will provide engineers, electrical crews, and water utilities.
 <djo-1>
 The rest… you'll have to build yourselves.
-<emilio-1>
+<emilio-2>
 That's all we ever wanted.
-<emilio-1>
+<emilio-2>
 Not someone to save us. Just someone willing to believe in us.
 #thought
 The people erupt into cheers.
