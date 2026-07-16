@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bad5jcio515ih"]
 
-[ext_resource type="Script" uid="uid://4npb21bj3spw" path="res://Scripts/gem.gd" id="1_edvqy"]
-[ext_resource type="Texture2D" uid="uid://5tni3vy1xkqt" path="res://Assets/Items/gem_blue.png" id="1_whk3i"]
+[ext_resource type="Script" uid="uid://4npb21bj3spw" path="res://Minigame1/Scripts/gem.gd" id="1_edvqy"]
+[ext_resource type="Texture2D" uid="uid://5tni3vy1xkqt" path="res://Minigame1/Assets/Items/gem_blue.png" id="1_whk3i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggk5h"]
 radius = 19.0

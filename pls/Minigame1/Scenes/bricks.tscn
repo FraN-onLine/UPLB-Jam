@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://1ot3lk5mmbc1"]
 
-[ext_resource type="Script" uid="uid://dbifg5sj0qu7b" path="res://Scripts/bricks.gd" id="1_n2jnc"]
-[ext_resource type="Texture2D" uid="uid://byaa124u1x7mf" path="res://Assets/debris/block_planks.png" id="2_ocfoc"]
+[ext_resource type="Script" uid="uid://dbifg5sj0qu7b" path="res://Minigame1/Scripts/bricks.gd" id="1_n2jnc"]
+[ext_resource type="Texture2D" uid="uid://byaa124u1x7mf" path="res://Minigame1/Assets/debris/block_planks.png" id="2_ocfoc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx45i"]
 size = Vector2(64, 64)

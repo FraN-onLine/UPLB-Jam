@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk34q7733kmfa"
-path="res://.godot/imported/Untitled182_20260716020017 (1).png-0fd4d6404cda92667c6729be32ba76b5.ctex"
+uid="uid://dm264rvl0df45"
+path="res://.godot/imported/djo-angry.png-57e3092496083dd3cfc7bcf55decc7db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background/Untitled182_20260716020017 (1).png"
-dest_files=["res://.godot/imported/Untitled182_20260716020017 (1).png-0fd4d6404cda92667c6729be32ba76b5.ctex"]
+source_file="res://Assets/Characters/djo-angry.png"
+dest_files=["res://.godot/imported/djo-angry.png-57e3092496083dd3cfc7bcf55decc7db.ctex"]
 
 [params]
 

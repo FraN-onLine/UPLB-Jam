@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://resr8c3dg13r"
-path="res://.godot/imported/Untitled182_20260716100828.png-495d4f7d23172ad2555b8f18258339dd.ctex"
+uid="uid://dtkv4s67hqsbc"
+path="res://.godot/imported/djo-evilsmile_.png-d47b9a313faad0cc0f7d0204a8e7e7f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background/Untitled182_20260716100828.png"
-dest_files=["res://.godot/imported/Untitled182_20260716100828.png-495d4f7d23172ad2555b8f18258339dd.ctex"]
+source_file="res://Assets/Characters/djo-evilsmile_.png"
+dest_files=["res://.godot/imported/djo-evilsmile_.png-d47b9a313faad0cc0f7d0204a8e7e7f2.ctex"]
 
 [params]
 

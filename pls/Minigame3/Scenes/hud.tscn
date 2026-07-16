@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b4ph88ascunx2"]
 
-[ext_resource type="Script" uid="uid://d3gxmkrsj5eeb" path="res://Scripts/hud.gd" id="1_36asn"]
-[ext_resource type="Texture2D" uid="uid://c2k3hus2eo2xn" path="res://Assets/HUDS/hud_heart.png" id="2_8jye8"]
-[ext_resource type="Texture2D" uid="uid://bh4w0rgragfoy" path="res://Assets/HUDS/hud_heart_empty.png" id="3_43w4t"]
-[ext_resource type="FontFile" uid="uid://dkammkcjh7uh5" path="res://Assets/Font/Kenney Future Narrow.ttf" id="5_5ep0j"]
+[ext_resource type="Script" uid="uid://d3gxmkrsj5eeb" path="res://Minigame3/Scripts/hud.gd" id="1_36asn"]
+[ext_resource type="Texture2D" uid="uid://c2k3hus2eo2xn" path="res://Minigame3/Assets/HUDS/hud_heart.png" id="2_8jye8"]
+[ext_resource type="Texture2D" uid="uid://bh4w0rgragfoy" path="res://Minigame3/Assets/HUDS/hud_heart_empty.png" id="3_43w4t"]
+[ext_resource type="FontFile" uid="uid://dkammkcjh7uh5" path="res://Minigame3/Assets/Font/Kenney Future Narrow.ttf" id="5_5ep0j"]
 
 [node name="HUD" type="CanvasLayer" unique_id=161276841]
 process_mode = 3

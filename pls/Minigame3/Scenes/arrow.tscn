@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://du354pfq03pno"]
 
-[ext_resource type="Script" uid="uid://bp0b1tdgjt7s2" path="res://Scripts/arrow.gd" id="1_l5ahi"]
+[ext_resource type="Script" uid="uid://bp0b1tdgjt7s2" path="res://Minigame3/Scripts/arrow.gd" id="1_l5ahi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggk5h"]
 size = Vector2(54, 55)

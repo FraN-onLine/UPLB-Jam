@@ -1,7 +1,10 @@
 extends Control
 
+## Signal emitted when the puzzle is solved — for MainMenu integration
+signal minigame_won
+
 # IMAGE, currently using 375 x 500, if i didn't mess up it should adjust to any res
-var puzzle_image: Texture2D = preload("res://assets/mg4_house_image.jpg")
+var puzzle_image: Texture2D = preload("res://Assets/Background/rebuilt.png")
 
 const ROWS: int = 3
 const COLS: int = 4
@@ -166,3 +169,5 @@ func check_win_condition() -> void:
 		fade.tween_property(paper_container, "modulate", Color(1, 1, 1, 0), 0.4)
 		await fade.finished
 		paper_container.queue_free()
+		# Emit signal so MainMenu can continue story
+		minigame_won.emit()

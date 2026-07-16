@@ -1,5 +1,9 @@
 extends CanvasLayer
 
+## Signals for MainMenu integration
+signal game_was_lost
+signal game_was_won
+
 @onready var heart1 = $Hearts/Heart1
 @onready var heart2 = $Hearts/Heart2
 @onready var heart3 = $Hearts/Heart3
@@ -17,7 +21,7 @@ var game_ended = false
 
 func _ready():
 	$GameOverScreen/RestartButton.pressed.connect(_on_restart)
-	$WinScreen/RestartButton.pressed.connect(_on_restart)
+	$WinScreen/RestartButton.visible = false  # Hide retry on win - continue story
 	$PauseScreen/ContinueButton.pressed.connect(_on_continue)
 	$PauseScreen/QuitButton.pressed.connect(_on_restart)
 
@@ -55,11 +59,13 @@ func show_game_over():
 	game_ended = true
 	game_over_screen.visible = true
 	get_tree().paused = true
+	game_was_lost.emit()
 
 func show_win():
 	game_ended = true
 	win_screen.visible = true
-	get_tree().paused = true
+	# Don't pause - let transition happen
+	game_was_won.emit()
 
 func _on_restart():
 	get_tree().paused = false

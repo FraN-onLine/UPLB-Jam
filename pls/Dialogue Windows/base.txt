@@ -44,14 +44,15 @@ hiraya_default = res://Assets/Characters/Hiraya.png
 santo_default = res://Assets/Characters/Santo.png
 djo_default = res://icon.svg
 
-bg_city = res://Assets/Background/City.png
-bg_home = res://Assets/Background/Home.png
-bg_streets = res://Assets/Background/Ruined-Streets.png
-bg_plaza = res://Assets/Background/City.png
+bg_home_out_old = res://Assets/Background/original-outside.png
+bg_home_out_new = res://Assets/Background/rebuilt.png
+bg_horizon = res://Assets/Background/horizon.png
+bg_streets = res://Assets/Background/streets.png
+bg_home_inside_old = res://Assets/Background/original-home.png
 
 // ============================================================
 [day1]
-#background bg_streets
+#background bg_horizon
 #thought
 (It's been a while…)
 #thought
@@ -149,7 +150,7 @@ Leaving this place was easy for me, but would it be the same for them…?
 
 // ============================================================
 [home]
-#background bg_home
+#background bg_home_inside_old
 #thought
 Emilio enters a charred stone house. Pretty much nothing is inside but your grandmother lying on the floor.
 <emilio-1>
@@ -241,7 +242,7 @@ Thinking they can just resolve it themselves I ignored it and went straight home
 
 // ============================================================
 [return_home]
-#background bg_home
+#background bg_home_inside_old
 <hiraya-2>
 Kuya!!
 <mia-1>
@@ -291,7 +292,7 @@ You set off.
 
 // ============================================================
 [after_fundraiser]
-#background bg_plaza
+#background bg_streets
 #thought
 The fund raising went well with the help of the townspeople.
 #thought
@@ -383,7 +384,7 @@ No. We'll stand and fight!
 
 // ============================================================
 [djo_choice]
-#background bg_plaza
+#background bg_streets
 #thought
 You're given a choice. Give up, and the facility is built. Everyone moves away.
 > Give Up
@@ -604,14 +605,12 @@ That's all we ever wanted.
 Not someone to save us. Just someone willing to believe in us.
 #thought
 The people erupt into cheers.
-<santo-2>
-WOOOO!
 #celebration
 [end]
 
 // ============================================================
 [celebration]
-#background bg_plaza
+#background bg_streets
 #thought
 For the first time in months… Donto breathes again.
 #thought

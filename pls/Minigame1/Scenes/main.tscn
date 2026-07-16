@@ -1,19 +1,20 @@
 [gd_scene format=4 uid="uid://b3pp44otlplws"]
 
-[ext_resource type="Texture2D" uid="uid://cvn4pa4uo2u08" path="res://Assets/Backgrounds/background_color_trees.png" id="1_2cqfq"]
-[ext_resource type="Script" uid="uid://c1r0ciw8d5ayl" path="res://Scripts/main.gd" id="1_ryguw"]
-[ext_resource type="Texture2D" uid="uid://clmpq836ftpwb" path="res://Assets/Backgrounds/terrain_grass_block_top_right.png" id="2_lswn8"]
-[ext_resource type="Texture2D" uid="uid://ckq5yeqmtou52" path="res://Assets/Backgrounds/background_clouds.png" id="6_w48qg"]
-[ext_resource type="Texture2D" uid="uid://be3us2b3gsn8x" path="res://Assets/Backgrounds/background_color_hills.png" id="8_yaehf"]
-[ext_resource type="Texture2D" uid="uid://utewkoxrycy2" path="res://Assets/Backgrounds/terrain_grass_block_bottom.png" id="12_ok6jj"]
-[ext_resource type="AudioStream" uid="uid://bax3675ptxyrq" path="res://Assets/Sounds/Minigame1.mp3" id="13_jkdf5"]
-[ext_resource type="Texture2D" uid="uid://k6b7w7mcpyos" path="res://Assets/Backgrounds/terrain_grass_block_bottom_left.png" id="17_4lmeg"]
-[ext_resource type="PackedScene" uid="uid://dgbplwp7evh5c" path="res://Scenes/player.tscn" id="18_074og"]
-[ext_resource type="Texture2D" uid="uid://dlxvuaaiw10cj" path="res://Assets/Backgrounds/background_solid_sky.png" id="19_d2t1y"]
-[ext_resource type="Texture2D" uid="uid://bncpcyxys6qe8" path="res://Assets/Backgrounds/terrain_grass_block_bottom_right.png" id="20_gngh3"]
-[ext_resource type="PackedScene" uid="uid://b4ph88ascunx2" path="res://Scenes/hud.tscn" id="22_ryguw"]
-[ext_resource type="Texture2D" uid="uid://coeex5s4liojd" path="res://Assets/Backgrounds/terrain_grass_block_top.png" id="24_f6a44"]
-[ext_resource type="Texture2D" uid="uid://cbiey2gj2jce3" path="res://Assets/Backgrounds/terrain_grass_block_top_left.png" id="25_0cbny"]
+[ext_resource type="Texture2D" uid="uid://cvn4pa4uo2u08" path="res://Minigame3/Assets/Backgrounds/background_color_trees.png" id="1_2cqfq"]
+[ext_resource type="Script" uid="uid://c1r0ciw8d5ayl" path="res://Minigame1/Scripts/main.gd" id="1_in4qf"]
+[ext_resource type="Texture2D" uid="uid://clmpq836ftpwb" path="res://Minigame3/Assets/Backgrounds/terrain_grass_block_top_right.png" id="2_lswn8"]
+[ext_resource type="Texture2D" uid="uid://ckq5yeqmtou52" path="res://Minigame3/Assets/Backgrounds/background_clouds.png" id="6_w48qg"]
+[ext_resource type="Texture2D" uid="uid://be3us2b3gsn8x" path="res://Minigame3/Assets/Backgrounds/background_color_hills.png" id="8_yaehf"]
+[ext_resource type="Texture2D" uid="uid://utewkoxrycy2" path="res://Minigame3/Assets/Backgrounds/terrain_grass_block_bottom.png" id="12_ok6jj"]
+[ext_resource type="AudioStream" uid="uid://bax3675ptxyrq" path="res://Minigame1/Assets/Sounds/Minigame1.mp3" id="13_jkdf5"]
+[ext_resource type="Script" uid="uid://d3gxmkrsj5eeb" path="res://Minigame1/Scripts/hud.gd" id="16_1nce0"]
+[ext_resource type="Texture2D" uid="uid://k6b7w7mcpyos" path="res://Minigame3/Assets/Backgrounds/terrain_grass_block_bottom_left.png" id="17_4lmeg"]
+[ext_resource type="PackedScene" uid="uid://dgbplwp7evh5c" path="res://Minigame1/Scenes/player.tscn" id="18_074og"]
+[ext_resource type="Texture2D" uid="uid://dlxvuaaiw10cj" path="res://Minigame3/Assets/Backgrounds/background_solid_sky.png" id="19_d2t1y"]
+[ext_resource type="Texture2D" uid="uid://bncpcyxys6qe8" path="res://Minigame3/Assets/Backgrounds/terrain_grass_block_bottom_right.png" id="20_gngh3"]
+[ext_resource type="PackedScene" uid="uid://b4ph88ascunx2" path="res://Minigame3/Scenes/hud.tscn" id="22_ryguw"]
+[ext_resource type="Texture2D" uid="uid://coeex5s4liojd" path="res://Minigame3/Assets/Backgrounds/terrain_grass_block_top.png" id="24_f6a44"]
+[ext_resource type="Texture2D" uid="uid://cbiey2gj2jce3" path="res://Minigame3/Assets/Backgrounds/terrain_grass_block_top_left.png" id="25_0cbny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lswn8"]
 texture = ExtResource("1_2cqfq")
@@ -187,7 +188,7 @@ sources/0 = SubResource("TileSetAtlasSource_lswn8")
 sources/16 = SubResource("TileSetAtlasSource_a6jrf")
 
 [node name="Main" type="Node2D" unique_id=1654153177]
-script = ExtResource("1_ryguw")
+script = ExtResource("1_in4qf")
 
 [node name="Background" type="TileMapLayer" parent="." unique_id=743920038]
 tile_map_data = PackedByteArray("AAACAAkAAwAAAAAAAAAEAAkAAwAAAAAAAAADAAkAAwAAAAAAAAAFAAkAAwAAAAAAAAAGAAkAAwAAAAAAAAAHAAkAAwAAAAAAAAAJAAkAAwAAAAAAAAAIAAkAAwAAAAAAAAAKAAkAAwAAAAAAAAALAAkAAwAAAAAAAAAMAAkAAwAAAAAAAAANAAkAAwAAAAAAAAAOAAkAAwAAAAAAAAAPAAkAAwAAAAAAAAARAAkABQAAAAAAAAABAAkAAwAAAAAAAAAAAAgACQAAAAAAAAABAAgACAAAAAAAAAACAAgACAAAAAAAAAADAAgACAAAAAAAAAAEAAgACAAAAAAAAAAFAAgACAAAAAAAAAAHAAgACAAAAAAAAAAIAAgACAAAAAAAAAAKAAgACAAAAAAAAAALAAgACAAAAAAAAAAMAAgACAAAAAAAAAANAAgACAAAAAAAAAAOAAgACAAAAAAAAAAPAAgACAAAAAAAAAAQAAgACAAAAAAAAAARAAgACgAAAAAAAAAAAAAADgAAAAMAAAABAAAADgABAAMAAAABAAEADgABAAQAAAACAAEADgACAAQAAAADAAEADgADAAQAAAAEAAEADgAEAAQAAAAEAAIADgAEAAUAAAAFAAIADgAFAAUAAAAGAAIADgAGAAUAAAAHAAIADgAHAAUAAAAHAAMADgAHAAYAAAAIAAMADgAAAAYAAAAJAAMADgABAAYAAAAKAAMADgACAAYAAAAKAAQAAAACAAAAAAALAAQAAAADAAAAAAAMAAQAEAAAAAAAAAANAAQAEAABAAAAAAAOAAQAEAACAAAAAAAPAAQAEAADAAAAAAARAAAADgABAAMAAAARAAEADgABAAQAAAARAAIADgABAAUAAAARAAUAEAABAAEAAAARAAYAEAABAAIAAAAQAAcAEAAAAAMAAAAOAAcAEAACAAMAAAANAAcAEAABAAMAAAAMAAcAEAAAAAMAAAALAAcAAAADAAMAAAAKAAcAAAACAAMAAAAJAAcAAAABAAMAAAAIAAcAAAAAAAMAAAAHAAcAEAADAAMAAAAGAAcAEAACAAMAAAAFAAcAEAABAAMAAAAEAAcAEAAAAAMAAAADAAcAAAADAAMAAAACAAcAAAACAAMAAAABAAcAAAABAAMAAAAAAAcAAAAAAAMAAAAAAAYAAAAAAAIAAAABAAYAAAABAAIAAAACAAYAAAACAAIAAAADAAYAAAADAAIAAAAEAAYAEAAAAAIAAAAFAAYAEAABAAIAAAAGAAYAEAACAAIAAAAHAAYAEAADAAIAAAAIAAYAAAAAAAIAAAAJAAYAAAABAAIAAAAKAAYAAAACAAIAAAALAAYAAAADAAIAAAAMAAYAEAAAAAIAAAANAAYAEAABAAIAAAAOAAYAEAACAAIAAAAPAAYAEAADAAIAAAAQAAYAEAAAAAIAAAAQAAUAEAAAAAEAAAAPAAUAEAADAAEAAAAOAAUAEAACAAEAAAANAAUAEAABAAEAAAAMAAUAEAAAAAEAAAALAAUAAAADAAEAAAAKAAUAAAACAAEAAAAJAAUAAAABAAEAAAAIAAUAAAAAAAEAAAAHAAUAEAADAAEAAAAGAAUAEAACAAEAAAAFAAUAEAABAAEAAAAEAAUAEAAAAAEAAAADAAUAAAADAAEAAAACAAUAAAACAAEAAAABAAUAAAABAAEAAAAAAAUAAAAAAAEAAAAAAAQAAAAAAAAAAAABAAQAAAABAAAAAAACAAQAAAACAAAAAAADAAQAAAADAAAAAAAEAAQAEAAAAAAAAAAFAAQAEAABAAAAAAAGAAQAEAACAAAAAAAHAAQAEAADAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAABAAAAAAAPAAMADgAHAAYAAAAOAAMADgAGAAYAAAANAAMADgAFAAYAAAAMAAMADgAEAAYAAAALAAMADgADAAYAAAAGAAMADgAGAAYAAAAFAAMADgAFAAYAAAAEAAMADgAEAAYAAAADAAMADgADAAYAAAACAAMADgACAAYAAAACAAIADgACAAUAAAABAAIADgABAAUAAAAAAAIADgAAAAUAAAAAAAEADgAAAAQAAAAAAAMADgAAAAYAAAABAAMADgABAAYAAAADAAIADgADAAUAAAAIAAIADgAAAAUAAAAJAAIADgABAAUAAAAKAAIADgACAAUAAAALAAIADgADAAUAAAAMAAIADgAEAAUAAAANAAIADgAFAAUAAAAOAAIADgAGAAUAAAAPAAIADgAHAAUAAAAQAAIADgAAAAUAAAAQAAEADgAAAAQAAAAPAAEADgAHAAQAAAAOAAEADgAGAAQAAAANAAEADgAFAAQAAAAMAAEADgAEAAQAAAALAAEADgADAAQAAAAKAAEADgACAAQAAAAJAAEADgABAAQAAAAIAAEADgAAAAQAAAAHAAEADgAHAAQAAAAGAAEADgAGAAQAAAAFAAEADgAFAAQAAAADAAAADgADAAMAAAACAAAADgACAAMAAAAEAAAADgAEAAMAAAAFAAAADgAFAAMAAAAGAAAADgAGAAMAAAAHAAAADgAHAAMAAAAIAAAADgAAAAMAAAAJAAAADgABAAMAAAAKAAAADgACAAMAAAALAAAADgADAAMAAAAMAAAADgAEAAMAAAANAAAADgAFAAMAAAAOAAAADgAGAAMAAAAPAAAADgAHAAMAAAAQAAAADgAAAAMAAAARAAQADgABAAcAAAAQAAQADgAAAAcAAAAQAAMADgAAAAYAAAARAAMADgABAAYAAAAGAAgACAAAAAAAAAAAAAkABAAAAAAAAAAPAAcAEAADAAMAAAARAAcAEAABAAMAAAAJAAgACAAAAAAAAAAQAAkAAwAAAAAAAAA=")
@@ -206,3 +207,6 @@ parameters/looping = true
 position = Vector2(575, 322)
 
 [node name="HUD" parent="." unique_id=161276841 instance=ExtResource("22_ryguw")]
+script = ExtResource("16_1nce0")
+full_heart_image = null
+empty_heart_image = null

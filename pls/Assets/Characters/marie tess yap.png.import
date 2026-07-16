@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq658rv73yr7m"
-path="res://.godot/imported/Untitled182_20260716163338.png-f4a13f8132ac7853adca78691578319e.ctex"
+uid="uid://cnxeuoehi3nxx"
+path="res://.godot/imported/marie tess yap.png-a178a19448663d69c59d7bb619b74053.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background/Untitled182_20260716163338.png"
-dest_files=["res://.godot/imported/Untitled182_20260716163338.png-f4a13f8132ac7853adca78691578319e.ctex"]
+source_file="res://Assets/Characters/marie tess yap.png"
+dest_files=["res://.godot/imported/marie tess yap.png-a178a19448663d69c59d7bb619b74053.ctex"]
 
 [params]
 

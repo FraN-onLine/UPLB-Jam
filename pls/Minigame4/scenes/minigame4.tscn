@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cn40otpufqnpx"]
 
-[ext_resource type="Script" uid="uid://dwsqkrubtcylj" path="res://scripts/minigame_4.gd" id="1_awwlc"]
-[ext_resource type="Texture2D" uid="uid://wiwnebkhpa32" path="res://assets/mg4_bg.jpg" id="2_dl4oh"]
-[ext_resource type="Texture2D" uid="uid://rc5gvdy3yklu" path="res://assets/mg4_paper.png" id="2_x24qe"]
-[ext_resource type="FontFile" uid="uid://c31j8qart2i41" path="res://fonts/Kenney Future.ttf" id="3_dl4oh"]
+[ext_resource type="Script" uid="uid://dwsqkrubtcylj" path="res://Minigame4/scripts/minigame_4.gd" id="1_awwlc"]
+[ext_resource type="Texture2D" uid="uid://bgbp7n5a6cvd" path="res://Assets/Background/horizon.png" id="2_deeku"]
+[ext_resource type="Texture2D" uid="uid://rc5gvdy3yklu" path="res://Minigame4/assets/mg4_paper.png" id="2_x24qe"]
+[ext_resource type="FontFile" uid="uid://c31j8qart2i41" path="res://Minigame4/fonts/Kenney Future.ttf" id="3_dl4oh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wcy7a"]
 texture = ExtResource("2_x24qe")
@@ -57,7 +57,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_dl4oh")
+texture = ExtResource("2_deeku")
 expand_mode = 1
 stretch_mode = 6
 

@@ -1,6 +1,6 @@
 extends Node2D
 
-var arrow_scene = preload("res://Scenes/arrow.tscn")
+var arrow_scene = preload("res://Minigame3/Scenes/arrow.tscn")
 
 @export var custom_font: Font
 @export var arrow_left_img: Texture2D

@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://tu1ds8w40be3" path="res://Dialogue Windows/DialogueWindow.gd" id="1_dialogue"]
 [ext_resource type="Texture2D" uid="uid://bn7vhsqj53h6t" path="res://Assets/Dialog windoes/Dialog.png" id="2_b873l"]
 [ext_resource type="Texture2D" uid="uid://bql0b5qtxqvbh" path="res://Assets/Characters/Mia.png" id="4_3dp1y"]
+[ext_resource type="Texture2D" uid="uid://ddwll0d6tbf2d" path="res://Assets/Menu/MainMenu.png" id="4_clrgg"]
 [ext_resource type="Texture2D" uid="uid://bik1edcxohmct" path="res://Assets/Dialog windoes/Buttons.png" id="5_3dp1y"]
-[ext_resource type="Texture2D" uid="uid://dgmh3kqj64akp" path="res://Assets/Characters/Hiraya.png" id="5_clrgg"]
 [ext_resource type="Texture2D" uid="uid://cgcvi5dbpjw1t" path="res://Assets/Dialog windoes/Buttons2.png" id="6_xt733"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwc0f"]
@@ -14,6 +14,9 @@ corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xt733"]
+load_path = "res://.godot/imported/Mia.png-3403a8d7f284f2b08a37a693ad03fbc7.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qwc0f"]
 texture = ExtResource("5_3dp1y")
@@ -73,8 +76,9 @@ metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1395952719]
 z_index = -10
-position = Vector2(577, 324)
-scale = Vector2(4, 4)
+position = Vector2(576.00006, 324)
+scale = Vector2(1.0000001, 1)
+texture = ExtResource("4_clrgg")
 metadata/_edit_group_ = true
 
 [node name="Text" type="Label" parent="." unique_id=976781364]
@@ -94,11 +98,11 @@ position = Vector2(901, 213)
 scale = Vector2(0.474993, 0.40912077)
 texture = ExtResource("4_3dp1y")
 
-[node name="SpeakerIcon2" type="Sprite2D" parent="." unique_id=2114354766]
-z_index = -5
-position = Vector2(302.00003, 207)
-scale = Vector2(0.51413274, 0.4333704)
-texture = ExtResource("5_clrgg")
+[node name="SpeakerIcon2" type="Sprite2D" parent="." unique_id=1979865637]
+z_index = -6
+position = Vector2(355, 207)
+scale = Vector2(0.474993, 0.40912077)
+texture = SubResource("CompressedTexture2D_xt733")
 
 [node name="Option1" type="Button" parent="." unique_id=255144146]
 offset_left = 763.0

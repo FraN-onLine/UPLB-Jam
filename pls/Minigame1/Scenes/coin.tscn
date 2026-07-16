@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b7mcsxrxw0e8y"]
 
-[ext_resource type="Texture2D" uid="uid://u1e650p35r8q" path="res://Assets/Items/coin_gold.png" id="1_0t63x"]
-[ext_resource type="Script" uid="uid://ckiuiyr26a6kn" path="res://Scripts/coin.gd" id="1_v7riw"]
-[ext_resource type="Texture2D" uid="uid://c0gkef2jtg6v6" path="res://Assets/Items/coin_gold_side.png" id="2_v7riw"]
+[ext_resource type="Texture2D" uid="uid://u1e650p35r8q" path="res://Minigame1/Assets/Items/coin_gold.png" id="1_0t63x"]
+[ext_resource type="Script" uid="uid://ckiuiyr26a6kn" path="res://Minigame1/Scripts/coin.gd" id="1_v7riw"]
+[ext_resource type="Texture2D" uid="uid://c0gkef2jtg6v6" path="res://Minigame1/Assets/Items/coin_gold_side.png" id="2_v7riw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ggk5h"]
 animations = [{

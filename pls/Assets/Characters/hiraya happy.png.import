@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdrt07dmepkwb"
-path="res://.godot/imported/Untitled182_20260716100828 (1).png-de2f4074e0096859278977141231de73.ctex"
+uid="uid://b8nov6djbolik"
+path="res://.godot/imported/hiraya happy.png-48a0ecda099d8367e8a75bef81275075.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background/Untitled182_20260716100828 (1).png"
-dest_files=["res://.godot/imported/Untitled182_20260716100828 (1).png-de2f4074e0096859278977141231de73.ctex"]
+source_file="res://Assets/Characters/hiraya happy.png"
+dest_files=["res://.godot/imported/hiraya happy.png-48a0ecda099d8367e8a75bef81275075.ctex"]
 
 [params]
 
