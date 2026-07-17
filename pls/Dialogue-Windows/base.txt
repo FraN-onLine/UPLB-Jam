@@ -62,7 +62,7 @@ hiraya_happy = Hiraya
 pedro = Pedro
 djo = Djo Jacques
 djo_angry = Djo Jacques
-djo_evilsmile = Djo Jacques
+djo_evil_smile = Djo Jacques
 
 emilio_default = res://Assets/Characters/Emilio.png
 marie_default = res://Assets/Characters/Marie Tess.png
@@ -98,6 +98,8 @@ bg_home_inside_old = res://Assets/Background/original-home.png
 I look around the old run down place I used to live.
 #thought
 (And not a single damn thing changed.)
+<emilio-2>
+....
 #thought
 The scenery of this place gives a bitter feeling on my face.
 #thought
@@ -149,7 +151,7 @@ Sisa looks flustered with that question…
 #thought
 (Looks like it's not been going well at all…)
 #thought
-Marie Tess leaves quietly.
+Marie Tess still yaps in the background.
 <sisa_anxious-1>
 Well… It's been… worse.
 <sisa_anxious-1>
@@ -165,7 +167,12 @@ Blunt, but it's not easy to just leave this place you know…
 <emilio-2>
 Not in the best condition…
 <sisa_anxious-1>
-but it's not easy to just leave this place you know…
+But it's not easy to just leave this place you know…
+#sisa_response
+[end]
+
+// ============================================================
+[sisa_response]
 #thought
 I can definitely understand how she feels but…
 <emilio-2>
@@ -189,6 +196,8 @@ Leaving this place was easy for me, but would it be the same for them…?
 
 // ============================================================
 [home]
+#thought
+You stroll your way back the familiar streets, ending up infront of a familiar site.
 #background bg_home_inside_old
 #thought
 Emilio enters a charred stone house. Pretty much nothing is inside but your grandmother lying on the floor.
@@ -323,7 +332,7 @@ You're a weird old woman…
 <crispin_happy-1>
 Pretty! But weird…
 #thought
-You set off.
+You set off, Trying to see if this "Charity"-thing would be of help to Donto.
 #start_fundraiser
 [end]
 
@@ -392,7 +401,7 @@ Doesn't it?
 He points around. Burned houses. Collapsed roofs. No electricity. No running water.
 <djo-2>
 How much did you raise?
-<pedro-1>
+<emilio-1>
 Sixty-seven thousand…
 <djo-2>
 To restore electricity alone… estimated two million.
@@ -446,9 +455,9 @@ Donto became just another name on a forgotten map.
 
 // ============================================================
 [stayed_to_fight]
-<djo-1>
+<djo-2>
 Okay.
-<djo-1>
+<djo-2>
 One week. If you can do something substantial… we'll hold it off for a little longer.
 #thought
 He leaves.

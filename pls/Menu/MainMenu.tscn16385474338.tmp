@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dc1mw70qvvg0x"]
+
+[ext_resource type="FontFile" uid="uid://cjrm0bccicdxo" path="res://Text/Yuyu-Regular.ttf" id="1_q3yy7"]
+[ext_resource type="Script" uid="uid://buqw81ryws82u" path="res://Menu/MainMenu.gd" id="2_i6sq0"]
+[ext_resource type="Texture2D" uid="uid://cgcvi5dbpjw1t" path="res://Assets/Dialog windoes/Buttons2.png" id="3_tma8a"]
+[ext_resource type="Texture2D" uid="uid://ddwll0d6tbf2d" path="res://Assets/Menu/MainMenu.png" id="4_tpenk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_swd6r"]
+texture = ExtResource("3_tma8a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tma8a"]
+texture = ExtResource("3_tma8a")
+modulate_color = Color(0.4, 0.4, 0.4, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tpenk"]
+texture = ExtResource("3_tma8a")
+modulate_color = Color(0.46691066, 0.35054636, 0.0999373, 0.49411765)
+
+[node name="MainMenu" type="CanvasLayer" unique_id=765608284]
+script = ExtResource("2_i6sq0")
+
+[node name="Title" type="Label" parent="." unique_id=1995062340]
+offset_left = 70.0
+offset_top = 9.0
+offset_right = 1095.0
+offset_bottom = 259.0
+theme_override_fonts/font = ExtResource("1_q3yy7")
+theme_override_font_sizes/font_size = 72
+text = "Padayon, Lupang Sinilangan"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="Subtitle" type="Label" parent="." unique_id=1273302815]
+offset_left = 412.0
+offset_top = 151.0
+offset_right = 740.0
+offset_bottom = 241.0
+theme_override_fonts/font = ExtResource("1_q3yy7")
+theme_override_font_sizes/font_size = 32
+text = "All roads lead back home..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="." unique_id=336552588]
+offset_left = 377.0
+offset_top = 262.0
+offset_right = 757.0
+offset_bottom = 342.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_q3yy7")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_swd6r")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tma8a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tpenk")
+text = "Start"
+
+[node name="OtherButton" type="Button" parent="." unique_id=1498009389]
+offset_left = 379.0
+offset_top = 353.0
+offset_right = 759.0
+offset_bottom = 433.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_q3yy7")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_swd6r")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tma8a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tpenk")
+text = "Other Button"
+
+[node name="TestButton" type="Button" parent="." unique_id=1153469171]
+visible = false
+offset_left = 382.0
+offset_top = 420.0
+offset_right = 762.0
+offset_bottom = 500.0
+theme_override_fonts/font = ExtResource("1_q3yy7")
+theme_override_font_sizes/font_size = 36
+text = "Test Dialogue"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=419689474]
+z_index = -15
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+texture = ExtResource("4_tpenk")
+metadata/_edit_lock_ = true

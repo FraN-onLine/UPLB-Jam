@@ -4,7 +4,7 @@
 
 extends CanvasLayer
 
-@onready var dialogue_window = preload("res://Dialogue Windows/dialgoue.tscn").instantiate()
+@onready var dialogue_window = preload("res://Dialogue-Windows/dialgoue.tscn").instantiate()
 var fade_overlay: ColorRect
 var minigame1_scene = preload("res://Minigame1/Scenes/main.tscn")
 var minigame2_scene = preload("res://Minigame2/scenes/minigame2.tscn")
@@ -31,11 +31,11 @@ func _ready() -> void:
 	
 	# Create fade overlay in root viewport so it covers everything including minigame
 	fade_overlay = ColorRect.new()
-	fade_overlay.z_index = 9999
+	fade_overlay.z_index = 4096
 	fade_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	fade_overlay.color = Color(0, 0, 0, 0)  # Start fully transparent
 	fade_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	get_tree().root.add_child(fade_overlay)
+	get_tree().root.add_child.call_deferred(fade_overlay)
 	
 	# Setup audio players
 	main_theme = AudioStreamPlayer.new()
@@ -63,7 +63,7 @@ func _on_start_pressed() -> void:
 	_using_end_theme = false
 	if not main_theme.playing:
 		main_theme.play()
-	dialogue_window.start("res://Dialogue Windows/base.txt", "day1")
+	dialogue_window.start("res://Dialogue-Windows/base.txt", "day1")
 
 
 func _on_test_pressed() -> void:
@@ -166,7 +166,7 @@ func _on_minigame1_won() -> void:
 	show()
 	await _fade_out(1.0)
 	# Start the next story section
-	dialogue_window.start("res://Dialogue Windows/base.txt", "after_fundraiser")
+	dialogue_window.start("res://Dialogue-Windows/base.txt", "after_fundraiser")
 
 
 func _on_minigame1_lost() -> void:
@@ -222,7 +222,7 @@ func _on_minigame2_won() -> void:
 	dialogue_window.show()
 	show()
 	await _fade_out(1.0)
-	dialogue_window.start("res://Dialogue Windows/base.txt", "minigame2_narrative")
+	dialogue_window.start("res://Dialogue-Windows/base.txt", "minigame2_narrative")
 
 
 func _launch_minigame3() -> void:
@@ -274,7 +274,7 @@ func _on_minigame3_won() -> void:
 	show()
 	await _fade_out(1.0)
 	# Show the narrative bridge before minigame4
-	dialogue_window.start("res://Dialogue Windows/base.txt", "minigame3_narrative")
+	dialogue_window.start("res://Dialogue-Windows/base.txt", "minigame3_narrative")
 
 
 func _on_minigame3_lost() -> void:
@@ -324,7 +324,7 @@ func _on_minigame4_won() -> void:
 	await _fade_in(1.0)
 	_minigame_cleanup()
 	# Go directly to minigame5
-	_launch_minigame5()
+	dialogue_window.start("res://Dialogue-Windows/base.txt", "minigame4_narrative")
 
 
 func _launch_minigame5() -> void:
@@ -383,32 +383,35 @@ func _on_dialogue_finished(return_key: String) -> void:
 	match return_key:
 		"":
 			_show_menu()
+		"sisa_response":
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "sisa_response")
+
 		"home_arrival":
-			dialogue_window.start("res://Dialogue Windows/base.txt", "home")
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "home")
 		
 		"walk_streets":
-			dialogue_window.start("res://Dialogue Windows/base.txt", "walk_streets")
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "walk_streets")
 		
 		"return_home":
-			dialogue_window.start("res://Dialogue Windows/base.txt", "return_home")
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "return_home")
 		
 		"start_fundraiser":
 			_launch_minigame1()
 		
 		"djo_choice":
-			dialogue_window.start("res://Dialogue Windows/base.txt", "djo_choice")
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "djo_choice")
 		
 		"djo_decision":
 			if dialogue_window.last_chosen_option_index == 0:
-				dialogue_window.start("res://Dialogue Windows/base.txt", "gave_up")
+				dialogue_window.start("res://Dialogue-Windows/base.txt", "gave_up")
 			else:
-				dialogue_window.start("res://Dialogue Windows/base.txt", "stayed_to_fight")
+				dialogue_window.start("res://Dialogue-Windows/base.txt", "stayed_to_fight")
 		
 		"gave_up":
-			dialogue_window.start("res://Dialogue Windows/base.txt", "gave_up")
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "gave_up")
 		
 		"stayed_to_fight":
-			dialogue_window.start("res://Dialogue Windows/base.txt", "stayed_to_fight")
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "stayed_to_fight")
 		
 		"bad_ending":
 			print("Bad ending reached. Donto fell.")

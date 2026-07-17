@@ -21,7 +21,8 @@ signal speaker_changed(character_id: String, slot: int, display_name: String)
 @export var inactive_modulate : Color = Color(0.45, 0.45, 0.45, 1.0)
 @export var active_modulate : Color = Color(1, 1, 1, 1)
 @export var autostart : bool = false
-@export var test_dialogue_path : String = "res://Dialogue Windows/example.txt"
+@export var test_dialogue_path : String = "res://Dialogue-Windows/example.txt"
+
 @export var test_section : String = "test"
 @export var typing_speed : float = 0.03  ## Seconds per character when typing
 
@@ -78,7 +79,8 @@ func _ready() -> void:
 	_texture_regex.compile("\\$\\(([^)]+)\\)\\$")
 	_hide_choices()
 	for button in _option_buttons:
-		button.pressed.connect(_on_choice_pressed.bind(button))
+		if button != null:
+			button.pressed.connect(_on_choice_pressed.bind(button))
 
 	if autostart:
 		dialogue_finished.connect(func(key: String) -> void:
@@ -107,14 +109,7 @@ func start(dialogue_path: String, section_name: String) -> void:
 	_active_slot = 0
 	_last_speaker_id = ""
 	_auto_next_slot = 1
-	_text_label = $Text
-	_background = $Background
-	_name_tag = $NameTag
 	_text_label.text = ""
-	_waiting_for_input = false
-	_in_choice = false
-
-	_name_label = $NameTag/Name
 	_name_label.text = ""
 	_is_typing = false
 	if _typing_tween and _typing_tween.is_running():
@@ -425,6 +420,9 @@ func _show_choices(choices: Array[DialogueChoice]) -> void:
 	_hide_choices()
 
 	for i in mini(choices.size(), _option_buttons.size()):
+		if _option_buttons[i] == null:
+			push_error("DialogueWindow: Option button %d is null" % (i + 1))
+			continue
 		_option_buttons[i].text = choices[i].text
 		_option_buttons[i].visible = true
 		_option_buttons[i].disabled = not choices[i].enabled
@@ -435,6 +433,8 @@ func _show_choices(choices: Array[DialogueChoice]) -> void:
 func _hide_choices() -> void:
 	_in_choice = false
 	for button in _option_buttons:
+		if button == null:
+			continue
 		button.visible = false
 		if button.has_meta("choice_index"):
 			button.remove_meta("choice_index")
