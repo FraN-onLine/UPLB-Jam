@@ -13,6 +13,9 @@ class_name DialogueWindow
 ##   #background farm_sky              (uses a top-of-file texture key)
 ##   #background = res://path/bg.png  (direct path)
 ##   #clearcharacters                  (hides all portrait slots + name tag)
+##   #merge section_name               (jumps to another section mid-story)
+##   #set_flag flag_name               (sets a story flag)
+##   #require_flag flag_name ... #end_require (conditional dialogue block)
 
 signal dialogue_finished(return_key: String)
 signal line_shown(text: String)
@@ -62,6 +65,12 @@ var _thought_active := false
 
 # Tracks the last chosen option index (0-based) for branching
 var last_chosen_option_index := -1
+
+# Story flags — tracks which story events/choices have been made
+var story_flags : Dictionary = {}
+
+# Merge stack — tracks where we came from for #merge jumps
+var _merge_stack : Array[Dictionary] = []
 
 
 func _ready() -> void:
@@ -134,6 +143,19 @@ func get_display_name(character_id: String) -> String:
 	return _data.characters.get(character_id, character_id.capitalize())
 
 
+## Returns true if a story flag has been set.
+func has_flag(flag_name: String) -> bool:
+	return story_flags.get(flag_name, false)
+
+
+## Sets a story flag.
+func set_flag(flag_name: String) -> void:
+	story_flags[flag_name] = true
+	# Also sync to DialogueData for persistence
+	if _data != null:
+		_data.story_flags[flag_name] = true
+
+
 func _input(event: InputEvent) -> void:
 	if not visible or _in_choice:
 		return
@@ -178,6 +200,16 @@ func _advance() -> void:
 			DialogueInstruction.Type.CHOICE:
 				_show_choices(instr.choices)
 				return
+			DialogueInstruction.Type.MERGE:
+				_apply_merge(instr)
+				# After merge, continue the loop (don't return)
+				# The merge may have changed _instructions and _index
+			DialogueInstruction.Type.SET_FLAG:
+				_apply_set_flag(instr)
+				# Continue to next instruction
+			DialogueInstruction.Type.REQUIRE_FLAG:
+				_apply_require_flag(instr)
+				# Continue to next instruction (skip or show block)
 
 	_finish_section()
 
@@ -446,7 +478,9 @@ func _show_choices(choices: Array[DialogueChoice]) -> void:
 
 
 func _hide_choices() -> void:
-	_in_choice = false
+	# IMPORTANT: Do NOT set _in_choice = false here!
+	# _in_choice is managed by _show_choices and _on_choice_pressed.
+	# Setting it to false here would allow clicks to advance past choices.
 	for button in _option_buttons:
 		if button == null:
 			continue
@@ -463,7 +497,10 @@ func _on_choice_pressed(button: Button) -> void:
 
 	var choice: DialogueChoice = button.get_meta("choice_data")
 	last_chosen_option_index = button.get_meta("choice_index", -1)
+	
+	# Hide choices visually but keep _in_choice false so _advance can work
 	_hide_choices()
+	_in_choice = false
 
 	var resume: Array[DialogueInstruction] = _instructions.slice(_index)
 	_instructions = choice.dialogue + resume
@@ -471,7 +508,89 @@ func _on_choice_pressed(button: Button) -> void:
 	_advance()
 
 
+## Handles #merge section_name — jumps to another section mid-story.
+## The merge preserves the current instruction context so the story flows continuously.
+func _apply_merge(instr: DialogueInstruction) -> void:
+	var target_section: String = instr.merge_section
+	if target_section == "":
+		push_error("DialogueWindow: #merge with empty section name")
+		return
+	
+	if _data == null or not _data.sections.has(target_section):
+		push_error("DialogueWindow: #merge target section '%s' not found" % target_section)
+		return
+	
+	# Save the remaining instructions on a merge stack so we can return if needed
+	var remaining: Array[DialogueInstruction] = _instructions.slice(_index)
+	_merge_stack.append({
+		"instructions": remaining,
+		"section": _current_section
+	})
+	
+	# Load the target section's instructions
+	var section: DialogueSection = _data.sections[target_section]
+	var target_instructions: Array[DialogueInstruction]
+	if _completed_sections.has(target_section):
+		target_instructions = section.exhausted_dialogue
+	else:
+		target_instructions = section.dialogue
+	
+	# If target section has no instructions, just continue with remaining
+	if target_instructions.is_empty():
+		_instructions = remaining
+		_index = 0
+		return
+	
+	# Append remaining instructions after the merged section
+	# This way, after the merged section finishes, we continue where we left off
+	_instructions = target_instructions + remaining
+	_index = 0
+	_current_section = target_section
+
+
+## Handles #set_flag flag_name — sets a story flag.
+func _apply_set_flag(instr: DialogueInstruction) -> void:
+	var flag_name: String = instr.flag_key
+	if flag_name == "":
+		push_error("DialogueWindow: #set_flag with empty flag name")
+		return
+	set_flag(flag_name)
+
+
+## Handles #require_flag flag_name ... #end_require — conditional dialogue.
+## If the flag is set, the block instructions are injected into the current flow.
+## If not set, the block is skipped entirely.
+func _apply_require_flag(instr: DialogueInstruction) -> void:
+	var flag_name: String = instr.flag_key
+	if flag_name == "":
+		push_error("DialogueWindow: #require_flag with empty flag name")
+		return
+	
+	# Check if the flag is set
+	if has_flag(flag_name):
+		# Flag is set — inject the block instructions into the current flow
+		if not instr.choices.is_empty():
+			var block_instructions: Array[DialogueInstruction] = instr.choices[0].dialogue
+			if not block_instructions.is_empty():
+				var remaining: Array[DialogueInstruction] = _instructions.slice(_index)
+				_instructions = block_instructions + remaining
+				_index = 0
+	# If flag is not set, skip the block entirely (do nothing)
+
+
 func _finish_section() -> void:
+	# Check if we have a merge stack to return to
+	if not _merge_stack.is_empty():
+		var saved: Dictionary = _merge_stack.pop_back()
+		var remaining: Array[DialogueInstruction] = saved.instructions
+		if not remaining.is_empty():
+			# Continue with the remaining instructions from where we merged
+			_instructions = remaining
+			_index = 0
+			_current_section = saved.section
+			_advance()
+			return
+	
 	# section_return_key comes from the section header block (a '#... ' token).
 	# If the section has no '#return_key', emit an empty string.
 	var section_return_key := ""

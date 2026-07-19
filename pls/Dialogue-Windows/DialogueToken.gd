@@ -16,7 +16,12 @@ enum Type {
 
 	COMMAND,
 
-	EXHAUSTED
+	EXHAUSTED,
+	
+	MERGE,       ## #merge section_name — mid-section jump
+	SET_FLAG,    ## #set_flag flag_name
+	REQUIRE_FLAG,## #require_flag flag_name
+	END_REQUIRE  ## #end_require
 }
 
 var type : Type

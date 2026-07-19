@@ -71,6 +71,30 @@ static func _tokenize(path: String) -> Array[DialogueToken]:
 			tokens.append(token)
 			continue
 
+		if line.to_lower().begins_with("#merge "):
+			token.type = DialogueToken.Type.MERGE
+			token.value = line
+			tokens.append(token)
+			continue
+
+		if line.to_lower().begins_with("#set_flag "):
+			token.type = DialogueToken.Type.SET_FLAG
+			token.value = line
+			tokens.append(token)
+			continue
+
+		if line.to_lower().begins_with("#require_flag "):
+			token.type = DialogueToken.Type.REQUIRE_FLAG
+			token.value = line
+			tokens.append(token)
+			continue
+
+		if line.to_lower() == "#end_require":
+			token.type = DialogueToken.Type.END_REQUIRE
+			token.value = line
+			tokens.append(token)
+			continue
+
 		if line.begins_with("#"):
 			token.type = DialogueToken.Type.COMMAND
 			token.value = line
@@ -170,11 +194,14 @@ static func _parse_instruction_block(
 	var instructions: Array[DialogueInstruction] = []
 	var return_key := ""
 	var i := start
+	var require_flag_active := false  # Track if we're inside a #require_flag block
 
 	while i < tokens.size():
 		var token := tokens[i]
 
 		if token.type == DialogueToken.Type.SECTION_END:
+			# If we're inside a require block without #end_require, treat it as end
+			require_flag_active = false
 			break
 
 		if stop_before_exhausted and token.type == DialogueToken.Type.EXHAUSTED:
@@ -215,6 +242,126 @@ static func _parse_instruction_block(
 		if token.type == DialogueToken.Type.SECTION_START:
 			push_error("%s:%d nested sections are not supported" % [path, token.line])
 			break
+
+		if token.type == DialogueToken.Type.MERGE:
+			# #merge section_name — creates a jump instruction
+			var merge_instr := DialogueInstruction.new()
+			merge_instr.type = DialogueInstruction.Type.MERGE
+			# Extract section name from "#merge section_name"
+			var body: String = token.value.substr(1).strip_edges()  # Remove #
+			var parts: PackedStringArray = body.split(" ", false, 1)
+			if parts.size() >= 2:
+				merge_instr.merge_section = parts[1].strip_edges()
+			merge_instr.line = token.line
+			instructions.append(merge_instr)
+			i += 1
+			continue
+
+		if token.type == DialogueToken.Type.SET_FLAG:
+			# #set_flag flag_name — creates a set_flag instruction
+			var flag_instr := DialogueInstruction.new()
+			flag_instr.type = DialogueInstruction.Type.SET_FLAG
+			var body: String = token.value.substr(1).strip_edges()  # Remove #
+			var parts: PackedStringArray = body.split(" ", false, 1)
+			if parts.size() >= 2:
+				flag_instr.flag_key = parts[1].strip_edges()
+			flag_instr.line = token.line
+			instructions.append(flag_instr)
+			i += 1
+			continue
+
+		if token.type == DialogueToken.Type.REQUIRE_FLAG:
+			# Start of a conditional block.
+			# We create a special instruction marking the start of a require block,
+			# then parse all instructions inside until #end_require.
+			require_flag_active = true
+			var require_instr := DialogueInstruction.new()
+			require_instr.type = DialogueInstruction.Type.REQUIRE_FLAG
+			var body: String = token.value.substr(1).strip_edges()
+			var parts: PackedStringArray = body.split(" ", false, 1)
+			if parts.size() >= 2:
+				require_instr.flag_key = parts[1].strip_edges()
+			require_instr.command_value = "require"
+			require_instr.line = token.line
+			instructions.append(require_instr)
+			i += 1
+
+			# Now parse the block contents as instructions until #end_require or section end
+			var block_instructions: Array[DialogueInstruction] = []
+			while i < tokens.size():
+				var bt := tokens[i]
+				if bt.type == DialogueToken.Type.END_REQUIRE:
+					require_flag_active = false
+					i += 1
+					break
+				if bt.type == DialogueToken.Type.SECTION_END:
+					require_flag_active = false
+					break
+				if bt.type == DialogueToken.Type.SPEAKER:
+					block_instructions.append(_make_speaker_instruction(bt.value.tag, bt.line))
+					i += 1
+					continue
+				if bt.type == DialogueToken.Type.TEXT:
+					block_instructions.append_array(_make_text_instructions(bt.value.text, bt.line))
+					i += 1
+					continue
+				if bt.type == DialogueToken.Type.COMMAND:
+					var parsed_cmd := _parse_command(bt.value)
+					if parsed_cmd.kind == "runtime":
+						block_instructions.append(_make_command_instruction(parsed_cmd))
+					else:
+						# Return key inside a require block — this would be unusual
+						return_key = parsed_cmd.value
+					i += 1
+					continue
+				if bt.type == DialogueToken.Type.CHOICE:
+					var nested_indent: int = bt.value.indent
+					var parsed_choices := _parse_choice_group(tokens, i, nested_indent, path)
+					block_instructions.append(parsed_choices.instruction)
+					i = parsed_choices.next_index
+					continue
+				if bt.type == DialogueToken.Type.MERGE:
+					var merge_instr2 := DialogueInstruction.new()
+					merge_instr2.type = DialogueInstruction.Type.MERGE
+					var body2: String = bt.value.substr(1).strip_edges()
+					var parts2: PackedStringArray = body2.split(" ", false, 1)
+					if parts2.size() >= 2:
+						merge_instr2.merge_section = parts2[1].strip_edges()
+					merge_instr2.line = bt.line
+					block_instructions.append(merge_instr2)
+					i += 1
+					continue
+				if bt.type == DialogueToken.Type.SET_FLAG:
+					var flag_instr2 := DialogueInstruction.new()
+					flag_instr2.type = DialogueInstruction.Type.SET_FLAG
+					var body2: String = bt.value.substr(1).strip_edges()
+					var parts2: PackedStringArray = body2.split(" ", false, 1)
+					if parts2.size() >= 2:
+						flag_instr2.flag_key = parts2[1].strip_edges()
+					flag_instr2.line = bt.line
+					block_instructions.append(flag_instr2)
+					i += 1
+					continue
+				i += 1
+
+			# Add all block instructions to the require_instr as text (we'll use choice_data-like storage)
+			# Store the conditional block content on the require instruction itself.
+			# The runtime will skip these if the flag isn't set.
+			# We use command_value "require" + flag_key, and store block instructions in a special way.
+			# To avoid adding new fields, we reuse choice as a storage container.
+			# Actually, let's use a simpler approach: store block instructions in flag_key
+			# by encoding them. No — let's just add a field.
+			# Actually, the cleanest approach: store them in an array on the instruction itself.
+			# We'll add a `conditional_block` field. But for backward compat, let's use
+			# the existing `choices` array to store conditional block instructions.
+			# Wrap them in DialogueChoice objects.
+			var wrapper_choice := DialogueChoice.new()
+			wrapper_choice.text = ""  # Not used
+			wrapper_choice.dialogue = block_instructions
+			require_instr.choices = [wrapper_choice]
+			# Also include the end_require marker info
+			# We're done processing this block
+			continue
 
 		i += 1
 

@@ -1,7 +1,15 @@
 // ============================================================
 //  BASE.DIALOGUE — Padayon, Lupang Sinilangan
-//  Complete Story (through Day 1)
+//  Complete Story
 // ============================================================
+//
+//  Flags (set with #set_flag / checked with #require_flag ... #end_require):
+//    asked_about_crispin  — Player asked Sisa about Crispin (day1 choice 1)
+//    heard_sisa_story     — Player heard Sisa's full story
+//  
+//  #merge section_name   — Jumps mid-story to another section (continues flow after)
+//  #set_flag flag_name   — Sets a persistent story flag
+//  #require_flag flag_name ... #end_require — Only shows content if flag is set
 //
 //  Characters:
 //    emilio    — protagonist (you)
@@ -164,16 +172,85 @@ There's this stuff with this dump getting… bought.
 <sisa_anxious-1>
 You can already see that this place is…
 > Uninhabitable
+#set_flag asked_about_crispin
 <emilio-2>
 Uninhabitable.
 <sisa_anxious-1>
 Blunt, but it's not easy to just leave this place you know…
+#merge sisa_response_merge
 > Not in the best condition
 <emilio-2>
 Not in the best condition…
 <sisa_anxious-1>
 But it's not easy to just leave this place you know…
-#sisa_response
+#merge sisa_response_merge
+[end]
+
+// ============================================================
+//  MERGE POINT: Both choices in [day1] flow into this section.
+//  The #merge sisa_response_merge command jumps here mid-story,
+//  then continues on to #home_arrival.
+// ============================================================
+[sisa_response_merge]
+#thought
+I can definitely understand how she feels but…
+<emilio-2>
+Is it really worth the struggle?
+<emilio-2>
+I'm not saying you should leave this place but—
+<sisa_anxious-1>
+Milo— I understand. But this is our home. Is it not worth trying to protect?
+#thought
+…
+<sisa_anxious-1>
+Look, I'm gonna go and find a way to feed my son today. Everything has been overwhelming the past few days… But it was great seeing you again.
+#thought
+I— that was stupid of me.
+<emilio-2>
+Yeah… It was great to see you too.
+#thought
+Leaving this place was easy for me, but would it be the same for them…?
+#home_arrival
+[end]
+
+// ============================================================
+//  SISA'S FULL STORY — extra dialogue shown when asked_about_crispin
+//  flag is set. Accessible via #merge sisa_full_story from any section.
+// ============================================================
+[sisa_full_story]
+#background bg_streets
+#thought
+Sisa sits down beside you, her eyes distant but calm.
+<sisa-1>
+You know… Crispin wasn't always afraid of the dark.
+<sisa-1>
+When he was very little, he used to run around at night chasing fireflies.
+<sisa-1>
+He'd come back with dirt on his clothes and a smile on his face.
+<emilio-2>
+What changed?
+<sisa-1>
+The fire. He saw the flames from our window. After that… he couldn't sleep without the lamp on.
+#thought
+She pauses, collecting herself.
+<sisa-1>
+But even then, he never stopped smiling during the day.
+<sisa-1>
+He'd tell me, "Mom, the sun always comes back. So we have to be ready for it."
+#set_flag heard_sisa_story
+<emilio-2>
+He sounds like he was wise beyond his years.
+<sisa-1>
+He was. He got it from his father.
+#thought
+She stands up, brushing off her clothes.
+<sisa-1>
+Come on. We have a town to rebuild.
+#merge sisa_full_story_return
+[end]
+
+// ============================================================
+[sisa_full_story_return]
 [end]
 
 // ============================================================
@@ -282,6 +359,12 @@ Some refused to give up their land because for some of them… this place holds 
 (Some inner monologue must be going on....)
 #thought
 After some time walking I wasn't able to find Mama and Hira.
+#require_flag asked_about_crispin
+#thought
+I think about what Sisa told me about Crispin. About the fireflies. About the lamp.
+#thought
+It's strange how a child's memory can make a ruined town feel alive again.
+#end_require
 <emilio-1>
 I think I should head home now… they might have already returned.
 #thought
