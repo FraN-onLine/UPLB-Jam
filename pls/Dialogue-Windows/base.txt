@@ -11,9 +11,8 @@
 //    amila     — Lola Amila (grandmother)
 //    mia       — Mama Mia (mother)
 //    hiraya    — younger sister
-//    pedro     — town elder
+//    santo     — town elder
 //    djo       — Djo Jacques, government official
-//    santo     - Santo
 //
 //  Commands:
 //    #thought  — Hides name tag + portraits (just text on screen)
@@ -31,7 +30,6 @@ crispin = Crispin
 amila = Lola Amila
 mia = Mama Mia
 hiraya = Hiraya
-pedro = Pedro
 djo = Djo Jacques
 
 emilio_default = res://Assets/Characters/Emilio.png
@@ -59,7 +57,6 @@ mia = Mama Mia
 mia_smile = Mama Mia
 hiraya = Hiraya
 hiraya_happy = Hiraya
-pedro = Pedro
 djo = Djo Jacques
 djo_angry = Djo Jacques
 djo_evil_smile = Djo Jacques
@@ -88,10 +85,18 @@ bg_home_out_new = res://Assets/Background/rebuilt.png
 bg_horizon = res://Assets/Background/horizon.png
 bg_streets = res://Assets/Background/streets.png
 bg_home_inside_old = res://Assets/Background/original-home.png
+bg_night_sky = res://Assets/Background/horizon.png
+bg_rubble = res://Assets/Background/streets.png
 
 // ============================================================
 [day1]
 #background bg_horizon
+#thought
+Twelve years ago, you left Donto after your father died, your mother stayed home and looked after your family home and grandmother. 
+#thought
+You were the only one who managed to pursue higher education. Now, after hearing that a fire destroyed much of the town, you've returned for what you thought would be a short visit.
+#thought
+Welcome back, Welcome to your "Lupang Sinilangan"
 #thought
 (It's been a while…)
 #thought
@@ -349,7 +354,7 @@ Children are laughing.
 People are smiling for the first time.
 #thought
 The donations are counted.
-<pedro-1>
+<santo-1>
 We actually did it…
 <marie_yap-2>
 See? I told you people still cared!
@@ -369,7 +374,7 @@ Everyone rushes.
 Crispin is lying on the ground, barely conscious.
 #thought
 He hasn't eaten enough in days.
-<pedro-1>
+<santo-1>
 The nearest clinic burned down.
 <marie_yap-2>
 The next town's hospital is hours away.
@@ -482,7 +487,167 @@ So? Let's make this wreck into something sustainable again.
 #thought
 I believe in the people of Donto. They've been surviving, and they have the right to continue surviving.
 #thought
-Pedro and Marie Tess gladly start to help you as Sisa watches at the corner, taking her leave.
+Santo and Marie Tess gladly start to help you as Sisa watches at the corner, taking her leave.
+#sisa_grief
+[end]
+
+// ============================================================
+[sisa_grief]
+#background bg_streets
+#thought
+Days pass. The rubble stays the same. But something shifts in the air.
+#thought
+Sisa hasn't been seen since that day.
+#thought
+I decide to check on her.
+#thought
+I find her at the edge of town, sitting on a burnt log, staring at nothing.
+<emilio-2>
+Sisa.
+#thought
+She doesn't respond.
+<emilio-2>
+I brought some food. You haven't eaten.
+<sisa-1>
+…
+<sisa-1>
+Do you remember when we were kids, Milo?
+<sisa-1>
+We used to run through these streets thinking nothing could touch us.
+<emilio-2>
+I remember.
+<sisa-1>
+Now I can't even walk down the road without seeing his face everywhere.
+<sisa-1>
+Crispin loved this town. He loved the mango tree by the old church. He loved the sound of the rooster in the morning.
+<sisa-1>
+He loved everything about this place.
+<sisa-1>
+And now he's gone. And this place is gone.
+#thought
+I sit beside her. No words feel right.
+> The town can still be his memory
+<emilio-2>
+Then let's rebuild it for him. So his memory lives in every wall we put up.
+<sisa-1>
+…
+<sisa-1>
+You really think that would work?
+> He'd want you to keep going
+<emilio-2>
+Crispin would want his mom to keep fighting. Not to sit here and fade away.
+<sisa-1>
+You didn't even know him that well.
+<emilio-2>
+I knew you. And I know he had your heart. That's enough.
+#thought
+A long silence. Then she takes the food.
+<sisa-1>
+…
+<sisa-1>
+Thank you.
+#thought
+We sit there until the sun goes down.
+#town_meeting
+[end]
+
+// ============================================================
+[town_meeting]
+#background bg_streets
+#thought
+The next morning, Santo calls for a town meeting at the plaza.
+#thought
+Only a handful show up. Most have already left.
+<santo-2>
+I've lived in Donto for sixty-seven years.
+<santo-2>
+I've seen typhoons. I've seen droughts. I've seen governments come and go.
+<santo-2>
+But I've never seen my people this broken.
+<marie_yap-1>
+So what do we do, Tio?
+<santo-2>
+We organize. We divide the work. We stop waiting for someone to save us.
+> I can handle logistics
+<emilio-1>
+I can handle the numbers. Supplies. Where to get materials.
+<santo-2>
+Good. You have the education for it.
+> I'll work the rubble
+<emilio-1>
+Put me on the ground. I'd rather work with my hands.
+<santo-2>
+A man of the people. I respect that.
+#thought
+Sisa walks in. Everyone goes quiet.
+<sisa-2>
+I want to help.
+<marie_yap-1>
+Sisa… you don't have to—
+<sisa-2>
+I know I don't have to. I want to.
+<sisa-2>
+Crispin can't grow up here anymore. But other children can.
+<sisa-2>
+And they deserve a town that didn't give up.
+#thought
+A quiet murmur of agreement passes through the crowd.
+<santo-1>
+Then it's settled. We start at dawn.
+#rebuild_prep
+[end]
+
+// ============================================================
+[rebuild_prep]
+#background bg_streets
+#thought
+The next few days are a blur of sweat and blisters.
+#thought
+Santo leads the clearing efforts. His age doesn't show—he carries beams twice his weight.
+#thought
+Marie Tess handles the communications, running back and forth between towns.
+#thought
+Sisa works in silence. She doesn't speak much, but she shows up every single day.
+#thought
+I find myself watching her sometimes. The way she throws herself into the work.
+#thought
+Sisa.... I hope you're good
+<santo-2>
+Emilio. A moment.
+<emilio-1>
+What is it, Tio?
+<santo-2>
+I've been talking to the neighboring barangays. They're willing to donate materials.
+<santo-2>
+But we need to transport them. And we need people to help build.
+<emilio-1>
+So we need more hands.
+<santo-2>
+Exactly. I was thinking…
+> We ask the youth
+<emilio-1>
+The younger ones. The ones who haven't left yet. Give them something to believe in.
+<santo-2>
+Bold. But risky.
+> We ask the elders
+<emilio-1>
+The elders have the skills. They built this town once. They can do it again.
+<santo-2>
+True. But their bodies aren't what they used to be.
+#thought
+Sisa approaches, wiping sweat from her brow.
+<sisa-1>
+I... I'll help find hands...
+#thought
+Sisa... she's the same woman i thought she was before i left.
+<santo-2>
+That woman… she's stronger than she thinks she is.
+<emilio-1>
+Mhm.
+<emilio-1>
+We'll get this place ready for her return.
+#thought
+You pick up a broom and start sweeping.
 #start_minigame2
 [end]
 
@@ -491,7 +656,7 @@ Pedro and Marie Tess gladly start to help you as Sisa watches at the corner, tak
 #background bg_streets
 #thought
 The group begins clearing the rubble.
-<pedro-2>
+<santo-2>
 Emilio… this is…
 <marie_yap-1>
 Beautiful!
@@ -505,12 +670,14 @@ Sisa? I haven't seen you in a while.
 Crispin… might be gone, but my hope for Donto doesn't have to be.
 <sisa-1>
 So, how can I—
+#thought
+Hiraya rushes in, interrupting Sisa.
 <hiraya_happy-2>
 Kuya! Look! Here's a fruit!
 <mia_smile-1>
 She's been looking for her brother, you know.
-<emilio-2>
-Hiraya… We'll build a future for you.
+#thought
+Hiraya.... not a good time..
 <sisa_cry-1>
 She would have loved Crispin…
 <mia_smile-1>
@@ -521,6 +688,112 @@ Stay strong, Sisa!
 Sisa looks up, head held high.
 <sisa_anxious-1>
 So, Emilio. Where do we start?
+#sisa_reflection
+[end]
+
+// ============================================================
+[sisa_reflection]
+#background bg_streets
+#thought
+Night falls. The work stops. But the mind doesn't.
+#thought
+I find Sisa by the old mango tree. The one she mentioned.
+<emilio-2>
+You should get some rest.
+<sisa-1>
+I know.
+<sisa-1>
+But every time I close my eyes… I see him.
+#thought
+I sit down next to her.
+<emilio-2>
+Tell me about him.
+<sisa-1>
+What?
+<emilio-2>
+Crispin. Tell me about your son.
+#thought
+She's quiet for a long time.
+<sisa-1>
+He was afraid of the dark.
+<sisa-1>
+Every night he'd crawl into my blanket and pretend he was just cold.
+<sisa-1>
+He had this joy, and he had this imaginary friend... Basilio.
+#thought
+She almost smiles.
+<sisa-1>
+He wanted to be a teacher when he grew up. A builder, A firefighter. Pretty much everything.
+#thought
+For a moment, she laughs.
+<emilio-2>
+You raised an ambitious one.
+<sisa-1>
+Yeah…
+<sisa-1>
+He's just like you, He'd leave Donto some day but he won't forget his streets. He wont give up on home either.
+#thought
+We sit under the stars.
+> He's still with you
+<emilio-2>
+Every time you fight for this town… that's him fighting with you; and loving you along the way.
+<sisa-1>
+You really believe that?
+> You're not alone in this
+<emilio-2>
+You have us. You have the town. You don't have to carry this by yourself.
+<sisa-1>
+I know. It's just… hard to remember sometimes.
+#thought
+She leans her head on my shoulder.
+<sisa-1>
+Thank you, Emilio.
+#foundation_ceremony
+[end]
+
+// ============================================================
+[foundation_ceremony]
+#background bg_streets
+#thought
+A week later, the foundation is ready to be poured.
+#thought
+Santo gathers everyone for a small ceremony.
+<santo-2>
+In my sixty-seven years, I've seen this town rise and fall.
+<santo-2>
+But I've never seen it rise from the ashes like this.
+<marie_yap-1>
+This is so gonna be a story to tell for generations to come.
+#thought
+Marie... still the same even at a time like this. Surely, a good story this will be.
+<santo-2>
+Emilio. Would you like to say something?
+> Speak from the heart
+<emilio-2>
+I left this town twelve years ago thinking I'd never come back. I thought Donto was just a memory. A place I used to belong to.
+<emilio-2>
+But standing here today… I realize I never really left. This town is in my blood. And as long as I have blood to give… I'll keep fighting.
+> Keep it short
+<emilio-2>
+Let's build something worth remembering.
+#thought
+Simple. Direct. The crowd nods in approval.
+#thought
+Sisa steps forward with a small wooden box.
+<sisa-1>
+I found this in the rubble of my home.
+<sisa-1>
+It's Crispin's drawing. He drew the town. The way he wanted it to look.
+#thought
+She holds up a child's drawing. Crayon lines. Bright colors. A town with a giant sun and smiling people.
+<sisa-1>
+I want to bury this under the foundation.
+<sisa-1>
+So a piece of him… becomes a piece of this town forever.
+#thought
+No one speaks. But everyone understands.
+#thought
+She places the drawing in the wet cement.
 #start_minigame3
 [end]
 
@@ -531,7 +804,7 @@ So, Emilio. Where do we start?
 The foundation has finally been poured.
 #thought
 For the first time since the fire… the people begin imagining homes instead of ruins.
-<pedro-1>
+<santo-1>
 Feels strange… I almost forgot what construction sounded like.
 <marie-2>
 I almost forgot what hope sounded like.
@@ -583,6 +856,126 @@ She keeps herself busy to distract from her suffering…
 Hey, if protecting this city is what keeps her from spiraling… let her.
 #thought
 And so, Emilio joins Sisa.
+#sisa_confrontation
+[end]
+
+// ============================================================
+[sisa_confrontation]
+#background bg_streets
+#thought
+Days turn into weeks. The walls begin to rise.
+#thought
+But Djo's words linger. Electricity. Water. Food.
+#thought
+We're building shells. But shells can't sustain life.
+#thought
+Sisa approaches me one morning with a fire in her eyes I haven't seen before.
+<sisa-1>
+I want to talk to Djo.
+<emilio-2>
+What?
+<sisa-1>
+I want to talk to him. Directly. Man to woman.
+<emilio-2>
+Sisa, that's—
+<sisa-1>
+I know what I'm doing.
+<sisa-1>
+I've been silent my whole life. Letting men decide what happens to me. To my son. To my home.
+<sisa-1>
+No more.
+#thought
+I see it. The same fire that kept her showing up every day. Now focused.
+> I'll come with you
+<emilio-2>
+I'm not letting you face him alone.
+<sisa-1>
+I wasn't asking permission.
+> Stay back and trust her
+<emilio-2>
+Okay. I'll stay here. But if you need me—
+<sisa-1>
+I know where to find you.
+#thought
+She walks toward the government convoy parked at the edge of town.
+#thought
+I watch her go. Small frame. Broken heart. Unbreakable will.
+#thought
+An hour passes. Then two.
+#thought
+She comes back. Her face is unreadable.
+<emilio-2>
+What happened?
+<sisa-1>
+I told him about Crispin.
+<sisa-1>
+I told him about the drawing. About the foundation. About why we can't leave.
+<sisa-1>
+I told him that if he takes this town… he takes a child's dream with it.
+#thought
+I wait.
+<sisa-1>
+He didn't say much. But he listened.
+<sisa-1>
+Really listened.
+<sisa-1>
+I think… for the first time… someone from up there actually heard us.
+#thought
+She sits down, exhausted.
+<sisa-1>
+I don't know if it changed anything. But I said what I needed to say.
+<emilio-2>
+I'm proud of you.
+<sisa-1>
+…
+<sisa-1>
+That means more than you know.
+#walls_rising
+[end]
+
+// ============================================================
+[walls_rising]
+#background bg_streets
+#thought
+The walls go up faster now. Word spreads. More volunteers arrive.
+#thought
+Santo coordinates the older men. Marie Tess runs supply lines. Sisa has become the heart of the workforce.
+#thought
+Even Mama Mia and Hiraya join in, handing out food and water.
+#thought
+But a new problem emerges.
+<santo-2>
+We're running out of lumber.
+<marie_yap-1>
+The next shipment from the neighboring town won't arrive for another week.
+<emilio-2>
+Can we scavenge from the ruins?
+<santo-2>
+We've already picked through most of it. What's left is too damaged.
+#thought
+A difficult choice.
+> Use the old church's wood
+<emilio-2>
+The old church at the edge of town. It's still standing. We can salvage the beams.
+<santo-2>
+Emilio… that church has been there since before I was born.
+<emilio-2>
+The church is a building. The people need homes.
+#thought
+Santo is quiet. Then he nods.
+> Wait for the shipment
+<emilio-2>
+We wait. We make do with what we have until the shipment arrives.
+<santo-2>
+That means slowing down. But at least we don't take what isn't ours.
+<emilio-2>
+Sometimes patience is the strongest choice.
+#thought
+Sisa walks up, overhearing the conversation.
+<sisa-1>
+Either way… we keep moving forward.
+<sisa-1>
+That's what matters.
 #start_minigame4
 [end]
 
@@ -590,8 +983,8 @@ And so, Emilio joins Sisa.
 [minigame4_narrative]
 #background bg_streets
 <marie_yap-1>
-Oi Pedro! Straighten that beam! It looks like it'll fall on my future kitchen!
-<pedro-2>
+Oi Santo! Straighten that beam! It looks like it'll fall on my future kitchen!
+<santo-2>
 Then maybe stop distracting the carpenter.
 <marie_yap-1>
 If my kitchen falls, I'm blaming you!
@@ -651,5 +1044,119 @@ That's all we ever wanted.
 Not someone to save us. Just someone willing to believe in us.
 #thought
 The people erupt into cheers.
+#djo_redemption
+[end]
+
+// ============================================================
+[djo_redemption]
+#background bg_streets
+#thought
+Later that evening, Djo asks to speak with me privately.
+#thought
+We walk along the edge of the town. The sunset paints the ruins gold.
+<djo-1>
+I lost my hometown too, you know.
+<emilio-2>
+…
+<djo-1>
+When I was young. A flood took everything. My family relocated. I never went back.
+<djo-1>
+I told myself it was progress. That moving on was the only way forward.
+<djo-1>
+But seeing your people fight for this place…
+<djo-1>
+It made me realize I never fought for mine.
+<emilio-2>
+It's not too late.
+<djo-1>
+Maybe not. But my hometown is underwater. Yours is still here.
+<djo-1>
+That's the difference between you and me, Emilio.
+<djo-1>
+You showed up.
+#thought
+He looks at the horizon.
+<djo-1>
+I'll make sure the resources arrive. You have my word.
+> Thank you
+<emilio-2>
+Thank you, Djo. For listening. For staying.
+<djo-1>
+Don't thank me yet. The hard part is just beginning.
+> We'll prove you right
+<emilio-2>
+We won't let this chance go to waste.
+<djo-1>
+I don't think you will.
+#thought
+He walks back to his vehicle. But this time… his shoulders seem lighter.
+#final_preparations
+[end]
+
+// ============================================================
+[final_preparations]
+#background bg_streets
+#thought
+The next morning, the town gathers for a final meeting before the government crews arrive.
+<santo-2>
+We did it.
+<marie_yap-1>
+WE DID IT!
+#thought
+Cheers erupt. Hugs. Tears. Laughter.
+#thought
+But Sisa stands apart. Not sad. Just… reflective.
+<emilio-2>
+You okay?
+<sisa-1>
+I am.
+<sisa-1>
+For the first time in a long time… I really am.
+<sisa-1>
+I still miss him. I'll always miss him.
+<sisa-1>
+But I don't feel empty anymore.
+<emilio-2>
+You filled the emptiness with something better.
+<sisa-1>
+Hope?
+<emilio-2>
+Purpose.
+#thought
+She looks at the half-built town. The foundations. The walls. The windows.
+<sisa-1>
+Crispin's drawing is under that foundation.
+<sisa-1>
+A piece of him will be here forever.
+<emilio-2>
+And a piece of you too.
+#thought
+Santo calls everyone to gather.
+<santo-2>
+Before we begin the next phase… I want to say something.
+<santo-2>
+I've lived in Donto for sixty-seven years.
+<santo-2>
+I've seen this town at its worst. And now… I'm seeing it at its best.
+<santo-2>
+And that's because of every single person standing here.
+<santo-2>
+But especially… this one.
+#thought
+He points at Sisa.
+<santo-2>
+This woman lost everything. Her home. Her son. Her peace.
+<santo-2>
+And she still showed up every single day.
+<santo-2>
+If that's not the spirit of Donto… I don't know what is.
+#thought
+Sisa's eyes well up. She doesn't speak. She doesn't have to.
+#thought
+The crowd applauds. Not out of pity. Out of respect.
+<emilio-2>
+So… what's next?
+<sisa-1>
+We finish what we started.
 #start_minigame5
 [end]

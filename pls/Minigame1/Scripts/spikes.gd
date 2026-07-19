@@ -13,6 +13,9 @@ func _ready():
 
 func _process(delta):
 	position.y += fall_speed * delta
+	# Clean up when off-screen
+	if position.y > 700:
+		queue_free()
 
 func _on_area_entered(area: Area2D):
 	# Traverse up from whatever we hit to find Player

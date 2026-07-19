@@ -245,6 +245,21 @@ func _clear_all() -> void:
 	_active_slot = 0
 	_last_speaker_id = ""
 
+## Public method to clear all dialogue visuals (text, portraits, background, choices).
+## Call this before hiding the dialogue window to prevent visual residue.
+func clear_all() -> void:
+	_clear_all()
+	_text_label.text = ""
+	_name_label.text = ""
+	_background.texture = null
+	_background.visible = false
+	_hide_choices()
+	_is_typing = false
+	if _typing_tween and _typing_tween.is_running():
+		_typing_tween.kill()
+	_thought_active = false
+	_sync_name_tag_visibility()
+
 
 func _show_text(raw_text: String) -> void:
 	var display_text := raw_text

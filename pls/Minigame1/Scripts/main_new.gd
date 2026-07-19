@@ -12,13 +12,14 @@ var sweep_debris_scene = preload("res://Minigame1/Scenes/sweep_debris.tscn")
 var bpm = 96.0
 var sec_per_beat = 60.0 / bpm
 var last_beat = 0
+var is_resetting = false
 
 @onready var audio_player = $AudioStreamPlayer
 @onready var player = $Player
 
 func _process(_delta):
 	
-	if audio_player.playing:
+	if audio_player.playing and not is_resetting:
 		var time = audio_player.get_playback_position()
 		
 		var current_beat = int(time / sec_per_beat)
@@ -74,6 +75,10 @@ func spawn_sweep():
 	# wait ng isang beat since 8 beats yung sung mag spaspawn ang warning ng 7th beat
 	await get_tree().create_timer(sec_per_beat).timeout
 	
+	# Don't spawn debris if game was reset during the await
+	if is_resetting:
+		return
+	
 	# kupal to eh kung saan mag spaspawn yung saw natin 
 	var sweep_y = 480  # low jump over it
 	#if is_high:
@@ -91,7 +96,7 @@ func spawn_sweep():
 func reset_game():
 	# Remove all spawned items (bricks, coins, spikes, etc.)
 	for child in get_children():
-		if child != player and child != $AudioStreamPlayer and child != $Camera2D and child != $HUD and child != $Background:
+		if child != player and child != $AudioStreamPlayer and child != $Camera2D and child != $HUD and child != $Background and child != $TextureRect and child != $Label:
 			child.queue_free()
 	
 	# Reset player state
@@ -123,3 +128,6 @@ func reset_game():
 	
 	# Reset beat tracking
 	last_beat = 0
+	is_resetting = true
+	await get_tree().create_timer(sec_per_beat * 2).timeout
+	is_resetting = false

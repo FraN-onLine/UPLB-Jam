@@ -122,7 +122,8 @@ func _launch_minigame1() -> void:
 	# Stop main theme during minigame (minigame has own audio)
 	main_theme.stop()
 	
-	# Hide dialogue and stop any active input/typing state before minigame.
+	# Clear all dialogue visuals and hide before minigame.
+	dialogue_window.clear_all()
 	dialogue_window.hide()
 	_in_minigame = true
 	
@@ -188,6 +189,7 @@ func _launch_minigame2() -> void:
 
 	# Minigame 2 supplies its own rhythm track.
 	main_theme.stop()
+	dialogue_window.clear_all()
 	dialogue_window.hide()
 	_in_minigame = true
 
@@ -235,6 +237,7 @@ func _launch_minigame3() -> void:
 	main_theme.stop()
 	_switch_to_end_theme()
 	
+	dialogue_window.clear_all()
 	dialogue_window.hide()
 	_in_minigame = true
 	
@@ -296,6 +299,7 @@ func _launch_minigame4() -> void:
 	# Stop end theme during minigame4 (silent puzzle)
 	end_theme.stop()
 	
+	dialogue_window.clear_all()
 	dialogue_window.hide()
 	_in_minigame = true
 	
@@ -336,6 +340,7 @@ func _launch_minigame5() -> void:
 	# Stop end theme during minigame5
 	end_theme.stop()
 	
+	dialogue_window.clear_all()
 	dialogue_window.hide()
 	_in_minigame = true
 	
@@ -417,14 +422,42 @@ func _on_dialogue_finished(return_key: String) -> void:
 			print("Bad ending reached. Donto fell.")
 			_show_menu()
 		
+		# New expanded story sections
+		"sisa_grief":
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "sisa_grief")
+		
+		"town_meeting":
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "town_meeting")
+		
+		"rebuild_prep":
+			_launch_minigame2()
+		
 		"start_minigame2":
 			_launch_minigame2()
+		
+		"sisa_reflection":
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "sisa_reflection")
+		
+		"foundation_ceremony":
+			_launch_minigame3()
 		
 		"start_minigame3":
 			_launch_minigame3()
 		
+		"sisa_confrontation":
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "sisa_confrontation")
+		
+		"walls_rising":
+			_launch_minigame4()
+		
 		"start_minigame4":
 			_launch_minigame4()
+		
+		"djo_redemption":
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "djo_redemption")
+		
+		"final_preparations":
+			_launch_minigame5()
 		
 		"start_minigame5":
 			_launch_minigame5()
