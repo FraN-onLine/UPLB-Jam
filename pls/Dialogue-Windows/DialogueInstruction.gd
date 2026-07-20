@@ -11,6 +11,8 @@ enum Type {
 	REQUIRE_FLAG ## Conditional: only show next lines if flag is set (used as wrapper)
 }
 
+var type : Type
+
 # TEXT
 var text : String = ""
 

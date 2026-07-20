@@ -1,14 +1,13 @@
 // ============================================================
 //  BASE.DIALOGUE — Padayon, Lupang Sinilangan
-//  Complete Story
+//  Complete Story (through Day 1)
 // ============================================================
 //
-//  Flags (set with #set_flag / checked with #require_flag ... #end_require):
-//    asked_about_crispin  — Player asked Sisa about Crispin (day1 choice 1)
-//    heard_sisa_story     — Player heard Sisa's full story
-//  
-//  #merge section_name   — Jumps mid-story to another section (continues flow after)
-//  #set_flag flag_name   — Sets a persistent story flag
+//  Story flags (set with #set_flag / checked with #require_flag ... #end_require):
+//    heard_sisa_story     — Player heard Sisa's full story about Crispin
+//
+//  #jump section_name    — Jumps to a section mid-story (continues after it finishes)
+//  #set_flag flag_name   — Sets a story flag that persists for the session
 //  #require_flag flag_name ... #end_require — Only shows content if flag is set
 //
 //  Characters:
@@ -172,23 +171,22 @@ There's this stuff with this dump getting… bought.
 <sisa_anxious-1>
 You can already see that this place is…
 > Uninhabitable
-#set_flag asked_about_crispin
 <emilio-2>
 Uninhabitable.
 <sisa_anxious-1>
 Blunt, but it's not easy to just leave this place you know…
-#merge sisa_response_merge
+#jump sisa_response_merge
 > Not in the best condition
 <emilio-2>
 Not in the best condition…
 <sisa_anxious-1>
 But it's not easy to just leave this place you know…
-#merge sisa_response_merge
+#jump sisa_response_merge
 [end]
 
 // ============================================================
 //  MERGE POINT: Both choices in [day1] flow into this section.
-//  The #merge sisa_response_merge command jumps here mid-story,
+//  The #jump sisa_response_merge command jumps here mid-story,
 //  then continues on to #home_arrival.
 // ============================================================
 [sisa_response_merge]
@@ -215,7 +213,7 @@ Leaving this place was easy for me, but would it be the same for them…?
 
 // ============================================================
 //  SISA'S FULL STORY — extra dialogue shown when asked_about_crispin
-//  flag is set. Accessible via #merge sisa_full_story from any section.
+//  flag is set. Accessible via #jump sisa_full_story from any section.
 // ============================================================
 [sisa_full_story]
 #background bg_streets
@@ -246,7 +244,7 @@ He was. He got it from his father.
 She stands up, brushing off her clothes.
 <sisa-1>
 Come on. We have a town to rebuild.
-#merge sisa_full_story_return
+#jump sisa_full_story_return
 [end]
 
 // ============================================================
@@ -506,6 +504,7 @@ This town has already died.
 But this is our home…
 <djo_angry-2>
 Yes, your home. But isn't home not the walls, but the people?
+#jump djo_choice
 > True… but…
 <emilio-1>
 True… but…
@@ -513,7 +512,7 @@ True… but…
 Hm, submitting already? Well, best give up then.
 <emilio-1>
 No. We'll stand and fight!
-#djo_choice
+#jump djo_choice
 [end]
 
 // ============================================================
@@ -522,8 +521,9 @@ No. We'll stand and fight!
 #thought
 You're given a choice. Give up, and the facility is built. Everyone moves away.
 > Give Up
+#jump gave_up
 > Fight
-#djo_decision
+#jump stayed_to_fight
 [end]
 
 // ============================================================
@@ -558,20 +558,11 @@ Why do we keep fighting just to go back to suffering?
 > Sisa…
 <emilio-2>
 Sisa…
+#jump sisa_grief
 > We'll make things right
 <emilio-2>
 We'll make things right.
-<sisa_anxious-1>
-…
-<sisa_anxious-1>
-For the future children of Donto…
-<emilio-2>
-So? Let's make this wreck into something sustainable again.
-#thought
-I believe in the people of Donto. They've been surviving, and they have the right to continue surviving.
-#thought
-Santo and Marie Tess gladly start to help you as Sisa watches at the corner, taking her leave.
-#sisa_grief
+#jump sisa_grief
 [end]
 
 // ============================================================
@@ -609,13 +600,14 @@ He loved everything about this place.
 And now he's gone. And this place is gone.
 #thought
 I sit beside her. No words feel right.
-> The town can still be his memory
+> This town holds his memories
 <emilio-2>
 Then let's rebuild it for him. So his memory lives in every wall we put up.
 <sisa-1>
 …
 <sisa-1>
 You really think that would work?
+#jump sisa_grief_merge
 > He'd want you to keep going
 <emilio-2>
 Crispin would want his mom to keep fighting. Not to sit here and fade away.
@@ -623,6 +615,11 @@ Crispin would want his mom to keep fighting. Not to sit here and fade away.
 You didn't even know him that well.
 <emilio-2>
 I knew you. And I know he had your heart. That's enough.
+#jump sisa_grief_merge
+[end]
+
+// ============================================================
+[sisa_grief_merge]
 #thought
 A long silence. Then she takes the food.
 <sisa-1>
@@ -656,11 +653,17 @@ We organize. We divide the work. We stop waiting for someone to save us.
 I can handle the numbers. Supplies. Where to get materials.
 <santo-2>
 Good. You have the education for it.
+#jump town_meeting_merge
 > I'll work the rubble
 <emilio-1>
 Put me on the ground. I'd rather work with my hands.
 <santo-2>
 A man of the people. I respect that.
+#jump town_meeting_merge
+[end]
+
+// ============================================================
+[town_meeting_merge]
 #thought
 Sisa walks in. Everyone goes quiet.
 <sisa-2>
@@ -712,11 +715,17 @@ Exactly. I was thinking…
 The younger ones. The ones who haven't left yet. Give them something to believe in.
 <santo-2>
 Bold. But risky.
+#jump rebuild_prep_merge
 > We ask the elders
 <emilio-1>
 The elders have the skills. They built this town once. They can do it again.
 <santo-2>
 True. But their bodies aren't what they used to be.
+#jump rebuild_prep_merge
+[end]
+
+// ============================================================
+[rebuild_prep_merge]
 #thought
 Sisa approaches, wiping sweat from her brow.
 <sisa-1>
@@ -822,11 +831,17 @@ We sit under the stars.
 Every time you fight for this town… that's him fighting with you; and loving you along the way.
 <sisa-1>
 You really believe that?
+#jump sisa_reflection_merge
 > You're not alone in this
 <emilio-2>
 You have us. You have the town. You don't have to carry this by yourself.
 <sisa-1>
 I know. It's just… hard to remember sometimes.
+#jump sisa_reflection_merge
+[end]
+
+// ============================================================
+[sisa_reflection_merge]
 #thought
 She leans her head on my shoulder.
 <sisa-1>
@@ -856,9 +871,15 @@ Emilio. Would you like to say something?
 I left this town twelve years ago thinking I'd never come back. I thought Donto was just a memory. A place I used to belong to.
 <emilio-2>
 But standing here today… I realize I never really left. This town is in my blood. And as long as I have blood to give… I'll keep fighting.
+#jump foundation_ceremony_merge
 > Keep it short
 <emilio-2>
 Let's build something worth remembering.
+#jump foundation_ceremony_merge
+[end]
+
+// ============================================================
+[foundation_ceremony_merge]
 #thought
 Simple. Direct. The crowd nods in approval.
 #thought
@@ -974,11 +995,17 @@ I see it. The same fire that kept her showing up every day. Now focused.
 I'm not letting you face him alone.
 <sisa-1>
 I wasn't asking permission.
+#jump sisa_confrontation_merge
 > Stay back and trust her
 <emilio-2>
 Okay. I'll stay here. But if you need me—
 <sisa-1>
 I know where to find you.
+#jump sisa_confrontation_merge
+[end]
+
+// ============================================================
+[sisa_confrontation_merge]
 #thought
 She walks toward the government convoy parked at the edge of town.
 #thought
@@ -1046,6 +1073,7 @@ Emilio… that church has been there since before I was born.
 The church is a building. The people need homes.
 #thought
 Santo is quiet. Then he nods.
+#jump walls_rising_merge
 > Wait for the shipment
 <emilio-2>
 We wait. We make do with what we have until the shipment arrives.
@@ -1053,6 +1081,11 @@ We wait. We make do with what we have until the shipment arrives.
 That means slowing down. But at least we don't take what isn't ours.
 <emilio-2>
 Sometimes patience is the strongest choice.
+#jump walls_rising_merge
+[end]
+
+// ============================================================
+[walls_rising_merge]
 #thought
 Sisa walks up, overhearing the conversation.
 <sisa-1>
@@ -1166,11 +1199,17 @@ I'll make sure the resources arrive. You have my word.
 Thank you, Djo. For listening. For staying.
 <djo-1>
 Don't thank me yet. The hard part is just beginning.
+#jump djo_redemption_merge
 > We'll prove you right
 <emilio-2>
 We won't let this chance go to waste.
 <djo-1>
 I don't think you will.
+#jump djo_redemption_merge
+[end]
+
+// ============================================================
+[djo_redemption_merge]
 #thought
 He walks back to his vehicle. But this time… his shoulders seem lighter.
 #final_preparations
@@ -1240,6 +1279,6 @@ The crowd applauds. Not out of pity. Out of respect.
 <emilio-2>
 So… what's next?
 <sisa-1>
-We finish what we started.
+We continue fighting...
 #start_minigame5
 [end]

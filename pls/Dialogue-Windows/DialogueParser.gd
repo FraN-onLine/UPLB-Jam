@@ -71,7 +71,7 @@ static func _tokenize(path: String) -> Array[DialogueToken]:
 			tokens.append(token)
 			continue
 
-		if line.to_lower().begins_with("#merge "):
+		if line.to_lower().begins_with("#merge ") or line.to_lower().begins_with("#jump "):
 			token.type = DialogueToken.Type.MERGE
 			token.value = line
 			tokens.append(token)
@@ -438,6 +438,30 @@ static func _parse_choice_group(
 				# follow the final choice branch. Leave the token for the enclosing
 				# instruction block so it becomes DialogueSection.return_key.
 				break
+
+			if next.type == DialogueToken.Type.MERGE:
+				var merge_instr := DialogueInstruction.new()
+				merge_instr.type = DialogueInstruction.Type.MERGE
+				var body: String = next.value.substr(1).strip_edges()
+				var parts: PackedStringArray = body.split(" ", false, 1)
+				if parts.size() >= 2:
+					merge_instr.merge_section = parts[1].strip_edges()
+				merge_instr.line = next.line
+				branch.append(merge_instr)
+				i += 1
+				continue
+
+			if next.type == DialogueToken.Type.SET_FLAG:
+				var flag_instr := DialogueInstruction.new()
+				flag_instr.type = DialogueInstruction.Type.SET_FLAG
+				var body: String = next.value.substr(1).strip_edges()
+				var parts: PackedStringArray = body.split(" ", false, 1)
+				if parts.size() >= 2:
+					flag_instr.flag_key = parts[1].strip_edges()
+				flag_instr.line = next.line
+				branch.append(flag_instr)
+				i += 1
+				continue
 
 			break
 

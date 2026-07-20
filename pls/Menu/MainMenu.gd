@@ -430,7 +430,7 @@ func _on_dialogue_finished(return_key: String) -> void:
 			dialogue_window.start("res://Dialogue-Windows/base.txt", "town_meeting")
 		
 		"rebuild_prep":
-			_launch_minigame2()
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "rebuild_prep")
 		
 		"start_minigame2":
 			_launch_minigame2()
@@ -439,7 +439,7 @@ func _on_dialogue_finished(return_key: String) -> void:
 			dialogue_window.start("res://Dialogue-Windows/base.txt", "sisa_reflection")
 		
 		"foundation_ceremony":
-			_launch_minigame3()
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "foundation_ceremony")
 		
 		"start_minigame3":
 			_launch_minigame3()
@@ -448,7 +448,7 @@ func _on_dialogue_finished(return_key: String) -> void:
 			dialogue_window.start("res://Dialogue-Windows/base.txt", "sisa_confrontation")
 		
 		"walls_rising":
-			_launch_minigame4()
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "walls_rising")
 		
 		"start_minigame4":
 			_launch_minigame4()
@@ -457,7 +457,7 @@ func _on_dialogue_finished(return_key: String) -> void:
 			dialogue_window.start("res://Dialogue-Windows/base.txt", "djo_redemption")
 		
 		"final_preparations":
-			_launch_minigame5()
+			dialogue_window.start("res://Dialogue-Windows/base.txt", "final_preparations")
 		
 		"start_minigame5":
 			_launch_minigame5()
